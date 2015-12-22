@@ -13,6 +13,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FoldingCell" rowHeight="600" id="fgm-B1-nUi" customClass="FoldingCell" customModule="FoldingCell" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="600"/>
@@ -22,7 +23,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CGm-93-iX0" userLabel="Contener">
-                                            <rect key="frame" x="20" y="137" width="560" height="380"/>
+                                            <rect key="frame" x="20" y="180" width="560" height="380"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxa-Zu-WLe" userLabel="TopView">
                                                     <rect key="frame" x="0.0" y="0.0" width="560" height="125"/>
@@ -71,16 +72,38 @@
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQr-i9-7br" userLabel="Foreground" customClass="RotatedView" customModule="FoldingCell" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="4" width="560" height="125"/>
-                                            <color key="backgroundColor" red="0.46666666670000001" green="0.39607843139999999" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <rect key="frame" x="20" y="7" width="560" height="165"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UhV-pr-kw4">
+                                                    <rect key="frame" x="0.0" y="0.0" width="88" height="165"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£25" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uWG-zH-Vjo">
+                                                            <rect key="frame" x="18" y="40" width="43" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="0.8008604307432432" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.36470588235294116" green="0.29019607843137252" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="88" id="79O-5u-rWy"/>
+                                                        <constraint firstItem="uWG-zH-Vjo" firstAttribute="centerY" secondItem="UhV-pr-kw4" secondAttribute="centerY" constant="-28" id="BKr-4U-Xpn"/>
+                                                        <constraint firstItem="uWG-zH-Vjo" firstAttribute="centerX" secondItem="UhV-pr-kw4" secondAttribute="centerX" constant="-4.5" id="JBk-n5-unF"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="125" id="bfl-Uq-i0I"/>
+                                                <constraint firstItem="UhV-pr-kw4" firstAttribute="leading" secondItem="CQr-i9-7br" secondAttribute="leading" id="HeC-4J-km5"/>
+                                                <constraint firstAttribute="bottom" secondItem="UhV-pr-kw4" secondAttribute="bottom" id="NLs-TX-v4X"/>
+                                                <constraint firstItem="UhV-pr-kw4" firstAttribute="top" secondItem="CQr-i9-7br" secondAttribute="top" id="V89-lD-fHB"/>
+                                                <constraint firstAttribute="height" constant="165" id="bfl-Uq-i0I"/>
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <color key="backgroundColor" red="0.4941176471" green="0.82745098039999998" blue="0.12941176469999999" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="CQr-i9-7br" firstAttribute="top" secondItem="MxP-E5-nua" secondAttribute="top" constant="4" id="9tL-QY-I0e"/>
+                                        <constraint firstItem="CQr-i9-7br" firstAttribute="top" secondItem="MxP-E5-nua" secondAttribute="top" constant="7" id="9tL-QY-I0e"/>
                                         <constraint firstAttribute="trailing" secondItem="CQr-i9-7br" secondAttribute="trailing" constant="20" id="eKz-hh-g5H"/>
                                         <constraint firstAttribute="trailing" secondItem="CGm-93-iX0" secondAttribute="trailing" constant="20" id="n4X-8b-s3c"/>
                                         <constraint firstItem="CQr-i9-7br" firstAttribute="leading" secondItem="MxP-E5-nua" secondAttribute="leading" constant="20" id="uqx-fi-2na"/>
@@ -89,7 +112,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="CGm-93-iX0" firstAttribute="top" secondItem="fgm-B1-nUi" secondAttribute="top" constant="137" id="AMs-U2-aYH"/>
+                                    <constraint firstItem="CGm-93-iX0" firstAttribute="top" secondItem="fgm-B1-nUi" secondAttribute="top" constant="180" id="AMs-U2-aYH"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="contanerTop" destination="AMs-U2-aYH" id="n3T-Bk-tUD"/>
@@ -107,7 +130,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WxO-6i-Q9B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="505" y="490"/>
+            <point key="canvasLocation" x="111" y="479"/>
         </scene>
     </scenes>
 </document>
