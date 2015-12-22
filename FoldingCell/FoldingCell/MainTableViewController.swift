@@ -11,7 +11,7 @@ import UIKit
 class MainTableViewController: UITableViewController {
     
     let kCloseCellHeight: CGFloat = 134
-    let kOpenCellHeight: CGFloat = 258
+    let kOpenCellHeight: CGFloat = 312
 
     let kRowsCount = 10
     
@@ -53,16 +53,20 @@ class MainTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! FoldingCell
+        
+        var duration = 0.0
         if cellHeights![indexPath.row] == kCloseCellHeight { // open cell
             cellHeights![indexPath.row] = kOpenCellHeight
             cell.selectedAnimation(true)
+            duration = 1.5
         } else {// close cell
             cellHeights![indexPath.row] = kCloseCellHeight
             cell.selectedAnimation(false)
+            duration = 3
         }
         
         
-        UIView.animateWithDuration(1) { () -> Void in
+        UIView.animateWithDuration(duration) { () -> Void in
             tableView.beginUpdates()
             tableView.endUpdates()
         }

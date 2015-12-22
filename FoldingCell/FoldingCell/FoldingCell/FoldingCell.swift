@@ -44,6 +44,15 @@ class FoldingCell: UITableViewCell {
                 constraint.firstItem.layer.transform = constraint.firstItem.transform3d()
             }
         }
+        
+        
+        // added back view
+        for contener in contanerView.subviews.sort({ $0.tag > $1.tag }) {
+            if contener is RotatedView && contener.tag > 0 && contener.tag < contanerView.subviews.count - 1 {
+                let rotatedView = contener as! RotatedView
+                rotatedView.addBackView()
+            }
+        }
     }
     
     // PRAGMA: public
@@ -60,34 +69,61 @@ class FoldingCell: UITableViewCell {
     // PRAGMA: animations
     
     func openAnimation() {
-        foregroundView.foldingAnimation(kCAMediaTimingFunctionEaseIn, from: 0, to: CGFloat(-M_PI / 2), duration: 0.5, delay:0, hidden: true)
-      
-        for itemView in contanerView.subviews {
+        let duration = 0.5
+        foregroundView.foldingAnimation(kCAMediaTimingFunctionEaseIn, from: 0, to: CGFloat(-M_PI / 2), duration: duration, delay:0, hidden: true)
+        
+        var index = 1.0
+        for itemView in contanerView.subviews.sort({ $0.tag < $1.tag }) {
 
             if itemView is RotatedView {
                 let rotatedView: RotatedView = itemView as! RotatedView
                 rotatedView.alpha = 0;
-                rotatedView.foldingAnimation(kCAMediaTimingFunctionLinear, from: CGFloat(M_PI / 2), to: 0, duration: 0.5, delay:0.5, hidden:false)
+                rotatedView.foldingAnimation(kCAMediaTimingFunctionLinear, from: CGFloat(M_PI / 2), to: 0, duration: duration, delay:duration * index, hidden:false)
+                rotatedView.backView?.foldingAnimation(kCAMediaTimingFunctionLinear, from: 0, to: CGFloat(-M_PI / 2), duration: duration, delay:duration * (index + 1), hidden:true)
+                index += 2
             }
-
         }
     }
     
     func closeAnimation() {
-        foregroundView.alpha = 0
-        foregroundView.foldingAnimation(kCAMediaTimingFunctionEaseIn, from: CGFloat(-M_PI / 2), to: 0, duration: 0.5, delay:0.5, hidden:false)
+        let duration = 0.5
         
-        for itemView in contanerView.subviews {
+        var index = 0.0
+        for itemView in contanerView.subviews.sort({ $0.tag > $1.tag }) {
             if itemView is RotatedView {
                 let rotatedView: RotatedView = itemView as! RotatedView
-                rotatedView.foldingAnimation(kCAMediaTimingFunctionLinear, from:0, to: CGFloat(M_PI / 2), duration: 0.5, delay:0, hidden:true)
+                rotatedView.foldingAnimation(kCAMediaTimingFunctionLinear, from:0, to: CGFloat(M_PI / 2), duration: duration, delay:index * duration, hidden:true)
+                rotatedView.backView?.foldingAnimation(kCAMediaTimingFunctionLinear, from: CGFloat(-M_PI / 2), to: 0, duration: duration, delay:duration * (index - 1), hidden:false)
+                index += 2
             }
         }
+        
+        foregroundView.alpha = 0
+        foregroundView.foldingAnimation(kCAMediaTimingFunctionEaseIn, from: CGFloat(-M_PI / 2), to: 0, duration: duration, delay:(index-1) * duration, hidden:false)
     }
 }
 
 class RotatedView: UIView {
     var hiddenAfterAnimation = false
+    var backView: RotatedView?
+    
+    func addBackView() {
+        let view = RotatedView(frame: CGRect.zero)
+        view.backgroundColor = UIColor.brownColor()
+        view.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
+        view.layer.transform = view.transform3d()
+        view.translatesAutoresizingMaskIntoConstraints = false;
+        self.addSubview(view)
+        backView = view
+        
+        view.addConstraint(NSLayoutConstraint(item: view, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1, constant: self.bounds.size.height/2))
+        
+        self.addConstraints([
+             NSLayoutConstraint(item: view, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1, constant: self.bounds.size.height / 4 * 3),
+             NSLayoutConstraint(item: view, attribute: .Leading, relatedBy: .Equal, toItem: self, attribute: .Leading, multiplier: 1, constant: 0),
+             NSLayoutConstraint(item: view, attribute: .Trailing, relatedBy: .Equal, toItem: self, attribute: .Trailing, multiplier: 1, constant: 0)
+        ])
+    }
 }
 
 

@@ -14,15 +14,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FoldingCell" rowHeight="399" id="fgm-B1-nUi" customClass="FoldingCell" customModule="FoldingCell" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="399"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FoldingCell" rowHeight="600" id="fgm-B1-nUi" customClass="FoldingCell" customModule="FoldingCell" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="600"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fgm-B1-nUi" id="MxP-E5-nua">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="399"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CGm-93-iX0" userLabel="Contener">
-                                            <rect key="frame" x="20" y="137" width="560" height="250"/>
+                                            <rect key="frame" x="20" y="137" width="560" height="312"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxa-Zu-WLe" userLabel="TopView">
                                                     <rect key="frame" x="0.0" y="0.0" width="560" height="125"/>
@@ -38,13 +38,23 @@
                                                         <constraint firstAttribute="height" constant="125" id="zna-xw-SZ3"/>
                                                     </constraints>
                                                 </view>
+                                                <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dXA-2m-h6U" userLabel="BottomView" customClass="RotatedView" customModule="FoldingCell" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="249" width="560" height="68"/>
+                                                    <color key="backgroundColor" red="0.23921568630000001" green="0.74509803919999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="68" id="E7G-nf-19d"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="stA-YF-Roj" secondAttribute="trailing" id="0dd-qw-qxW"/>
-                                                <constraint firstItem="stA-YF-Roj" firstAttribute="centerY" secondItem="CGm-93-iX0" secondAttribute="centerY" constant="62.5" identifier="custom" id="WZt-NU-Sfc"/>
+                                                <constraint firstItem="dXA-2m-h6U" firstAttribute="leading" secondItem="CGm-93-iX0" secondAttribute="leading" id="KJ6-At-0ch"/>
+                                                <constraint firstItem="dXA-2m-h6U" firstAttribute="centerY" secondItem="CGm-93-iX0" secondAttribute="centerY" constant="127" identifier="custom" id="Oz3-s3-hqP"/>
+                                                <constraint firstAttribute="trailing" secondItem="dXA-2m-h6U" secondAttribute="trailing" id="QgD-g5-T2R"/>
+                                                <constraint firstItem="stA-YF-Roj" firstAttribute="centerY" secondItem="CGm-93-iX0" secondAttribute="centerY" constant="31.5" identifier="custom" id="WZt-NU-Sfc"/>
                                                 <constraint firstItem="oxa-Zu-WLe" firstAttribute="top" secondItem="CGm-93-iX0" secondAttribute="top" id="dsV-Tl-As5"/>
-                                                <constraint firstAttribute="height" constant="250" id="llk-Zn-ick"/>
+                                                <constraint firstAttribute="height" constant="312" id="llk-Zn-ick"/>
                                                 <constraint firstItem="oxa-Zu-WLe" firstAttribute="leading" secondItem="CGm-93-iX0" secondAttribute="leading" id="qSD-vx-636"/>
                                                 <constraint firstAttribute="trailing" secondItem="oxa-Zu-WLe" secondAttribute="trailing" id="qf7-aP-Uq7"/>
                                                 <constraint firstItem="stA-YF-Roj" firstAttribute="leading" secondItem="CGm-93-iX0" secondAttribute="leading" id="zem-7x-IVn"/>
@@ -58,6 +68,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="CQr-i9-7br" firstAttribute="top" secondItem="MxP-E5-nua" secondAttribute="top" constant="4" id="9tL-QY-I0e"/>
                                         <constraint firstAttribute="trailing" secondItem="CQr-i9-7br" secondAttribute="trailing" constant="20" id="eKz-hh-g5H"/>
@@ -66,7 +77,7 @@
                                         <constraint firstItem="CGm-93-iX0" firstAttribute="leading" secondItem="MxP-E5-nua" secondAttribute="leading" constant="20" id="yUf-ga-7bS"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.23921568630000001" green="0.74509803919999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="CGm-93-iX0" firstAttribute="top" secondItem="fgm-B1-nUi" secondAttribute="top" constant="137" id="AMs-U2-aYH"/>
                                 </constraints>
