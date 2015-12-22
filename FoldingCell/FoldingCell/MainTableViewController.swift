@@ -11,7 +11,7 @@ import UIKit
 class MainTableViewController: UITableViewController {
     
     let kCloseCellHeight: CGFloat = 134
-    let kOpenCellHeight: CGFloat = 312
+    let kOpenCellHeight: CGFloat = 400
 
     let kRowsCount = 10
     
@@ -62,7 +62,7 @@ class MainTableViewController: UITableViewController {
         } else {// close cell
             cellHeights![indexPath.row] = kCloseCellHeight
             cell.selectedAnimation(false)
-            duration = 3
+            duration = 4
         }
         
         

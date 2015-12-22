@@ -22,7 +22,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CGm-93-iX0" userLabel="Contener">
-                                            <rect key="frame" x="20" y="137" width="560" height="312"/>
+                                            <rect key="frame" x="20" y="137" width="560" height="380"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxa-Zu-WLe" userLabel="TopView">
                                                     <rect key="frame" x="0.0" y="0.0" width="560" height="125"/>
@@ -45,16 +45,26 @@
                                                         <constraint firstAttribute="height" constant="68" id="E7G-nf-19d"/>
                                                     </constraints>
                                                 </view>
+                                                <view tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="073-FT-8Xc" userLabel="BottomView" customClass="RotatedView" customModule="FoldingCell" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="317" width="560" height="68"/>
+                                                    <color key="backgroundColor" red="0.46666666670000001" green="0.39607843139999999" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="68" id="N5h-ao-mEr"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="stA-YF-Roj" secondAttribute="trailing" id="0dd-qw-qxW"/>
+                                                <constraint firstItem="073-FT-8Xc" firstAttribute="centerY" secondItem="CGm-93-iX0" secondAttribute="centerY" constant="161" identifier="custom" id="24i-oS-1Pi"/>
                                                 <constraint firstItem="dXA-2m-h6U" firstAttribute="leading" secondItem="CGm-93-iX0" secondAttribute="leading" id="KJ6-At-0ch"/>
-                                                <constraint firstItem="dXA-2m-h6U" firstAttribute="centerY" secondItem="CGm-93-iX0" secondAttribute="centerY" constant="127" identifier="custom" id="Oz3-s3-hqP"/>
+                                                <constraint firstItem="dXA-2m-h6U" firstAttribute="centerY" secondItem="CGm-93-iX0" secondAttribute="centerY" constant="93" identifier="custom" id="Oz3-s3-hqP"/>
                                                 <constraint firstAttribute="trailing" secondItem="dXA-2m-h6U" secondAttribute="trailing" id="QgD-g5-T2R"/>
-                                                <constraint firstItem="stA-YF-Roj" firstAttribute="centerY" secondItem="CGm-93-iX0" secondAttribute="centerY" constant="31.5" identifier="custom" id="WZt-NU-Sfc"/>
+                                                <constraint firstItem="stA-YF-Roj" firstAttribute="centerY" secondItem="CGm-93-iX0" secondAttribute="centerY" constant="-2.5" identifier="custom" id="WZt-NU-Sfc"/>
+                                                <constraint firstItem="073-FT-8Xc" firstAttribute="leading" secondItem="CGm-93-iX0" secondAttribute="leading" id="Wyb-18-gvz"/>
+                                                <constraint firstAttribute="trailing" secondItem="073-FT-8Xc" secondAttribute="trailing" id="XEf-H7-Jtf"/>
                                                 <constraint firstItem="oxa-Zu-WLe" firstAttribute="top" secondItem="CGm-93-iX0" secondAttribute="top" id="dsV-Tl-As5"/>
-                                                <constraint firstAttribute="height" constant="312" id="llk-Zn-ick"/>
+                                                <constraint firstAttribute="height" constant="380" id="llk-Zn-ick"/>
                                                 <constraint firstItem="oxa-Zu-WLe" firstAttribute="leading" secondItem="CGm-93-iX0" secondAttribute="leading" id="qSD-vx-636"/>
                                                 <constraint firstAttribute="trailing" secondItem="oxa-Zu-WLe" secondAttribute="trailing" id="qf7-aP-Uq7"/>
                                                 <constraint firstItem="stA-YF-Roj" firstAttribute="leading" secondItem="CGm-93-iX0" secondAttribute="leading" id="zem-7x-IVn"/>

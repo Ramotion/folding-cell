@@ -47,10 +47,12 @@ class FoldingCell: UITableViewCell {
         
         
         // added back view
-        for contener in contanerView.subviews.sort({ $0.tag > $1.tag }) {
-            if contener is RotatedView && contener.tag > 0 && contener.tag < contanerView.subviews.count - 1 {
+        var previusView: RotatedView?
+        for contener in contanerView.subviews.sort({ $0.tag < $1.tag }) {
+            if contener is RotatedView && contener.tag > 0 && contener.tag < contanerView.subviews.count {
                 let rotatedView = contener as! RotatedView
-                rotatedView.addBackView()
+                previusView?.addBackView(rotatedView.bounds.size.height)
+                previusView = rotatedView
             }
         }
     }
@@ -107,7 +109,7 @@ class RotatedView: UIView {
     var hiddenAfterAnimation = false
     var backView: RotatedView?
     
-    func addBackView() {
+    func addBackView(height: CGFloat) {
         let view = RotatedView(frame: CGRect.zero)
         view.backgroundColor = UIColor.brownColor()
         view.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
@@ -116,10 +118,16 @@ class RotatedView: UIView {
         self.addSubview(view)
         backView = view
         
-        view.addConstraint(NSLayoutConstraint(item: view, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1, constant: self.bounds.size.height/2))
+        view.addConstraint(NSLayoutConstraint(item: view,
+                                         attribute: .Height,
+                                         relatedBy: .Equal,
+                                            toItem: nil,
+                                         attribute: .Height,
+                                        multiplier: 1,
+                                          constant: height))
         
         self.addConstraints([
-             NSLayoutConstraint(item: view, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1, constant: self.bounds.size.height / 4 * 3),
+             NSLayoutConstraint(item: view, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1, constant: self.bounds.size.height - height + height / 2),
              NSLayoutConstraint(item: view, attribute: .Leading, relatedBy: .Equal, toItem: self, attribute: .Leading, multiplier: 1, constant: 0),
              NSLayoutConstraint(item: view, attribute: .Trailing, relatedBy: .Equal, toItem: self, attribute: .Trailing, multiplier: 1, constant: 0)
         ])
