@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0cn-rv-Emg">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Main Table View Controller-->
+        <scene sceneID="Q2d-BE-geS">
+            <objects>
+                <tableViewController id="0cn-rv-Emg" customClass="MainTableViewController" customModule="FoldingCell" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="399" sectionHeaderHeight="28" sectionFooterHeight="28" id="MwZ-K3-six">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FoldingCell" rowHeight="399" id="fgm-B1-nUi" customClass="FoldingCell" customModule="FoldingCell" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="399"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fgm-B1-nUi" id="MxP-E5-nua">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="399"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CGm-93-iX0" userLabel="Contener">
+                                            <rect key="frame" x="20" y="137" width="560" height="250"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxa-Zu-WLe" userLabel="TopView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="560" height="125"/>
+                                                    <color key="backgroundColor" red="0.91372549020000005" green="0.85277035359999998" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="125" id="oKl-NI-KY3"/>
+                                                    </constraints>
+                                                </view>
+                                                <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="stA-YF-Roj" userLabel="BottomView" customClass="RotatedView" customModule="FoldingCell" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="125" width="560" height="125"/>
+                                                    <color key="backgroundColor" red="1" green="0.75686274509999996" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="125" id="zna-xw-SZ3"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="stA-YF-Roj" secondAttribute="trailing" id="0dd-qw-qxW"/>
+                                                <constraint firstItem="stA-YF-Roj" firstAttribute="centerY" secondItem="CGm-93-iX0" secondAttribute="centerY" constant="62.5" identifier="custom" id="WZt-NU-Sfc"/>
+                                                <constraint firstItem="oxa-Zu-WLe" firstAttribute="top" secondItem="CGm-93-iX0" secondAttribute="top" id="dsV-Tl-As5"/>
+                                                <constraint firstAttribute="height" constant="250" id="llk-Zn-ick"/>
+                                                <constraint firstItem="oxa-Zu-WLe" firstAttribute="leading" secondItem="CGm-93-iX0" secondAttribute="leading" id="qSD-vx-636"/>
+                                                <constraint firstAttribute="trailing" secondItem="oxa-Zu-WLe" secondAttribute="trailing" id="qf7-aP-Uq7"/>
+                                                <constraint firstItem="stA-YF-Roj" firstAttribute="leading" secondItem="CGm-93-iX0" secondAttribute="leading" id="zem-7x-IVn"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQr-i9-7br" userLabel="Foreground" customClass="RotatedView" customModule="FoldingCell" customModuleProvider="target">
+                                            <rect key="frame" x="20" y="4" width="560" height="125"/>
+                                            <color key="backgroundColor" red="0.46666666670000001" green="0.39607843139999999" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="125" id="bfl-Uq-i0I"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="CQr-i9-7br" firstAttribute="top" secondItem="MxP-E5-nua" secondAttribute="top" constant="4" id="9tL-QY-I0e"/>
+                                        <constraint firstAttribute="trailing" secondItem="CQr-i9-7br" secondAttribute="trailing" constant="20" id="eKz-hh-g5H"/>
+                                        <constraint firstAttribute="trailing" secondItem="CGm-93-iX0" secondAttribute="trailing" constant="20" id="n4X-8b-s3c"/>
+                                        <constraint firstItem="CQr-i9-7br" firstAttribute="leading" secondItem="MxP-E5-nua" secondAttribute="leading" constant="20" id="uqx-fi-2na"/>
+                                        <constraint firstItem="CGm-93-iX0" firstAttribute="leading" secondItem="MxP-E5-nua" secondAttribute="leading" constant="20" id="yUf-ga-7bS"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.23921568630000001" green="0.74509803919999995" blue="0.62745098040000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="CGm-93-iX0" firstAttribute="top" secondItem="fgm-B1-nUi" secondAttribute="top" constant="137" id="AMs-U2-aYH"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="contanerTop" destination="AMs-U2-aYH" id="n3T-Bk-tUD"/>
+                                    <outlet property="contanerView" destination="CGm-93-iX0" id="K6v-rF-tEc"/>
+                                    <outlet property="foregroundTop" destination="9tL-QY-I0e" id="mXY-Fw-Ct4"/>
+                                    <outlet property="foregroundView" destination="CQr-i9-7br" id="88q-9Z-PtA"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0cn-rv-Emg" id="RVU-S6-2gz"/>
+                            <outlet property="delegate" destination="0cn-rv-Emg" id="o83-eX-gao"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WxO-6i-Q9B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="505" y="490"/>
+        </scene>
+    </scenes>
+</document>
