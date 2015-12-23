@@ -39,7 +39,17 @@ class MainTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        cell.backgroundColor = UIColor.clearColor()
+        
+        if cell is FoldingCell {
+            let foldingCell = cell as! FoldingCell
+            foldingCell.backgroundColor = UIColor.clearColor()
+            
+            if cellHeights![indexPath.row] == kCloseCellHeight {
+                foldingCell.selectedAnimation(false, animated: false)
+            } else {
+                foldingCell.selectedAnimation(true, animated: false)
+            }
+        }
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -61,12 +71,12 @@ class MainTableViewController: UITableViewController {
         var duration = 0.0
         if cellHeights![indexPath.row] == kCloseCellHeight { // open cell
             cellHeights![indexPath.row] = kOpenCellHeight
-            cell.selectedAnimation(true)
-            duration = 1.5
+            cell.selectedAnimation(true, animated: true)
+            duration = 0.3
         } else {// close cell
             cellHeights![indexPath.row] = kCloseCellHeight
-            cell.selectedAnimation(false)
-            duration = 4
+            cell.selectedAnimation(false, animated: true)
+            duration = 0.8
         }
         
         
