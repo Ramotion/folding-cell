@@ -16,7 +16,6 @@ class FoldingCell: UITableViewCell {
     @IBOutlet weak var contanerView: UIView!
     @IBOutlet weak var firstContanerView: UIView!
     @IBOutlet weak var foregroundView: RotatedView!
-    
     // PRAGMA:  life cicle
     
     override func awakeFromNib() {
@@ -99,6 +98,11 @@ class FoldingCell: UITableViewCell {
         let duration = 0.1
         foregroundView.foldingAnimation(kCAMediaTimingFunctionEaseIn, from: 0, to: CGFloat(-M_PI / 2), duration: duration, delay:0, hidden: true)
         
+        firstContanerView.layer.masksToBounds = true
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(duration * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+            self.firstContanerView.layer.masksToBounds = false
+        }
+        
         var index = 1.0
         for itemView in contanerView.subviews.sort({ $0.tag < $1.tag }) {
 
@@ -128,8 +132,12 @@ class FoldingCell: UITableViewCell {
         foregroundView.alpha = 0
         foregroundView.foldingAnimation(kCAMediaTimingFunctionEaseInEaseOut, from: CGFloat(-M_PI / 2), to: 0, duration: duration, delay:(index-1) * duration, hidden:false)
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(((index - 0.5) * duration) * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(((index) * duration) * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
             self.contanerView.alpha = 0
+        }
+        firstContanerView.layer.masksToBounds = false
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64((index - 1.5) * duration * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+            self.firstContanerView.layer.masksToBounds = true
         }
     }
 }
