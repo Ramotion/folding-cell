@@ -31,12 +31,12 @@ class FoldingCell: UITableViewCell {
         contanerTop.constant = foregroundTop.constant
         contanerView.alpha = 0;
         
-        firstContanerView.layer.cornerRadius = 20
+        firstContanerView.layer.cornerRadius = 10
       
         foregroundView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
         foregroundTop.constant += foregroundView.bounds.height / 2
 
-        foregroundView.layer.cornerRadius = 20
+        foregroundView.layer.cornerRadius = 10
         foregroundView.layer.masksToBounds = true
         
         foregroundView.layer.transform = foregroundView.transform3d()
