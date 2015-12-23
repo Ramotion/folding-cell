@@ -117,7 +117,7 @@ class RotatedView: UIView {
     
     func addBackView(height: CGFloat) {
         let view = RotatedView(frame: CGRect.zero)
-        view.backgroundColor = UIColor.brownColor()
+        view.backgroundColor = UIColor(red:0.97, green:0.94, blue:0.98, alpha:1)
         view.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
         view.layer.transform = view.transform3d()
         view.translatesAutoresizingMaskIntoConstraints = false;
