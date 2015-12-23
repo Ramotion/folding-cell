@@ -10,7 +10,7 @@ import UIKit
 
 class MainTableViewController: UITableViewController {
     
-    let kCloseCellHeight: CGFloat = 134
+    let kCloseCellHeight: CGFloat = 179
     let kOpenCellHeight: CGFloat = 400
 
     let kRowsCount = 10
@@ -21,6 +21,7 @@ class MainTableViewController: UITableViewController {
         super.viewDidLoad()
         
         createCellHeightsArray()
+        self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
     }
     
     // PRAGMA: configure
@@ -37,6 +38,9 @@ class MainTableViewController: UITableViewController {
         return 10
     }
 
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = UIColor.clearColor()
+    }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FoldingCell", forIndexPath: indexPath)
