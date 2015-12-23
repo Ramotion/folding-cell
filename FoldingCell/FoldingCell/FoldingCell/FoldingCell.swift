@@ -14,6 +14,7 @@ class FoldingCell: UITableViewCell {
     @IBOutlet weak var contanerTop: NSLayoutConstraint!
     
     @IBOutlet weak var contanerView: UIView!
+    @IBOutlet weak var firstContanerView: UIView!
     @IBOutlet weak var foregroundView: RotatedView!
     
     // PRAGMA:  life cicle
@@ -29,6 +30,8 @@ class FoldingCell: UITableViewCell {
     func configureDefaultState() {
         contanerTop.constant = foregroundTop.constant
         contanerView.alpha = 0;
+        
+        firstContanerView.layer.cornerRadius = 20
       
         foregroundView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
         foregroundTop.constant += foregroundView.bounds.height / 2
