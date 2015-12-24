@@ -208,8 +208,9 @@ class FoldingCell: UITableViewCell {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(animationInfo.last!.delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
             self.contanerView.alpha = 0
         }
+      
         firstContanerView.layer.masksToBounds = false
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(animationInfo[animationInfo.count - 2].delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64((animationInfo.last!.delay - 0.07) * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
             self.firstContanerView.layer.masksToBounds = true
         }
     }
