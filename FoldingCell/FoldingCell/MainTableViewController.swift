@@ -72,18 +72,19 @@ class MainTableViewController: UITableViewController {
         if cellHeights![indexPath.row] == kCloseCellHeight { // open cell
             cellHeights![indexPath.row] = kOpenCellHeight
             cell.selectedAnimation(true, animated: true)
-            duration = 0.3
+            duration = 0.5
         } else {// close cell
             cellHeights![indexPath.row] = kCloseCellHeight
             cell.selectedAnimation(false, animated: true)
-            duration = 0.8
+            duration = 1
         }
         
         
-        UIView.animateWithDuration(duration) { () -> Void in
+        UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
             tableView.beginUpdates()
             tableView.endUpdates()
-        }
+        }, completion: nil)
+        
     }
 
     
