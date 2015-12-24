@@ -551,14 +551,14 @@
                                                         <constraint firstAttribute="height" constant="1" id="4Xs-v9-X7G"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W 85th St, New York, 10024 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BUL-Of-nxF" userLabel="W 85th St, New York, 10024">
-                                                    <rect key="frame" x="124" y="28" width="182" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W 85th St, New York, 10024 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="BUL-Of-nxF" userLabel="W 85th St, New York, 10024">
+                                                    <rect key="frame" x="124" y="28" width="426" height="20"/>
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.23921568627450979" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E 30th St, New York, 10016" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNy-cH-kEi" userLabel="W 85th St, New York, 10024">
-                                                    <rect key="frame" x="124" y="57" width="173" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E 30th St, New York, 10016" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="mNy-cH-kEi" userLabel="W 85th St, New York, 10024">
+                                                    <rect key="frame" x="124" y="57" width="426" height="20"/>
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.23921568630000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -647,6 +647,7 @@
                                                 <constraint firstItem="UhV-pr-kw4" firstAttribute="leading" secondItem="CQr-i9-7br" secondAttribute="leading" id="HeC-4J-km5"/>
                                                 <constraint firstItem="LnD-j0-rqc" firstAttribute="leading" secondItem="edX-4x-TiO" secondAttribute="trailing" constant="1" id="KSd-bn-DUH"/>
                                                 <constraint firstAttribute="bottom" secondItem="UhV-pr-kw4" secondAttribute="bottom" id="NLs-TX-v4X"/>
+                                                <constraint firstAttribute="trailing" secondItem="mNy-cH-kEi" secondAttribute="trailing" constant="10" id="Rqh-At-NpG"/>
                                                 <constraint firstItem="XAj-wA-vfn" firstAttribute="leading" secondItem="UhV-pr-kw4" secondAttribute="trailing" constant="20" id="TBj-Xh-aIR"/>
                                                 <constraint firstItem="UhV-pr-kw4" firstAttribute="top" secondItem="CQr-i9-7br" secondAttribute="top" id="V89-lD-fHB"/>
                                                 <constraint firstItem="mNy-cH-kEi" firstAttribute="leading" secondItem="CQr-i9-7br" secondAttribute="leading" constant="124" id="XMf-Cs-Nu8"/>
@@ -657,6 +658,7 @@
                                                 <constraint firstItem="edX-4x-TiO" firstAttribute="height" secondItem="XAj-wA-vfn" secondAttribute="height" id="eAg-xy-ea5"/>
                                                 <constraint firstItem="mNy-cH-kEi" firstAttribute="top" secondItem="CQr-i9-7br" secondAttribute="top" constant="57" id="fks-BZ-yCK"/>
                                                 <constraint firstItem="edX-4x-TiO" firstAttribute="leading" secondItem="XAj-wA-vfn" secondAttribute="trailing" constant="1" id="gBc-AU-Dv0"/>
+                                                <constraint firstAttribute="trailing" secondItem="BUL-Of-nxF" secondAttribute="trailing" constant="10" id="hTo-fu-XYr"/>
                                                 <constraint firstItem="lOX-iD-3OO" firstAttribute="leading" secondItem="UhV-pr-kw4" secondAttribute="trailing" constant="20" id="hcx-kY-WtQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="EVE-fe-u5I" secondAttribute="trailing" constant="16" id="hmd-8g-7Zc"/>
                                                 <constraint firstAttribute="bottom" secondItem="XAj-wA-vfn" secondAttribute="bottom" constant="25" id="kSF-kq-vx0"/>
