@@ -27,6 +27,11 @@ class FoldingCell: UITableViewCell {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var foregroundView: RotatedView!
+    
+    enum AnimationType {
+        case Open
+        case Close
+    }
    
     // PRAGMA:  life cicle
     
@@ -114,15 +119,24 @@ class FoldingCell: UITableViewCell {
     
     // PRAGMA: animations
     
+    func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval {
+        assert(false, "added this method to cell")
+        return 0
+    }
+    
+    func durationSequence(type: AnimationType)-> [NSTimeInterval] {
+        var durations = [NSTimeInterval]()
+        for var index = 0; index < containerView.subviews.count - 1; index++ {
+            let duration = animationDuration(index, type: .Open)
+            durations.append(NSTimeInterval(duration / 2.0))
+            durations.append(NSTimeInterval(duration / 2.0))
+        }
+        return durations
+    }
+    
     func openAnimation() {
         
-        let durations:[NSTimeInterval] = [ 0.165,
-                                           0.165,
-                                            0.13,
-                                            0.13,
-                                            0.13,
-                                            0.13]
-        
+        let durations = durationSequence(.Open)
         
         var delay: NSTimeInterval = 0
         foregroundView.foldingAnimation(kCAMediaTimingFunctionEaseIn, from: 0, to: CGFloat(-M_PI / 2), duration: durations[0], delay:delay, hidden: true)
@@ -165,13 +179,8 @@ class FoldingCell: UITableViewCell {
     
     func closeAnimation() {
         
-        let durations:[NSTimeInterval] = [
-            0.13,
-            0.13,
-            0.13,
-            0.13,
-            0.165,
-            0.165,]
+        var durations = durationSequence(.Close)
+        durations = durations.reverse()
     
         var index = 0
         var delay: NSTimeInterval = 0
