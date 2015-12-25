@@ -23,6 +23,7 @@
 		8499F5E41C2A83F70027D5D2 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8499F5DA1C2A83F70027D5D2 /* OpenSans-Regular.ttf */; };
 		8499F5E51C2A83F70027D5D2 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8499F5DB1C2A83F70027D5D2 /* OpenSans-Semibold.ttf */; };
 		8499F5E61C2A83F70027D5D2 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8499F5DC1C2A83F70027D5D2 /* OpenSans-SemiboldItalic.ttf */; };
+		84CDB15A1C2D416400FCD7C8 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDB1591C2D416400FCD7C8 /* DemoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		8499F5DA1C2A83F70027D5D2 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		8499F5DB1C2A83F70027D5D2 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		8499F5DC1C2A83F70027D5D2 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		84CDB1591C2D416400FCD7C8 /* DemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,9 +78,10 @@
 		847A58061C294F750028FB84 /* FoldingCell */ = {
 			isa = PBXGroup;
 			children = (
+				847A58191C294FAB0028FB84 /* FoldingCell */,
 				8499F5D21C2A83D90027D5D2 /* Fonts */,
 				847A581E1C29500B0028FB84 /* MainTableViewController.swift */,
-				847A58191C294FAB0028FB84 /* FoldingCell */,
+				84CDB1591C2D416400FCD7C8 /* DemoCell.swift */,
 				847A58071C294F750028FB84 /* AppDelegate.swift */,
 				847A580B1C294F750028FB84 /* Main.storyboard */,
 				847A580E1C294F750028FB84 /* Assets.xcassets */,
@@ -196,6 +199,7 @@
 			files = (
 				847A58081C294F750028FB84 /* AppDelegate.swift in Sources */,
 				847A581F1C29500B0028FB84 /* MainTableViewController.swift in Sources */,
+				84CDB15A1C2D416400FCD7C8 /* DemoCell.swift in Sources */,
 				847A581B1C294FAB0028FB84 /* FoldingCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
