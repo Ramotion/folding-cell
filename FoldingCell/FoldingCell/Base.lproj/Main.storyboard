@@ -681,7 +681,6 @@
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.85277035359999998" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="containerView" destination="CGm-93-iX0" id="gSm-z4-RdG"/>
-                                    <outlet property="firstContanerView" destination="oxa-Zu-WLe" id="EUi-4i-MK1"/>
                                     <outlet property="foregroundView" destination="CQr-i9-7br" id="88q-9Z-PtA"/>
                                 </connections>
                             </tableViewCell>

@@ -26,7 +26,6 @@ import UIKit
 class FoldingCell: UITableViewCell {
 
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var firstContanerView: UIView!
     @IBOutlet weak var foregroundView: RotatedView!
    
     // PRAGMA:  life cicle
@@ -49,7 +48,9 @@ class FoldingCell: UITableViewCell {
         containerViewTopConstraint!.constant = foregroundTopConstraint!.constant
         containerView.alpha = 0;
         
-        firstContanerView.layer.cornerRadius = 10
+        let firstItemView = containerView.subviews.filter{$0.tag == 0}.first
+        assert(firstItemView != nil, "contaner empty")
+        firstItemView!.layer.cornerRadius = 10
       
         foregroundView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
         foregroundTopConstraint!.constant += foregroundView.bounds.height / 2
@@ -129,9 +130,10 @@ class FoldingCell: UITableViewCell {
         
         foregroundView.foldingAnimation(animationInfo[0].type, from: 0, to: CGFloat(-M_PI / 2), duration: animationInfo[0].duration, delay:animationInfo[0].delay, hidden: true)
         
-        firstContanerView.layer.masksToBounds = true
+        let firstItemView = containerView.subviews.filter{$0.tag == 0}.first
+        firstItemView!.layer.masksToBounds = true
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(animationInfo[0].duration * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
-            self.firstContanerView.layer.masksToBounds = false
+            firstItemView!.layer.masksToBounds = false
         }
         
         var index = 1
@@ -213,9 +215,10 @@ class FoldingCell: UITableViewCell {
             self.containerView.alpha = 0
         }
       
-        firstContanerView.layer.masksToBounds = false
+        let firstItemView = containerView.subviews.filter{$0.tag == 0}.first
+        firstItemView!.layer.masksToBounds = false
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64((animationInfo.last!.delay - 0.07) * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
-            self.firstContanerView.layer.masksToBounds = true
+            firstItemView!.layer.masksToBounds = true
         }
     }
 }
