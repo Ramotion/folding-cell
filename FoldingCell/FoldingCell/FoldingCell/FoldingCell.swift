@@ -57,13 +57,10 @@ class FoldingCell: UITableViewCell {
         
         let firstItemView = containerView.subviews.filter{$0.tag == 0}.first
         assert(firstItemView != nil, "contaner empty")
-        firstItemView!.layer.cornerRadius = 10
+        firstItemView!.layer.cornerRadius = foregroundView.layer.cornerRadius
       
         foregroundView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
         foregroundTopConstraint!.constant += foregroundView.bounds.height / 2
-
-        foregroundView.layer.cornerRadius = 10
-        foregroundView.layer.masksToBounds = true
         
         foregroundView.layer.transform = foregroundView.transform3d()
         
