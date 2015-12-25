@@ -24,11 +24,8 @@
 import UIKit
 
 class FoldingCell: UITableViewCell {
-    
-    @IBOutlet weak var foregroundTop: NSLayoutConstraint!
-    @IBOutlet weak var contanerTop: NSLayoutConstraint!
-    
-    @IBOutlet weak var contanerView: UIView!
+
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var firstContanerView: UIView!
     @IBOutlet weak var foregroundView: RotatedView!
     // PRAGMA:  life cicle
@@ -42,13 +39,19 @@ class FoldingCell: UITableViewCell {
     // PRAGMA: configure
     
     func configureDefaultState() {
-        contanerTop.constant = foregroundTop.constant
-        contanerView.alpha = 0;
+        let foregroundTopConstraint = self.contentView.constraints.filter{ $0.identifier == "ForegroundViewTop"}.first
+        let containerViewTopConstraint = self.contentView.constraints.filter{ $0.identifier == "ContainerViewTop"}.first
+        
+        assert(foregroundTopConstraint != nil, "set identifier")
+        assert(containerViewTopConstraint != nil, "set identifier")
+        
+        containerViewTopConstraint!.constant = foregroundTopConstraint!.constant
+        containerView.alpha = 0;
         
         firstContanerView.layer.cornerRadius = 10
       
         foregroundView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
-        foregroundTop.constant += foregroundView.bounds.height / 2
+        foregroundTopConstraint!.constant += foregroundView.bounds.height / 2
 
         foregroundView.layer.cornerRadius = 10
         foregroundView.layer.masksToBounds = true
@@ -57,7 +60,7 @@ class FoldingCell: UITableViewCell {
         
         // elements view
         
-        for constraint in contanerView.constraints {
+        for constraint in containerView.constraints {
             if constraint.identifier == "custom" {
                 constraint.constant -= constraint.firstItem.bounds.height / 2
                 constraint.firstItem.layer.anchorPoint = CGPoint.init(x: 0.5, y: 0)
@@ -68,8 +71,8 @@ class FoldingCell: UITableViewCell {
         
         // added back view
         var previusView: RotatedView?
-        for contener in contanerView.subviews.sort({ $0.tag < $1.tag }) {
-            if contener is RotatedView && contener.tag > 0 && contener.tag < contanerView.subviews.count {
+        for contener in containerView.subviews.sort({ $0.tag < $1.tag }) {
+            if contener is RotatedView && contener.tag > 0 && contener.tag < containerView.subviews.count {
                 let rotatedView = contener as! RotatedView
                 previusView?.addBackView(rotatedView.bounds.size.height)
                 previusView = rotatedView
@@ -81,8 +84,8 @@ class FoldingCell: UITableViewCell {
     
     func selectedAnimation(isSelected: Bool, animated: Bool) {
         if isSelected {
-            contanerView.alpha = 1;
-            for subview in contanerView.subviews {
+            containerView.alpha = 1;
+            for subview in containerView.subviews {
                 subview.alpha = 1
             }
 
@@ -90,7 +93,7 @@ class FoldingCell: UITableViewCell {
                 openAnimation()
             } else {
                 foregroundView.alpha = 0
-                for subview in contanerView.subviews {
+                for subview in containerView.subviews {
                     if subview is RotatedView {
                         let rotateView = subview as! RotatedView
                         rotateView.backView?.alpha = 0
@@ -102,7 +105,7 @@ class FoldingCell: UITableViewCell {
                 closeAnimation()
             } else {
                 foregroundView.alpha = 1;
-                contanerView.alpha = 0;
+                containerView.alpha = 0;
             }
         }
     }
@@ -131,7 +134,7 @@ class FoldingCell: UITableViewCell {
         }
         
         var index = 1
-        for itemView in contanerView.subviews.sort({ $0.tag < $1.tag }) {
+        for itemView in containerView.subviews.sort({ $0.tag < $1.tag }) {
 
             if itemView is RotatedView {
                 let rotatedView: RotatedView = itemView as! RotatedView
@@ -172,7 +175,7 @@ class FoldingCell: UITableViewCell {
             ]
     
         var index = 0
-        for itemView in contanerView.subviews.sort({ $0.tag > $1.tag }) {
+        for itemView in containerView.subviews.sort({ $0.tag > $1.tag }) {
             if itemView is RotatedView {
                 let rotatedView: RotatedView = itemView as! RotatedView
                 if index < animationInfo.count {
@@ -206,7 +209,7 @@ class FoldingCell: UITableViewCell {
                                         hidden:false)
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(animationInfo.last!.delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
-            self.contanerView.alpha = 0
+            self.containerView.alpha = 0
         }
       
         firstContanerView.layer.masksToBounds = false

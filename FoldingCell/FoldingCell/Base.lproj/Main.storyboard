@@ -670,22 +670,18 @@
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="CQr-i9-7br" firstAttribute="top" secondItem="MxP-E5-nua" secondAttribute="top" constant="7" id="9tL-QY-I0e"/>
+                                        <constraint firstItem="CQr-i9-7br" firstAttribute="top" secondItem="MxP-E5-nua" secondAttribute="top" constant="7" identifier="ForegroundViewTop" id="9tL-QY-I0e"/>
                                         <constraint firstAttribute="trailing" secondItem="CQr-i9-7br" secondAttribute="trailing" constant="20" id="eKz-hh-g5H"/>
                                         <constraint firstAttribute="trailing" secondItem="CGm-93-iX0" secondAttribute="trailing" constant="20" id="n4X-8b-s3c"/>
                                         <constraint firstItem="CQr-i9-7br" firstAttribute="leading" secondItem="MxP-E5-nua" secondAttribute="leading" constant="20" id="uqx-fi-2na"/>
+                                        <constraint firstItem="CGm-93-iX0" firstAttribute="top" secondItem="MxP-E5-nua" secondAttribute="top" constant="180" identifier="ContainerViewTop" id="wys-AY-Zdw"/>
                                         <constraint firstItem="CGm-93-iX0" firstAttribute="leading" secondItem="MxP-E5-nua" secondAttribute="leading" constant="20" id="yUf-ga-7bS"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.91372549020000005" green="0.85277035359999998" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="CGm-93-iX0" firstAttribute="top" secondItem="fgm-B1-nUi" secondAttribute="top" constant="180" id="AMs-U2-aYH"/>
-                                </constraints>
                                 <connections>
-                                    <outlet property="contanerTop" destination="AMs-U2-aYH" id="n3T-Bk-tUD"/>
-                                    <outlet property="contanerView" destination="CGm-93-iX0" id="K6v-rF-tEc"/>
+                                    <outlet property="containerView" destination="CGm-93-iX0" id="gSm-z4-RdG"/>
                                     <outlet property="firstContanerView" destination="oxa-Zu-WLe" id="EUi-4i-MK1"/>
-                                    <outlet property="foregroundTop" destination="9tL-QY-I0e" id="mXY-Fw-Ct4"/>
                                     <outlet property="foregroundView" destination="CQr-i9-7br" id="88q-9Z-PtA"/>
                                 </connections>
                             </tableViewCell>
