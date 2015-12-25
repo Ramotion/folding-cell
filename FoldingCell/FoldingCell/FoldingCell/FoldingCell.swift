@@ -116,23 +116,20 @@ class FoldingCell: UITableViewCell {
     
     func openAnimation() {
         
-        let animationInfo:[(type: String, duration: NSTimeInterval)] = [
-                                                                 (kCAMediaTimingFunctionEaseIn, 0.165), // folding open
-                                                                 (kCAMediaTimingFunctionEaseOut, 0.165),
-            
-                                                                 (kCAMediaTimingFunctionEaseIn, 0.13),
-                                                                 (kCAMediaTimingFunctionEaseOut, 0.13),
-            
-                                                                 (kCAMediaTimingFunctionEaseIn, 0.13),
-                                                                 (kCAMediaTimingFunctionEaseOut, 0.13),
-                                                                ]
+        let durations:[NSTimeInterval] = [ 0.165,
+                                           0.165,
+                                            0.13,
+                                            0.13,
+                                            0.13,
+                                            0.13]
+        
         
         var delay: NSTimeInterval = 0
-        foregroundView.foldingAnimation(animationInfo[0].type, from: 0, to: CGFloat(-M_PI / 2), duration: animationInfo[0].duration, delay:delay, hidden: true)
+        foregroundView.foldingAnimation(kCAMediaTimingFunctionEaseIn, from: 0, to: CGFloat(-M_PI / 2), duration: durations[0], delay:delay, hidden: true)
         
         let firstItemView = containerView.subviews.filter{$0.tag == 0}.first
         firstItemView!.layer.masksToBounds = true
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(animationInfo[0].duration * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(durations[0] * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
             firstItemView!.layer.masksToBounds = false
         }
         
@@ -142,22 +139,22 @@ class FoldingCell: UITableViewCell {
             if itemView is RotatedView {
                 let rotatedView: RotatedView = itemView as! RotatedView
                 rotatedView.alpha = 0;
-                if index < animationInfo.count {
-                    delay += animationInfo[index - 1].duration
-                    rotatedView.foldingAnimation(animationInfo[index].type,
+                if index < durations.count {
+                    delay += durations[index - 1]
+                    rotatedView.foldingAnimation(kCAMediaTimingFunctionEaseOut,
                                                 from: CGFloat(M_PI / 2),
                                                 to: 0,
                                                 duration:
-                                                animationInfo[index].duration,
+                                                durations[index],
                                                 delay:delay,
                                                 hidden:false)
                 }
-                if index+1 < animationInfo.count {
-                    delay += animationInfo[index].duration
-                    rotatedView.backView?.foldingAnimation(animationInfo[index + 1].type,
+                if index+1 < durations.count {
+                    delay += durations[index]
+                    rotatedView.backView?.foldingAnimation(kCAMediaTimingFunctionEaseIn,
                                                 from: 0,
                                                 to: CGFloat(-M_PI / 2),
-                                                duration: animationInfo[index+1].duration,
+                                                duration: durations[index+1],
                                                 delay: delay,
                                                 hidden:true)
                 }
@@ -168,16 +165,13 @@ class FoldingCell: UITableViewCell {
     
     func closeAnimation() {
         
-        let animationInfo:[(type: String, duration: NSTimeInterval)] = [
-            (kCAMediaTimingFunctionEaseIn, 0.13),
-            (kCAMediaTimingFunctionEaseOut, 0.13),
-            
-            (kCAMediaTimingFunctionEaseIn, 0.13),
-            (kCAMediaTimingFunctionEaseOut, 0.13),
-
-            (kCAMediaTimingFunctionEaseIn, 0.165), // folding open
-            (kCAMediaTimingFunctionEaseOut, 0.165),
-            ]
+        let durations:[NSTimeInterval] = [
+            0.13,
+            0.13,
+            0.13,
+            0.13,
+            0.165,
+            0.165,]
     
         var index = 0
         var delay: NSTimeInterval = 0
@@ -187,24 +181,23 @@ class FoldingCell: UITableViewCell {
                 let rotatedView: RotatedView = itemView as! RotatedView
                 
                 if index - 1 > 0 {
-                    rotatedView.backView?.foldingAnimation(animationInfo[index-1].type,
+                    rotatedView.backView?.foldingAnimation(kCAMediaTimingFunctionEaseOut,
                         from: CGFloat(-M_PI / 2),
                         to: 0,
-                        duration: animationInfo[index-1].duration,
+                        duration: durations[index-1],
                         delay: delay,
                         hidden: false)
-                    delay += animationInfo[index-1].duration
+                    delay += durations[index-1]
                 }
 
-                
-                if index < animationInfo.count {
-                    rotatedView.foldingAnimation(animationInfo[index].type,
-                                                        from:0,
-                                                        to: CGFloat(M_PI / 2),
-                                                        duration: animationInfo[index].duration,
-                                                        delay:delay,
-                                                        hidden:true)
-                    delay += animationInfo[index].duration
+                if index < durations.count {
+                    rotatedView.foldingAnimation(kCAMediaTimingFunctionEaseIn,
+                                                    from:0,
+                                                    to: CGFloat(M_PI / 2),
+                                                    duration: durations[index],
+                                                    delay:delay,
+                                                    hidden:true)
+                    delay += durations[index]
                 }
                 
                 index += 2
@@ -212,10 +205,10 @@ class FoldingCell: UITableViewCell {
         }
         
         foregroundView.alpha = 0
-        foregroundView.foldingAnimation(animationInfo.last!.type,
+        foregroundView.foldingAnimation(kCAMediaTimingFunctionEaseOut,
                                         from: CGFloat(-M_PI / 2),
                                         to: 0,
-                                        duration: animationInfo.last!.duration,
+                                        duration: durations.last!,
                                         delay:delay,
                                         hidden:false)
         
