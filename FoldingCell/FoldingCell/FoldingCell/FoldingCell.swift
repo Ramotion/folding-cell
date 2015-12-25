@@ -28,6 +28,7 @@ class FoldingCell: UITableViewCell {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var firstContanerView: UIView!
     @IBOutlet weak var foregroundView: RotatedView!
+   
     // PRAGMA:  life cicle
     
     override func awakeFromNib() {
@@ -61,7 +62,7 @@ class FoldingCell: UITableViewCell {
         // elements view
         
         for constraint in containerView.constraints {
-            if constraint.identifier == "custom" {
+            if constraint.identifier == "yPosition" {
                 constraint.constant -= constraint.firstItem.bounds.height / 2
                 constraint.firstItem.layer.anchorPoint = CGPoint.init(x: 0.5, y: 0)
                 constraint.firstItem.layer.transform = constraint.firstItem.transform3d()
