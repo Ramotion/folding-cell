@@ -28,6 +28,8 @@ class FoldingCell: UITableViewCell {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var foregroundView: RotatedView!
     
+    @IBInspectable var backViewColor: UIColor = UIColor.whiteColor()
+    
     enum AnimationType {
         case Open
         case Close
@@ -55,13 +57,10 @@ class FoldingCell: UITableViewCell {
         
         let firstItemView = containerView.subviews.filter{$0.tag == 0}.first
         assert(firstItemView != nil, "contaner empty")
-        firstItemView!.layer.cornerRadius = 10
+        firstItemView!.layer.cornerRadius = foregroundView.layer.cornerRadius
       
         foregroundView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
         foregroundTopConstraint!.constant += foregroundView.bounds.height / 2
-
-        foregroundView.layer.cornerRadius = 10
-        foregroundView.layer.masksToBounds = true
         
         foregroundView.layer.transform = foregroundView.transform3d()
         
@@ -81,7 +80,7 @@ class FoldingCell: UITableViewCell {
         for contener in containerView.subviews.sort({ $0.tag < $1.tag }) {
             if contener is RotatedView && contener.tag > 0 && contener.tag < containerView.subviews.count {
                 let rotatedView = contener as! RotatedView
-                previusView?.addBackView(rotatedView.bounds.size.height)
+                previusView?.addBackView(rotatedView.bounds.size.height, color: backViewColor)
                 previusView = rotatedView
             }
         }
@@ -237,9 +236,9 @@ class RotatedView: UIView {
     var hiddenAfterAnimation = false
     var backView: RotatedView?
     
-    func addBackView(height: CGFloat) {
+    func addBackView(height: CGFloat, color:UIColor) {
         let view = RotatedView(frame: CGRect.zero)
-        view.backgroundColor = UIColor(red:0.97, green:0.94, blue:0.98, alpha:1)
+        view.backgroundColor = color
         view.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
         view.layer.transform = view.transform3d()
         view.translatesAutoresizingMaskIntoConstraints = false;
