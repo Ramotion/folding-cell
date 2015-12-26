@@ -150,6 +150,16 @@ class FoldingCell: UITableViewCell {
         }
     }
     
+    func isAnimating()->Bool {
+        for item in animationItemViews! {
+            print(item.layer.animationKeys()?.count)
+            if item.layer.animationKeys()?.count > 0 {
+                return true
+            }
+        }
+        return false
+    }
+    
     // MARK: animations
     
     func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval {
@@ -300,7 +310,7 @@ extension RotatedView {
         
         self.hiddenAfterAnimation = hidden
         
-        self.layer.addAnimation(rotateAnimation, forKey: nil)
+        self.layer.addAnimation(rotateAnimation, forKey: "rotation.x")
     }
     
     override func animationDidStart(anim: CAAnimation) {

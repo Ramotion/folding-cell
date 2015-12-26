@@ -83,6 +83,10 @@ class MainTableViewController: UITableViewController {
         
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! FoldingCell
         
+        if cell.isAnimating() {
+            return
+        }
+        
         var duration = 0.0
         if cellHeights![indexPath.row] == kCloseCellHeight { // open cell
             cellHeights![indexPath.row] = kOpenCellHeight
