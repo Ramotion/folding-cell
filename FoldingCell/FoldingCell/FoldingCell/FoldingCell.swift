@@ -24,6 +24,8 @@
 import UIKit
 
 class FoldingCell: UITableViewCell {
+    
+    typealias CompletionHandler = () -> Void
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var foregroundView: RotatedView!
@@ -120,7 +122,7 @@ class FoldingCell: UITableViewCell {
     
     // PRAGMA: public
     
-    func selectedAnimation(isSelected: Bool, animated: Bool) {
+    func selectedAnimation(isSelected: Bool, animated: Bool, completion: CompletionHandler?) {
         if isSelected {
             containerView.alpha = 1;
             for subview in containerView.subviews {
@@ -128,7 +130,7 @@ class FoldingCell: UITableViewCell {
             }
 
             if animated {
-                openAnimation()
+                openAnimation(completion: completion)
             } else {
                 foregroundView.alpha = 0
                 for subview in containerView.subviews {
@@ -140,7 +142,7 @@ class FoldingCell: UITableViewCell {
             }
         } else {
             if animated {
-                closeAnimation()
+                closeAnimation(completion: completion)
             } else {
                 foregroundView.alpha = 1;
                 containerView.alpha = 0;
@@ -165,7 +167,7 @@ class FoldingCell: UITableViewCell {
         return durations
     }
     
-    func openAnimation() {
+    func openAnimation(completion completion: CompletionHandler?) {
         
         let durations = durationSequence(.Open)
         
@@ -192,9 +194,12 @@ class FoldingCell: UITableViewCell {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(durations[0] * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
             firstItemView!.layer.masksToBounds = false
         }
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+            completion?()
+        }
     }
     
-    func closeAnimation() {
+    func closeAnimation(completion completion: CompletionHandler?) {
         
         var durations = durationSequence(.Close)
         durations = durations.reverse()
@@ -219,6 +224,7 @@ class FoldingCell: UITableViewCell {
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
             self.containerView.alpha = 0
+            completion?()
         }
         
         let firstItemView = containerView.subviews.filter{$0.tag == 0}.first
@@ -228,6 +234,7 @@ class FoldingCell: UITableViewCell {
         }
     }
 }
+
 
 // PRAGMA: RotatedView
 
