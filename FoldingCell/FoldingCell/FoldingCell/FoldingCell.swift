@@ -224,7 +224,7 @@ class FoldingCell: UITableViewCell {
       
         let firstItemView = containerView.subviews.filter{$0.tag == 0}.first
         firstItemView!.layer.masksToBounds = false
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64((delay - 0.07) * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64((delay - durations.last! / 2) * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
             firstItemView!.layer.masksToBounds = true
         }
     }
