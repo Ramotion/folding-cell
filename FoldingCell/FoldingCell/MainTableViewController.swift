@@ -39,7 +39,7 @@ class MainTableViewController: UITableViewController {
         self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
     }
     
-    // PRAGMA: configure
+    // MARK: configure
     func createCellHeightsArray() {
         cellHeights = Array()
         for _ in 0...kRowsCount {
@@ -60,9 +60,9 @@ class MainTableViewController: UITableViewController {
             foldingCell.backgroundColor = UIColor.clearColor()
             
             if cellHeights![indexPath.row] == kCloseCellHeight {
-                foldingCell.selectedAnimation(false, animated: false)
+                foldingCell.selectedAnimation(false, animated: false, completion:nil)
             } else {
-                foldingCell.selectedAnimation(true, animated: false)
+                foldingCell.selectedAnimation(true, animated: false, completion: nil)
             }
         }
     }
@@ -77,7 +77,7 @@ class MainTableViewController: UITableViewController {
         return cellHeights![indexPath.row]
     }
     
-    // PRAGMA: Table vie delegate
+    // MARK: Table vie delegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
@@ -86,11 +86,11 @@ class MainTableViewController: UITableViewController {
         var duration = 0.0
         if cellHeights![indexPath.row] == kCloseCellHeight { // open cell
             cellHeights![indexPath.row] = kOpenCellHeight
-            cell.selectedAnimation(true, animated: true)
+            cell.selectedAnimation(true, animated: true, completion: nil)
             duration = 0.5
         } else {// close cell
             cellHeights![indexPath.row] = kCloseCellHeight
-            cell.selectedAnimation(false, animated: true)
+            cell.selectedAnimation(false, animated: true, completion: nil)
             duration = 1.1
         }
         
