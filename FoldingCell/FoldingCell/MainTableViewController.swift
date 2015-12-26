@@ -39,7 +39,7 @@ class MainTableViewController: UITableViewController {
         self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
     }
     
-    // PRAGMA: configure
+    // MARK: configure
     func createCellHeightsArray() {
         cellHeights = Array()
         for _ in 0...kRowsCount {
@@ -77,7 +77,7 @@ class MainTableViewController: UITableViewController {
         return cellHeights![indexPath.row]
     }
     
-    // PRAGMA: Table vie delegate
+    // MARK: Table vie delegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         

@@ -39,7 +39,7 @@ class FoldingCell: UITableViewCell {
         case Close
     }
    
-    // PRAGMA:  life cicle
+    // MARK:  life cicle
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -48,7 +48,7 @@ class FoldingCell: UITableViewCell {
         animationItemViews = createAnimationItemView()
     }
 
-    // PRAGMA: configure
+    // MARK: configure
     
     func configureDefaultState() {
         let foregroundTopConstraint = self.contentView.constraints.filter{ $0.identifier == "ForegroundViewTop"}.first
@@ -120,7 +120,7 @@ class FoldingCell: UITableViewCell {
         }
     }
     
-    // PRAGMA: public
+    // MARK: public
     
     func selectedAnimation(isSelected: Bool, animated: Bool, completion: CompletionHandler?) {
         if isSelected {
@@ -150,7 +150,7 @@ class FoldingCell: UITableViewCell {
         }
     }
     
-    // PRAGMA: animations
+    // MARK: animations
     
     func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval {
         assert(false, "added this method to cell")
@@ -236,7 +236,7 @@ class FoldingCell: UITableViewCell {
 }
 
 
-// PRAGMA: RotatedView
+// MARK: RotatedView
 
 class RotatedView: UIView {
     var hiddenAfterAnimation = false
@@ -284,7 +284,7 @@ extension RotatedView {
         return transform
     }
     
-    // PRAGMA: animations
+    // MARK: animations
     
     func foldingAnimation(timing: String, from: CGFloat, to: CGFloat, duration: NSTimeInterval, delay:NSTimeInterval, hidden:Bool) {
         
