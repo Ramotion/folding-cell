@@ -61,7 +61,6 @@ class FoldingCell: UITableViewCell {
       
         foregroundView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
         foregroundTopConstraint!.constant += foregroundView.bounds.height / 2
-        
         foregroundView.layer.transform = foregroundView.transform3d()
         
         // elements view
@@ -73,7 +72,6 @@ class FoldingCell: UITableViewCell {
                 constraint.firstItem.layer.transform = constraint.firstItem.transform3d()
             }
         }
-        
         
         // added back view
         var previusView: RotatedView?
@@ -298,6 +296,7 @@ extension RotatedView {
     }
     
     override func animationDidStart(anim: CAAnimation) {
+        self.layer.shouldRasterize = true
         self.alpha = 1
     }
     
@@ -306,6 +305,7 @@ extension RotatedView {
             self.alpha = 0
         }
         self.layer.removeAllAnimations()
+        self.layer.shouldRasterize = false
         self.rotatedX(CGFloat(0))
     }
 }
