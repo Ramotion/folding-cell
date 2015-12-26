@@ -152,7 +152,6 @@ class FoldingCell: UITableViewCell {
     
     func isAnimating()->Bool {
         for item in animationItemViews! {
-            print(item.layer.animationKeys()?.count)
             if item.layer.animationKeys()?.count > 0 {
                 return true
             }
