@@ -30,7 +30,7 @@ class FoldingCell: UITableViewCell {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var foregroundView: RotatedView!
     
-    @IBInspectable var backViewColor: UIColor = UIColor.whiteColor()
+    @IBInspectable var backViewColor: UIColor = UIColor.brownColor()
     
     var animationItemViews: [RotatedView]?
     
@@ -46,6 +46,9 @@ class FoldingCell: UITableViewCell {
         
         configureDefaultState()
         animationItemViews = createAnimationItemView()
+
+        self.selectionStyle = .None
+        containerView.backgroundColor = UIColor.clearColor()
     }
 
     // MARK: configure
