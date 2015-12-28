@@ -67,6 +67,7 @@ class FoldingCell: UITableViewCell {
         foregroundView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
         foregroundTopConstraint!.constant += foregroundView.bounds.height / 2
         foregroundView.layer.transform = foregroundView.transform3d()
+        self.contentView.bringSubviewToFront(foregroundView)
         
         // elements view
         
