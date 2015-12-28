@@ -169,7 +169,7 @@ class FoldingCell: UITableViewCell {
     
     func durationSequence(type: AnimationType)-> [NSTimeInterval] {
         var durations = [NSTimeInterval]()
-        for var index = 0; index < (animationItemViews?.count)! / 2; index++ {
+        for var index = 0; index < containerView.subviews.count - 1; index++ {
             let duration = animationDuration(index, type: .Open)
             durations.append(NSTimeInterval(duration / 2.0))
             durations.append(NSTimeInterval(duration / 2.0))
