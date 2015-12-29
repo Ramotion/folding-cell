@@ -146,8 +146,8 @@ ok we finish configure cell
     }
 ```
 
-## [About Us](http://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=animated-tab-bar)
+## [About Us](http://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell)
 
-[Ramotion](http://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=animated-tab-bar) is an iPhone app design and development company. We are ready for new interesting iOS app development projects.
+[Ramotion - digital product design agency](http://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell)  We are ready for new interesting iOS app development projects.
 
 Follow us on [Twitter](http://twitter.com/ramotion).
