@@ -120,7 +120,7 @@ ok we finish configure cell
         }, completion: nil)
     }
 ```
-5.5) control if cell open or close
+5.5) Control if cell open or close
 ``` swift
   override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
 
