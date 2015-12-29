@@ -16,60 +16,60 @@ Just add the FoldingCell.swift file to your project.
 ![Solution](/Tutorial-resources/Solution.png)
 ## Usage
 
-1) Create a new cell inherit from FoldingCell
+1) Create a new cell inheriting from `FoldingCell`
 
-2) Add UIView to your cell in your storyboard or nib file, inherit it from RotatedView.
-Connect the outlet from this view to the cell property "foregroundView".
-Add constraints from this view to superview like a picture: 
+2) Add a UIView to your cell in your storyboard or nib file, inheriting from `RotatedView`.
+Connect the outlet from this view to the cell property `foregroundView`.
+Add constraints from this view to the superview, as in this picture: 
 ![1.1](/Tutorial-resources/1.1.png)
 
-(constants of constraints may be differents). Add identifier "ForegroundViewTop"
-for top constraint. (This view will be show than cell is normal state).
+(constants of constraints may be different). Add the identifier `ForegroundViewTop`
+for the top constraint. (This view will be shown when the cell is in its normal state).
 
-3) Add other UIView to your cell, connect the outlet from this view to the cell
-property "containerView". Add constraints from this view to superview like a picture:
+3) Add other UIViews to your cell, connect the outlet from this view to the cell
+property `containerView`. Add constraints from this view to the superview like in the picture:
 
 ![1.2](/Tutorial-resources/1.2.png)
 
-(constants of constraints may be differents). Add identifier "ContainerViewTop" for top constraint.
-(This view will be show than cell is open state)
+(constants of constraints may be different). Add the identifier "ContainerViewTop" for the top constraint.
+(This view will be shown when the cell is opened)
 
-Your result something like this picture:
+Your result should be something like this picture:
 ![1.3](/Tutorial-resources/1.3.png)
 
 4) Now lets add folding views
 
-4.1) Add UIView to containerView (ContanerView is a UIView which your add on step 3)
-Add constraints from this view to containerView like a picture:
+4.1) Add a UIView to `containerView` (where `ContainerView` is the UIView which you've added on step 3)
+Add constraints from this view to `containerView` as in the picture:
 
 ![1.4](/Tutorial-resources/1.4.png)
 
-For correct animation height constraint constant may be equal foregroundView height constraint constant.
+For correct animation, the height constraint constant should be equal to `foregroundView`'s height constraint constant.
 Result: 
 ![1.5](/Tutorial-resources/1.5.png)
 
-4.2) Add UIView to containerView inherit it from RotatedView. Add constraints from
-this view to containerView like a picture:
+4.2) Add a `UIView` to `containerView` inheriting from `RotatedView`. Add constraints from
+this view to `containerView` as in the picture:
 
 ![1.6](/Tutorial-resources/1.6.png).
 
-For correct animation height constraint constant may be equal foregroundView height constraint constant.
-Add identifier "yPosition" for top constraint. **tag must be equal 1**
+For correct animation, the height constraint constant must be equal to `foregroundView`'s height constraint constant.
+Add the identifier "yPosition" for the top constraint. **The tag must be equal to 1**
 Result: 
 
 ![1.7](/Tutorial-resources/1.7.png)
 
-Next steps is optional (You can add views how many do you want)
+The following steps are optional (you can add as many views as you want).
 
-4.3) repeat 4.2 step only **increase tag for one**. (For correct animation height of the view
-must be lower or equal previous view)
+4.3) repeat 4.2, but **increasing the tag by one**. (For the correct animation, height of the view
+must be less than or equal to that of the previous view).
 
-Height of contanerView must be equal sum of heights its subviews picture:
+The height of `containerView` must be equal to the sum of the heights of its subviews:
 ![1.8](/Tutorial-resources/1.8.png)
 
-ok we finish configure cell
+Ok, we've finished configuring the cell.
 
-5) Added code to your UITableViewController
+5) Adding code to your UITableViewController
 
 5.1) Add constants:
 ``` swift
@@ -100,7 +100,7 @@ ok we finish configure cell
     }
 ```
 
-5.4)  Added code to method:
+5.4) Added code to method:
 ``` swift
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! FoldingCell
@@ -122,7 +122,7 @@ ok we finish configure cell
         }, completion: nil)
     }
 ```
-5.5) Control if cell open or close
+5.5) Control if the cell is open or closed
 ``` swift
   override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
 
@@ -138,7 +138,7 @@ ok we finish configure cell
     }
 ``` 
 
-6) Add code to your new cell class
+6) Add this code to your new cell class
 ``` swift
     override func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval {
 
