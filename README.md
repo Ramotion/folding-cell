@@ -66,3 +66,82 @@ Height of contanerView must be equal sum of heights its subviews picture:
 ![1.8](/Tutorial-resources/1.8.png)
 
 ok we finish configure cell
+
+5) Added code to your UITableViewController
+
+5.1) Add constants:
+``` swift
+     let kCloseCellHeight: CGFloat = *** // equal or greater foregroundView height
+     let kOpenCellHeight: CGFloat = *** // equal or greater containerView height
+```
+5.2) Add property
+
+``` swift
+     var cellHeights: [CGFloat]?
+```
+
+     create in viewDidLoad:
+``` swift
+     override func viewDidLoad() {
+        super.viewDidLoad()
+
+        for _ in 0...kRowsCount {
+            cellHeights?.append(kCloseCellHeight)
+        }
+    }
+```
+
+5.3) Override method:
+``` swift
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return cellHeights![indexPath.row]
+    }
+```
+
+5.4)  Added code to method:
+``` swift
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! FoldingCell
+
+        var duration = 0.0
+        if cellHeights![indexPath.row] == kCloseCellHeight { // open cell
+            cellHeights![indexPath.row] = kOpenCellHeight
+            cell.selectedAnimation(true, animated: true, completion: nil)
+            duration = 0.5
+        } else {// close cell
+            cellHeights![indexPath.row] = kCloseCellHeight
+            cell.selectedAnimation(false, animated: true, completion: nil)
+            duration = 1.1
+        }
+
+        UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }, completion: nil)
+    }
+```
+5.5) control if cell open or close
+``` swift
+  override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+
+        if cell is FoldingCell {
+            let foldingCell = cell as! FoldingCell
+
+            if cellHeights![indexPath.row] == kCloseCellHeight {
+                foldingCell.selectedAnimation(false, animated: false, completion:nil)
+            } else {
+                foldingCell.selectedAnimation(true, animated: false, completion: nil)
+            }
+        }
+    }
+``` 
+
+6) Add code to your new cell class
+``` swift
+    override func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval {
+
+        // durations count equal containerView.subViews.count - 1
+        let durations = [0.33, 0.26, 0.26] // timing animation for each view
+        return durations[itemIndex]
+    }
+```
