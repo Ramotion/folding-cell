@@ -52,14 +52,14 @@ this view to containerView like a picture:
 ![1.6](/Tutorial-resources/1.6.png).
 
 For correct animation height constraint constant may be equal foregroundView height constraint constant.
-Add identifier "yPosition" for top constraint. tag must be equal 1
+Add identifier "yPosition" for top constraint. **tag must be equal 1**
 Result: 
 
 ![1.7](/Tutorial-resources/1.7.png)
 
 Next steps is optional (You can add views how many do you want)
 
-4.3) repeat 4.2 step only increase tag for one. (For correct animation height of the view
+4.3) repeat 4.2 step only **increase tag for one**. (For correct animation height of the view
 must be lower or equal previous view)
 
 Height of contanerView must be equal sum of heights its subviews picture:
