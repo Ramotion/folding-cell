@@ -12,6 +12,8 @@
 
 Just add the FoldingCell.swift file to your project.
 
+## Solution
+![Solution](/Tutorial-resources/Solution.png)
 ## Usage
 
 1) Create a new cell inherit from FoldingCell
