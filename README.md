@@ -12,6 +12,12 @@
 
 Just add the FoldingCell.swift file to your project.
 
+or use [CocoaPods](https://cocoapods.org) with Podfile:
+``` ruby
+pod 'FoldingCell', '~> 0.1'
+```
+    
+
 ## Solution
 ![Solution](/Tutorial-resources/Solution.png)
 ## Usage
@@ -46,6 +52,7 @@ Add constraints from this view to `containerView` as in the picture:
 
 For correct animation, the height constraint constant should be equal to `foregroundView`'s height constraint constant.
 Result: 
+
 ![1.5](/Tutorial-resources/1.5.png)
 
 4.2) Add a `UIView` to `containerView` inheriting from `RotatedView`. Add constraints from
