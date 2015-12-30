@@ -23,9 +23,9 @@
 
 import UIKit
 
-class FoldingCell: UITableViewCell {
+public class FoldingCell: UITableViewCell {
     
-    typealias CompletionHandler = () -> Void
+    public typealias CompletionHandler = () -> Void
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var foregroundView: RotatedView!
@@ -34,14 +34,14 @@ class FoldingCell: UITableViewCell {
     
     var animationItemViews: [RotatedView]?
     
-    enum AnimationType {
+    public enum AnimationType {
         case Open
         case Close
     }
    
     // MARK:  life cicle
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         
         configureDefaultState()
@@ -126,7 +126,7 @@ class FoldingCell: UITableViewCell {
     
     // MARK: public
     
-    func selectedAnimation(isSelected: Bool, animated: Bool, completion: CompletionHandler?) {
+    public func selectedAnimation(isSelected: Bool, animated: Bool, completion: CompletionHandler?) {
         if isSelected {
             containerView.alpha = 1;
             for subview in containerView.subviews {
@@ -154,7 +154,7 @@ class FoldingCell: UITableViewCell {
         }
     }
     
-    func isAnimating()->Bool {
+    public func isAnimating()->Bool {
         for item in animationItemViews! {
             if item.layer.animationKeys()?.count > 0 {
                 return true
@@ -165,7 +165,7 @@ class FoldingCell: UITableViewCell {
     
     // MARK: animations
     
-    func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval {
+    public func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval {
         assert(false, "added this method to cell")
         return 0
     }
@@ -251,7 +251,7 @@ class FoldingCell: UITableViewCell {
 
 // MARK: RotatedView
 
-class RotatedView: UIView {
+public class RotatedView: UIView {
     var hiddenAfterAnimation = false
     var backView: RotatedView?
     
@@ -316,12 +316,12 @@ extension RotatedView {
         self.layer.addAnimation(rotateAnimation, forKey: "rotation.x")
     }
     
-    override func animationDidStart(anim: CAAnimation) {
+    override public func animationDidStart(anim: CAAnimation) {
         self.layer.shouldRasterize = true
         self.alpha = 1
     }
     
-    override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+    override public func animationDidStop(anim: CAAnimation, finished flag: Bool) {
         if hiddenAfterAnimation {
             self.alpha = 0
         }
