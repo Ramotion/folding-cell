@@ -1,7 +1,0 @@
-language: objective-c
-before_install:
-  - brew update
-  - brew install carthage
-before_deploy:
-  - carthage build --no-skip-current
-  - carthage archive FoldingCellFramework
