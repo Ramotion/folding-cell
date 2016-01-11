@@ -29,6 +29,7 @@ public class FoldingCell: UITableViewCell {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var foregroundView: RotatedView!
+    var animationView: UIView?
     
     @IBInspectable var backViewColor: UIColor = UIColor.brownColor()
     
@@ -49,6 +50,8 @@ public class FoldingCell: UITableViewCell {
 
         self.selectionStyle = .None
         containerView.backgroundColor = UIColor.clearColor()
+        
+        createAnimationView();
     }
 
     // MARK: configure
@@ -82,15 +85,15 @@ public class FoldingCell: UITableViewCell {
             }
         }
         
-        // added back view
-        var previusView: RotatedView?
-        for contener in containerView.subviews.sort({ $0.tag < $1.tag }) {
-            if contener is RotatedView && contener.tag > 0 && contener.tag < containerView.subviews.count {
-                let rotatedView = contener as! RotatedView
-                previusView?.addBackView(rotatedView.bounds.size.height, color: backViewColor)
-                previusView = rotatedView
-            }
-        }
+//        // added back view
+//        var previusView: RotatedView?
+//        for contener in containerView.subviews.sort({ $0.tag < $1.tag }) {
+//            if contener is RotatedView && contener.tag > 0 && contener.tag < containerView.subviews.count {
+//                let rotatedView = contener as! RotatedView
+//                previusView?.addBackView(rotatedView.bounds.size.height, color: backViewColor)
+//                previusView = rotatedView
+//            }
+//        }
     }
     
     func createAnimationItemView()->[RotatedView] {
@@ -122,6 +125,22 @@ public class FoldingCell: UITableViewCell {
                 }
             }
         }
+    }
+    
+    func createAnimationView() {
+        animationView = UIView(frame: containerView.frame)
+        animationView?.backgroundColor = UIColor.blackColor()
+        self.contentView.addSubview(animationView!)
+        
+        // create constraints
+        for constraint in self.contentView.constraints {
+            guard let item = constraint.secondItem {
+                
+            } else {
+                
+            }
+        }
+        
     }
     
     // MARK: public
@@ -161,6 +180,25 @@ public class FoldingCell: UITableViewCell {
             }
         }
         return false
+    }
+    
+    public func screenshot() {
+
+        containerView.alpha = 1;
+        UIGraphicsBeginImageContextWithOptions(containerView.bounds.size, containerView.opaque, 0.0);
+        containerView.layer.renderInContext(UIGraphicsGetCurrentContext()!);
+        let image = UIGraphicsGetImageFromCurrentImageContext();
+        containerView.alpha = 0;
+        UIGraphicsEndImageContext();
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: containerView.frame.size.width, height: containerView.frame.size.height/2))
+        imageView.layer.masksToBounds = true
+        imageView.image = image
+        imageView.contentMode = .Top
+        
+        self.contentView.addSubview(imageView);
+        
+        print("print");
     }
     
     // MARK: animations
