@@ -50,7 +50,6 @@ public class FoldingCell: UITableViewCell {
         configureDefaultState()
 
         self.selectionStyle = .None
-        containerView.backgroundColor = UIColor.clearColor()
         
         containerView.layer.cornerRadius = foregroundView.layer.cornerRadius
         containerView.layer.masksToBounds = true
