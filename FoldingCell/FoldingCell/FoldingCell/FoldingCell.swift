@@ -52,6 +52,8 @@ public class FoldingCell: UITableViewCell {
         self.selectionStyle = .None
         containerView.backgroundColor = UIColor.clearColor()
         
+        containerView.layer.cornerRadius = foregroundView.layer.cornerRadius
+        containerView.layer.masksToBounds = true
     }
 
     // MARK: configure
@@ -66,16 +68,11 @@ public class FoldingCell: UITableViewCell {
         containerViewTopConstraint!.constant = foregroundTopConstraint!.constant
         containerView.alpha = 0;
         
-        let firstItemView = containerView.subviews.filter{$0.tag == 0}.first
-        assert(firstItemView != nil, "contaner empty")
-        firstItemView!.layer.cornerRadius = foregroundView.layer.cornerRadius
-      
         foregroundView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
         foregroundTopConstraint!.constant += foregroundView.bounds.height / 2
         foregroundView.layer.transform = foregroundView.transform3d()
         
         createAnimationView();
-
         self.contentView.bringSubviewToFront(foregroundView)
     }
     
@@ -113,6 +110,7 @@ public class FoldingCell: UITableViewCell {
     func createAnimationView() {
         
         let anAnimationView = UIView(frame: containerView.frame)
+        anAnimationView.layer.cornerRadius = foregroundView.layer.cornerRadius
         anAnimationView.backgroundColor = UIColor.clearColor()
         anAnimationView.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(anAnimationView)
@@ -175,6 +173,7 @@ public class FoldingCell: UITableViewCell {
         var image = containerView.pb_takeSnapshot(CGRect(x: 0, y: 0, width: containerView.bounds.size.width, height: foregroundView.bounds.size.height))
         var imageView = UIImageView(image: image)
         imageView.tag = 0
+        imageView.layer.cornerRadius = foregroundView.layer.cornerRadius
         animationView?.addSubview(imageView)
         
         // added secod item
@@ -260,6 +259,11 @@ public class FoldingCell: UITableViewCell {
     }
     
     public func isAnimating()->Bool {
+        guard animationItemViews != nil
+        else {
+            return false
+        }
+        
         for item in animationItemViews! {
             if item.layer.animationKeys()?.count > 0 {
                 return true
@@ -315,10 +319,10 @@ public class FoldingCell: UITableViewCell {
             delay += durations[index]
         }
         
-        let firstItemView = containerView.subviews.filter{$0.tag == 0}.first
+        let firstItemView = animationView!.subviews.filter{$0.tag == 0}.first
         firstItemView!.layer.masksToBounds = true
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(durations[0] * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
-            firstItemView!.layer.masksToBounds = false
+            firstItemView!.layer.cornerRadius = 0
         }
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
             self.animationView?.alpha = 0
@@ -365,7 +369,7 @@ public class FoldingCell: UITableViewCell {
         let firstItemView = animationView!.subviews.filter{$0.tag == 0}.first
         firstItemView!.layer.masksToBounds = false
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64((delay - durations.last! * 1.5) * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
-            firstItemView!.layer.masksToBounds = true
+            firstItemView!.layer.cornerRadius = self.foregroundView.layer.cornerRadius
         }
     }
 }
