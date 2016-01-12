@@ -48,7 +48,7 @@ public class FoldingCell: UITableViewCell {
         super.awakeFromNib()
         
         configureDefaultState()
-        animationItemViews = createAnimationItemView()
+//        animationItemViews = createAnimationItemView()
 
         self.selectionStyle = .None
         containerView.backgroundColor = UIColor.clearColor()
@@ -75,37 +75,16 @@ public class FoldingCell: UITableViewCell {
         foregroundTopConstraint!.constant += foregroundView.bounds.height / 2
         foregroundView.layer.transform = foregroundView.transform3d()
         
-        
-        // elements view
-        
-        for constraint in containerView.constraints {
-            if constraint.identifier == "yPosition" {
-                constraint.constant -= constraint.firstItem.bounds.height / 2
-                constraint.firstItem.layer.anchorPoint = CGPoint.init(x: 0.5, y: 0)
-                constraint.firstItem.layer.transform = constraint.firstItem.transform3d()
-            }
-        }
-        
         createAnimationView();
 
         self.contentView.bringSubviewToFront(foregroundView)
-        
-//        // added back view
-//        var previusView: RotatedView?
-//        for contener in containerView.subviews.sort({ $0.tag < $1.tag }) {
-//            if contener is RotatedView && contener.tag > 0 && contener.tag < containerView.subviews.count {
-//                let rotatedView = contener as! RotatedView
-//                previusView?.addBackView(rotatedView.bounds.size.height, color: backViewColor)
-//                previusView = rotatedView
-//            }
-//        }
     }
     
     func createAnimationItemView()->[RotatedView] {
         var items = [RotatedView]()
         items.append(foregroundView)
         var rotatedViews = [RotatedView]()
-        for itemView in containerView.subviews.filter({$0 is RotatedView}).sort({ $0.tag < $1.tag }) as! [RotatedView] {
+        for itemView in animationView!.subviews.filter({$0 is RotatedView}).sort({ $0.tag < $1.tag }) as! [RotatedView] {
             rotatedViews.append(itemView)
             if itemView.backView != nil {
                 rotatedViews.append(itemView.backView!)
@@ -117,11 +96,11 @@ public class FoldingCell: UITableViewCell {
     
     func configureAnimationItems(animationType: AnimationType) {
         if animationType == .Open {
-            for view in containerView.subviews.filter({$0 is RotatedView}) {
+            for view in animationView!.subviews.filter({$0 is RotatedView}) {
                 view.alpha = 0;
             }
         } else { // close
-            for view: RotatedView in containerView.subviews.filter({$0 is RotatedView}) as! [RotatedView] {
+            for view: RotatedView in animationView!.subviews.filter({$0 is RotatedView}) as! [RotatedView] {
                 if animationType == .Open {
                     view.alpha = 0
                 } else {
@@ -133,10 +112,10 @@ public class FoldingCell: UITableViewCell {
     }
     
     func createAnimationView() {
+        
         let anAnimationView = UIView(frame: containerView.frame)
-        anAnimationView.backgroundColor = UIColor.blackColor()
+        anAnimationView.backgroundColor = UIColor.clearColor()
         anAnimationView.translatesAutoresizingMaskIntoConstraints = false
-//        anAnimationView.alpha = 0.3
         self.contentView.addSubview(anAnimationView)
         
         // copy constraints from containerView
@@ -210,6 +189,8 @@ public class FoldingCell: UITableViewCell {
         imageView = UIImageView(image: image)
         let rotatedView = RotatedView(frame: imageView.frame)
         rotatedView.tag = 1
+        rotatedView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 0)
+        rotatedView.layer.transform = rotatedView.transform3d()
         
         rotatedView.addSubview(imageView)
         animationView?.addSubview(rotatedView)
@@ -230,6 +211,8 @@ public class FoldingCell: UITableViewCell {
             let rotatedView = RotatedView(frame: imageView.frame)
             
             rotatedView.addSubview(imageView)
+            rotatedView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 0)
+            rotatedView.layer.transform = rotatedView.transform3d()
             animationView?.addSubview(rotatedView)
             rotatedView.frame = CGRect(x: 0, y: yPosition, width: rotatedView.bounds.size.width, height: itemHeight)
             rotatedView.tag = tag
@@ -239,29 +222,34 @@ public class FoldingCell: UITableViewCell {
         }
         
         containerView.alpha = 0;
+        
+        // added back view
+        var previusView: RotatedView?
+        for contener in animationView!.subviews.sort({ $0.tag < $1.tag }) {
+            if contener is RotatedView && contener.tag > 0 && contener.tag < animationView!.subviews.count {
+                let rotatedView = contener as! RotatedView
+                previusView?.addBackView(rotatedView.bounds.size.height, color: backViewColor)
+                previusView = rotatedView
+            }
+        }
+        
+        animationItemViews = createAnimationItemView()
     }
     
     // MARK: public
     
     public func selectedAnimation(isSelected: Bool, animated: Bool, completion: CompletionHandler?) {
-
+        
         if isSelected {
-            containerView.alpha = 1;
-            for subview in containerView.subviews {
-                subview.alpha = 1
-            }
-
+            
             if animated {
+                containerView.alpha = 0;
                 openAnimation(completion: completion)
-            } else {
+            } else  {
                 foregroundView.alpha = 0
-                for subview in containerView.subviews {
-                    if subview is RotatedView {
-                        let rotateView = subview as! RotatedView
-                        rotateView.backView?.alpha = 0
-                    }
-                }
+                containerView.alpha = 1;
             }
+            
         } else {
             if animated {
                 closeAnimation(completion: completion)
@@ -270,6 +258,33 @@ public class FoldingCell: UITableViewCell {
                 containerView.alpha = 0;
             }
         }
+
+//        if isSelected {
+//            containerView.alpha = 0;
+//            animationView?.alpha = 1;
+//            for subview in animationView!.subviews {
+//                subview.alpha = subview.tag > 0 ? 0 : 1;
+//            }
+//
+//            if animated {
+//                openAnimation(completion: completion)
+//            } else {
+//                foregroundView.alpha = 0
+//                for subview in containerView.subviews {
+//                    if subview is RotatedView {
+//                        let rotateView = subview as! RotatedView
+//                        rotateView.backView?.alpha = 0
+//                    }
+//                }
+//            }
+//        } else {
+//            if animated {
+//                closeAnimation(completion: completion)
+//            } else {
+//                foregroundView.alpha = 1;
+//                containerView.alpha = 0;
+//            }
+//        }
     }
     
     public func isAnimating()->Bool {
@@ -300,9 +315,13 @@ public class FoldingCell: UITableViewCell {
     }
     
     func openAnimation(completion completion: CompletionHandler?) {
-        if animationView?.subviews.count == 0 {
+        
+        if animationView?.subviews.count == 0 { // added animation items if need
             addImageItemsToAnimationView()
         }
+        
+        animationView?.alpha = 1;
+        containerView.alpha = 0;
         
         let durations = durationSequence(.Open)
         
@@ -330,11 +349,20 @@ public class FoldingCell: UITableViewCell {
             firstItemView!.layer.masksToBounds = false
         }
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+            self.animationView?.alpha = 0
+            self.containerView.alpha = 1
             completion?()
         }
     }
     
     func closeAnimation(completion completion: CompletionHandler?) {
+        
+        if animationView?.subviews.count == 0 { // added animation items if need
+            addImageItemsToAnimationView()
+        }
+        
+        animationView?.alpha = 1;
+        containerView.alpha = 0;
         
         var durations = durationSequence(.Close)
         durations = durations.reverse()
@@ -358,11 +386,11 @@ public class FoldingCell: UITableViewCell {
         }
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
-            self.containerView.alpha = 0
+            self.animationView!.alpha = 0
             completion?()
         }
         
-        let firstItemView = containerView.subviews.filter{$0.tag == 0}.first
+        let firstItemView = animationView!.subviews.filter{$0.tag == 0}.first
         firstItemView!.layer.masksToBounds = false
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64((delay - durations.last! * 1.5) * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
             firstItemView!.layer.masksToBounds = true
