@@ -48,7 +48,6 @@ public class FoldingCell: UITableViewCell {
         super.awakeFromNib()
         
         configureDefaultState()
-//        animationItemViews = createAnimationItemView()
 
         self.selectionStyle = .None
         containerView.backgroundColor = UIColor.clearColor()
@@ -258,33 +257,6 @@ public class FoldingCell: UITableViewCell {
                 containerView.alpha = 0;
             }
         }
-
-//        if isSelected {
-//            containerView.alpha = 0;
-//            animationView?.alpha = 1;
-//            for subview in animationView!.subviews {
-//                subview.alpha = subview.tag > 0 ? 0 : 1;
-//            }
-//
-//            if animated {
-//                openAnimation(completion: completion)
-//            } else {
-//                foregroundView.alpha = 0
-//                for subview in containerView.subviews {
-//                    if subview is RotatedView {
-//                        let rotateView = subview as! RotatedView
-//                        rotateView.backView?.alpha = 0
-//                    }
-//                }
-//            }
-//        } else {
-//            if animated {
-//                closeAnimation(completion: completion)
-//            } else {
-//                foregroundView.alpha = 1;
-//                containerView.alpha = 0;
-//            }
-//        }
     }
     
     public func isAnimating()->Bool {
@@ -483,7 +455,7 @@ extension RotatedView {
 
 extension UIView {
     func pb_takeSnapshot(frame: CGRect) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(frame.size, self.opaque, 0.0);
+        UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0);
         
         let context = UIGraphicsGetCurrentContext();
         CGContextTranslateCTM(context, frame.origin.x * -1, frame.origin.y * -1);
