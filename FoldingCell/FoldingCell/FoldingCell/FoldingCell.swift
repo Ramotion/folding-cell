@@ -199,6 +199,14 @@ public class FoldingCell: UITableViewCell {
         
         // added other views
         let itemHeight = (containerView.bounds.size.height - 2 * foregroundView.bounds.size.height) / CGFloat(itemCount - 2)
+        
+        if itemCount == 2 {
+            // decrease containerView height or increase itemCount
+            assert(containerView.bounds.size.height - 2 * foregroundView.bounds.size.height == 0, "contanerView.height too high")
+        }
+        // decrease containerView height or increase itemCount
+        assert(containerView.bounds.size.height - 2 * foregroundView.bounds.size.height >= itemHeight, "contanerView.height too high")
+        
         var yPosition = 2 * foregroundView.bounds.size.height
         var tag = 2
         for var index = 2; index < itemCount; index++ {
