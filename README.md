@@ -43,36 +43,7 @@ property `containerView`. Add constraints from this view to the superview like i
 Your result should be something like this picture:
 ![1.3](/Tutorial-resources/1.3.png)
 
-4) Now lets add folding views
-
-4.1) Add a UIView to `containerView` (where `ContainerView` is the UIView which you've added on step 3)
-Add constraints from this view to `containerView` as in the picture:
-
-![1.4](/Tutorial-resources/1.4.png)
-
-For correct animation, the height constraint constant should be equal to `foregroundView`'s height constraint constant.
-Result: 
-
-![1.5](/Tutorial-resources/1.5.png)
-
-4.2) Add a `UIView` to `containerView` inheriting from `RotatedView`. Add constraints from
-this view to `containerView` as in the picture:
-
-![1.6](/Tutorial-resources/1.6.png).
-
-For correct animation, the height constraint constant must be equal to `foregroundView`'s height constraint constant.
-Add the identifier "yPosition" for the top constraint. **The tag must be equal to 1**
-Result: 
-
-![1.7](/Tutorial-resources/1.7.png)
-
-The following steps are optional (you can add as many views as you want).
-
-4.3) repeat 4.2, but **increasing the tag by one**. (For the correct animation, height of the view
-must be less than or equal to that of the previous view).
-
-The height of `containerView` must be equal to the sum of the heights of its subviews:
-![1.8](/Tutorial-resources/1.8.png)
+4) Set ``` @IBInspectable var itemCount: NSInteger ``` property is a count of folding (it IBInspectable you can set in storyborad). range 2 or greater
 
 Ok, we've finished configuring the cell.
 
