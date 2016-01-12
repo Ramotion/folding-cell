@@ -31,7 +31,7 @@ public class FoldingCell: UITableViewCell {
     @IBOutlet weak var foregroundView: RotatedView!
     var animationView: UIView?
     
-    let itemCount = 4
+    @IBInspectable var itemCount: NSInteger = 2
     
     @IBInspectable var backViewColor: UIColor = UIColor.brownColor()
     
@@ -282,7 +282,7 @@ public class FoldingCell: UITableViewCell {
     
     func durationSequence(type: AnimationType)-> [NSTimeInterval] {
         var durations = [NSTimeInterval]()
-        for var index = 0; index < containerView.subviews.count - 1; index++ {
+        for var index = 0; index < itemCount-1; index++ {
             let duration = animationDuration(index, type: .Open)
             durations.append(NSTimeInterval(duration / 2.0))
             durations.append(NSTimeInterval(duration / 2.0))
