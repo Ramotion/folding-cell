@@ -43,7 +43,7 @@ property `containerView`. Add constraints from this view to the superview like i
 Your result should be something like this picture:
 ![1.3](/Tutorial-resources/1.3.png)
 
-4) Set ``` @IBInspectable var itemCount: NSInteger ``` property is a count of folding (it IBInspectable you can set in storyborad). range 2 or greater
+4) Set ``` @IBInspectable var itemCount: NSInteger ``` property is a count of folding (it IBInspectable you can set in storyborad). range 2 or greater. Default value is 2
 
 Ok, we've finished configuring the cell.
 
@@ -57,7 +57,7 @@ Ok, we've finished configuring the cell.
 5.2) Add property
 
 ``` swift
-     var cellHeights: [CGFloat]?
+     var cellHeights = [CGFloat]()
 ```
 
      create in viewDidLoad:
@@ -66,7 +66,7 @@ Ok, we've finished configuring the cell.
         super.viewDidLoad()
 
         for _ in 0...kRowsCount {
-            cellHeights?.append(kCloseCellHeight)
+            cellHeights.append(kCloseCellHeight)
         }
     }
 ```
@@ -74,7 +74,7 @@ Ok, we've finished configuring the cell.
 5.3) Override method:
 ``` swift
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return cellHeights![indexPath.row]
+        return cellHeights[indexPath.row]
     }
 ```
 
@@ -84,12 +84,12 @@ Ok, we've finished configuring the cell.
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! FoldingCell
 
         var duration = 0.0
-        if cellHeights![indexPath.row] == kCloseCellHeight { // open cell
-            cellHeights![indexPath.row] = kOpenCellHeight
+        if cellHeights[indexPath.row] == kCloseCellHeight { // open cell
+            cellHeights[indexPath.row] = kOpenCellHeight
             cell.selectedAnimation(true, animated: true, completion: nil)
             duration = 0.5
         } else {// close cell
-            cellHeights![indexPath.row] = kCloseCellHeight
+            cellHeights[indexPath.row] = kCloseCellHeight
             cell.selectedAnimation(false, animated: true, completion: nil)
             duration = 1.1
         }
@@ -120,7 +120,7 @@ Ok, we've finished configuring the cell.
 ``` swift
     override func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval {
 
-        // durations count equal containerView.subViews.count - 1
+        // durations count equal it itemCount
         let durations = [0.33, 0.26, 0.26] // timing animation for each view
         return durations[itemIndex]
     }
