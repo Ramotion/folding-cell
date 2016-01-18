@@ -126,7 +126,7 @@ Ok, we've finished configuring the cell.
     }
 ```
 
-## [About Us](http://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell)
+## Developer Information
 
 Designed & Developed in [Ramotion - Digital Design Agency](http://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell)  
 We are ready for new interesting iOS app development projects.
