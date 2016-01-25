@@ -13,6 +13,7 @@
 		847A58121C294F750028FB84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847A58101C294F750028FB84 /* LaunchScreen.storyboard */; };
 		847A581B1C294FAB0028FB84 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A581A1C294FAB0028FB84 /* FoldingCell.swift */; };
 		847A581F1C29500B0028FB84 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A581E1C29500B0028FB84 /* MainTableViewController.swift */; };
+		8498513F1C5639F9006FA400 /* FoldingCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498513E1C5639F9006FA400 /* FoldingCellTests.swift */; };
 		8499F5DD1C2A83F70027D5D2 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8499F5D31C2A83F70027D5D2 /* OpenSans-Bold.ttf */; };
 		8499F5DE1C2A83F70027D5D2 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8499F5D41C2A83F70027D5D2 /* OpenSans-BoldItalic.ttf */; };
 		8499F5DF1C2A83F70027D5D2 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8499F5D51C2A83F70027D5D2 /* OpenSans-ExtraBold.ttf */; };
@@ -25,6 +26,16 @@
 		8499F5E61C2A83F70027D5D2 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8499F5DC1C2A83F70027D5D2 /* OpenSans-SemiboldItalic.ttf */; };
 		84CDB15A1C2D416400FCD7C8 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CDB1591C2D416400FCD7C8 /* DemoCell.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		849851411C5639F9006FA400 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 847A57FC1C294F750028FB84 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 847A58031C294F750028FB84;
+			remoteInfo = FoldingCell;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		840B98551C33FE660081B926 /* Embed Frameworks */ = {
@@ -50,6 +61,9 @@
 		847A58131C294F750028FB84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		847A581A1C294FAB0028FB84 /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
 		847A581E1C29500B0028FB84 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		8498513C1C5639F9006FA400 /* FoldingCellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoldingCellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8498513E1C5639F9006FA400 /* FoldingCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingCellTests.swift; sourceTree = "<group>"; };
+		849851401C5639F9006FA400 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8499F5D31C2A83F70027D5D2 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		8499F5D41C2A83F70027D5D2 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		8499F5D51C2A83F70027D5D2 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -65,6 +79,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		847A58011C294F750028FB84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		849851391C5639F9006FA400 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -88,6 +109,7 @@
 			children = (
 				847A58061C294F750028FB84 /* FoldingCell */,
 				840B984A1C33FE660081B926 /* FoldingCellFramework */,
+				8498513D1C5639F9006FA400 /* FoldingCellTests */,
 				847A58051C294F750028FB84 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				847A58041C294F750028FB84 /* FoldingCell.app */,
+				8498513C1C5639F9006FA400 /* FoldingCellTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -122,6 +145,15 @@
 				847A581A1C294FAB0028FB84 /* FoldingCell.swift */,
 			);
 			path = FoldingCell;
+			sourceTree = "<group>";
+		};
+		8498513D1C5639F9006FA400 /* FoldingCellTests */ = {
+			isa = PBXGroup;
+			children = (
+				8498513E1C5639F9006FA400 /* FoldingCellTests.swift */,
+				849851401C5639F9006FA400 /* Info.plist */,
+			);
+			path = FoldingCellTests;
 			sourceTree = "<group>";
 		};
 		8499F5D21C2A83D90027D5D2 /* Fonts */ = {
@@ -162,6 +194,24 @@
 			productReference = 847A58041C294F750028FB84 /* FoldingCell.app */;
 			productType = "com.apple.product-type.application";
 		};
+		8498513B1C5639F9006FA400 /* FoldingCellTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 849851431C5639F9006FA400 /* Build configuration list for PBXNativeTarget "FoldingCellTests" */;
+			buildPhases = (
+				849851381C5639F9006FA400 /* Sources */,
+				849851391C5639F9006FA400 /* Frameworks */,
+				8498513A1C5639F9006FA400 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				849851421C5639F9006FA400 /* PBXTargetDependency */,
+			);
+			name = FoldingCellTests;
+			productName = FoldingCellTests;
+			productReference = 8498513C1C5639F9006FA400 /* FoldingCellTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -174,6 +224,11 @@
 				TargetAttributes = {
 					847A58031C294F750028FB84 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 34MUF9YXTA;
+					};
+					8498513B1C5639F9006FA400 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = 847A58031C294F750028FB84;
 					};
 				};
 			};
@@ -191,6 +246,7 @@
 			projectRoot = "";
 			targets = (
 				847A58031C294F750028FB84 /* FoldingCell */,
+				8498513B1C5639F9006FA400 /* FoldingCellTests */,
 			);
 		};
 /* End PBXProject section */
@@ -216,6 +272,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8498513A1C5639F9006FA400 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -230,7 +293,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		849851381C5639F9006FA400 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8498513F1C5639F9006FA400 /* FoldingCellTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		849851421C5639F9006FA400 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 847A58031C294F750028FB84 /* FoldingCell */;
+			targetProxy = 849851411C5639F9006FA400 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		847A580B1C294F750028FB84 /* Main.storyboard */ = {
@@ -337,6 +416,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = FoldingCell/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -350,12 +430,37 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = FoldingCell/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		849851441C5639F9006FA400 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FoldingCellTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.FoldingCellTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoldingCell.app/FoldingCell";
+			};
+			name = Debug;
+		};
+		849851451C5639F9006FA400 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FoldingCellTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.FoldingCellTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoldingCell.app/FoldingCell";
 			};
 			name = Release;
 		};
@@ -379,6 +484,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		849851431C5639F9006FA400 /* Build configuration list for PBXNativeTarget "FoldingCellTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				849851441C5639F9006FA400 /* Debug */,
+				849851451C5639F9006FA400 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
