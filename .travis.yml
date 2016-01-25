@@ -3,4 +3,4 @@ language: objective-c
 
 xcode_project: FoldingCell/FoldingCell.xcodeproj
 xcode_scheme: FoldingCell
-xcode_sdk: iphonesimulator
+xcode_sdk: iphonesimulator9.1
