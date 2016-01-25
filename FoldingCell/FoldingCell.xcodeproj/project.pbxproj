@@ -13,6 +13,7 @@
 		847A58121C294F750028FB84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847A58101C294F750028FB84 /* LaunchScreen.storyboard */; };
 		847A581B1C294FAB0028FB84 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A581A1C294FAB0028FB84 /* FoldingCell.swift */; };
 		847A581F1C29500B0028FB84 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A581E1C29500B0028FB84 /* MainTableViewController.swift */; };
+		848B463B1C56458C00D49B45 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A581A1C294FAB0028FB84 /* FoldingCell.swift */; };
 		8498513F1C5639F9006FA400 /* FoldingCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498513E1C5639F9006FA400 /* FoldingCellTests.swift */; };
 		8499F5DD1C2A83F70027D5D2 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8499F5D31C2A83F70027D5D2 /* OpenSans-Bold.ttf */; };
 		8499F5DE1C2A83F70027D5D2 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8499F5D41C2A83F70027D5D2 /* OpenSans-BoldItalic.ttf */; };
@@ -298,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8498513F1C5639F9006FA400 /* FoldingCellTests.swift in Sources */,
+				848B463B1C56458C00D49B45 /* FoldingCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +446,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = FoldingCellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.FoldingCellTests;
@@ -456,6 +459,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = FoldingCellTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.FoldingCellTests;
@@ -492,6 +496,7 @@
 				849851451C5639F9006FA400 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

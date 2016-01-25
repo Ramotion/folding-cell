@@ -50,7 +50,7 @@
         <!--Main Table View Controller-->
         <scene sceneID="Q2d-BE-geS">
             <objects>
-                <tableViewController id="0cn-rv-Emg" customClass="MainTableViewController" customModule="FoldingCell" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MainTableViewController" id="0cn-rv-Emg" customClass="MainTableViewController" customModule="FoldingCell" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="667" sectionHeaderHeight="28" sectionFooterHeight="28" id="MwZ-K3-six">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="695"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
