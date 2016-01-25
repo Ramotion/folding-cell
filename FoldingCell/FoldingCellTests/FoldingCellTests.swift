@@ -10,20 +10,29 @@ import XCTest
 
 class FoldingCellTests: XCTestCase {
     
+    var viewController : UITableViewController!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        viewController = storyboard.instantiateViewControllerWithIdentifier("MainTableViewController") as! UITableViewController
+        viewController.beginAppearanceTransition(true, animated: false)
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+         viewController.endAppearanceTransition()
         super.tearDown()
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCTAssert(true, "Pass")
+        let tableView = viewController.tableView
+        
+        for case let cell as FoldingCell in tableView.visibleCells {
+            XCTAssertTrue(cell.itemCount >= 2)
+        }
+        
+        
     }
     
     func testPerformanceExample() {
