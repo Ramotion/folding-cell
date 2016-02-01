@@ -1,4 +1,8 @@
 # FoldingCell
+[![CocoaPods](https://img.shields.io/cocoapods/p/FoldingCell.svg)](https://cocoapods.org/pods/FoldingCell)
+[![CocoaPods](https://img.shields.io/cocoapods/v/FoldingCell.svg)](http://cocoapods.org/pods/FoldingCell)
+[![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
+[![Travis](https://img.shields.io/travis/Ramotion/folding-cell.svg)](https://travis-ci.org/Ramotion/folding-cell)
 
 [shot on dribbble](https://dribbble.com/shots/2121350-Delivery-Card):
 ![Animation](Screenshots/folding-cell.gif)
@@ -126,9 +130,12 @@ Ok, we've finished configuring the cell.
     }
 ```
 
-## Developer Information
+## Licence
+Adaptive tab bar is released under the MIT license.See [LICENSE](./LICENSE) for details.
 
-Designed & Developed in [Ramotion - Digital Design Agency](http://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell)
 
+## About
+The project maintained by [app development agency](http://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell) [Ramotion Inc.](http://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell)]See our other [open-source projects](https://github.com/ramotion) or [hire](http://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell) us to design, develop, and grow your product.
 
-Follow us on [Twitter](http://twitter.com/ramotion).
+[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/ramotion/foolding-cell)
+[![Twitter Follow](https://img.shields.io/twitter/follow/ramotion.svg?style=social)](https://twitter.com/ramotion)
