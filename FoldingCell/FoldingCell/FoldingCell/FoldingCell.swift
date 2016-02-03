@@ -276,6 +276,11 @@ public class FoldingCell: UITableViewCell {
                 return true
             }
         }
+        
+        if animationView?.alpha == 1 {
+            return true
+        }
+        
         return false
     }
     
