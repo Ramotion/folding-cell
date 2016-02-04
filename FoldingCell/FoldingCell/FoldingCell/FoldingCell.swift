@@ -61,14 +61,18 @@ public class FoldingCell: UITableViewCell {
         let foregroundTopConstraint = self.contentView.constraints.filter{ $0.identifier == "ForegroundViewTop"}.first
         let containerViewTopConstraint = self.contentView.constraints.filter{ $0.identifier == "ContainerViewTop"}.first
         
-        assert(foregroundTopConstraint != nil, "set identifier")
-        assert(containerViewTopConstraint != nil, "set identifier")
+        guard let foregroundConstraint = foregroundTopConstraint else {
+            fatalError("set identifier")
+        }
+        guard let containerConstraint = containerViewTopConstraint else {
+            fatalError("set identifier")
+        }
         
-        containerViewTopConstraint!.constant = foregroundTopConstraint!.constant
+        containerConstraint.constant = foregroundConstraint.constant
         containerView.alpha = 0;
         
         foregroundView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
-        foregroundTopConstraint!.constant += foregroundView.bounds.height / 2
+        foregroundConstraint.constant += foregroundView.bounds.height / 2
         foregroundView.layer.transform = foregroundView.transform3d()
         
         createAnimationView();
@@ -76,13 +80,17 @@ public class FoldingCell: UITableViewCell {
     }
     
     func createAnimationItemView()->[RotatedView] {
+        guard let animationView = self.animationView else {
+            fatalError()
+        }
+        
         var items = [RotatedView]()
         items.append(foregroundView)
         var rotatedViews = [RotatedView]()
-        for itemView in animationView!.subviews.filter({$0 is RotatedView}).sort({ $0.tag < $1.tag }) as! [RotatedView] {
+        for case let itemView as RotatedView in animationView.subviews.filter({$0 is RotatedView}).sort({ $0.tag < $1.tag }){
             rotatedViews.append(itemView)
-            if itemView.backView != nil {
-                rotatedViews.append(itemView.backView!)
+            if let backView = itemView.backView {
+                rotatedViews.append(backView)
             }
         }
         items.appendContentsOf(rotatedViews)
@@ -90,12 +98,17 @@ public class FoldingCell: UITableViewCell {
     }
     
     func configureAnimationItems(animationType: AnimationType) {
+        
+        guard let animationViewSuperView = animationView?.subviews else {
+            fatalError()
+        }
+        
         if animationType == .Open {
-            for view in animationView!.subviews.filter({$0 is RotatedView}) {
+            for view in animationViewSuperView.filter({$0 is RotatedView}) {
                 view.alpha = 0;
             }
         } else { // close
-            for view: RotatedView in animationView!.subviews.filter({$0 is RotatedView}) as! [RotatedView] {
+            for case let view as RotatedView in animationViewSuperView.filter({$0 is RotatedView}) {
                 if animationType == .Open {
                     view.alpha = 0
                 } else {
@@ -227,14 +240,15 @@ public class FoldingCell: UITableViewCell {
         }
         
         containerView.alpha = 0;
-        
-        // added back view
-        var previusView: RotatedView?
-        for contener in animationView!.subviews.sort({ $0.tag < $1.tag }) {
-            if contener is RotatedView && contener.tag > 0 && contener.tag < animationView!.subviews.count {
-                let rotatedView = contener as! RotatedView
-                previusView?.addBackView(rotatedView.bounds.size.height, color: backViewColor)
-                previusView = rotatedView
+ 
+        if let animationView = self.animationView {
+            // added back view
+            var previusView: RotatedView?
+            for case let contener as RotatedView in animationView.subviews.sort({ $0.tag < $1.tag }) {
+                if contener.tag > 0 && contener.tag < animationView.subviews.count {
+                    previusView?.addBackView(contener.bounds.size.height, color: backViewColor)
+                    previusView = contener
+                }
             }
         }
         
@@ -266,12 +280,11 @@ public class FoldingCell: UITableViewCell {
     }
     
     public func isAnimating()->Bool {
-        guard animationItemViews != nil
-        else {
+        guard let animationItemViews = self.animationItemViews else {
             return false
         }
         
-        for item in animationItemViews! {
+        for item in animationItemViews {
             if item.layer.animationKeys()?.count > 0 {
                 return true
             }
@@ -308,7 +321,11 @@ public class FoldingCell: UITableViewCell {
             addImageItemsToAnimationView()
         }
         
-        animationView?.alpha = 1;
+        guard let animationView = self.animationView else {
+            return
+        }
+        
+        animationView.alpha = 1;
         containerView.alpha = 0;
         
         let durations = durationSequence(.Open)
@@ -319,8 +336,13 @@ public class FoldingCell: UITableViewCell {
         var to: CGFloat = CGFloat(-M_PI / 2)
         var hidden = true
         configureAnimationItems(.Open)
-        for var index = 0; index < animationItemViews?.count; index++ {
-            let animatedView = animationItemViews![index]
+        
+        guard let animationItemViews = self.animationItemViews else {
+            return
+        }
+        
+        for var index = 0; index < animationItemViews.count; index++ {
+            let animatedView = animationItemViews[index]
             
             animatedView.foldingAnimation(timing, from: from, to: to, duration: durations[index], delay: delay, hidden: hidden)
             
@@ -331,10 +353,13 @@ public class FoldingCell: UITableViewCell {
             delay += durations[index]
         }
         
-        let firstItemView = animationView!.subviews.filter{$0.tag == 0}.first
-        firstItemView!.layer.masksToBounds = true
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(durations[0] * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
-            firstItemView!.layer.cornerRadius = 0
+        let firstItemView = animationView.subviews.filter{$0.tag == 0}.first
+        
+        if let first = firstItemView {
+            first.layer.masksToBounds = true
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(durations[0] * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+                first.layer.cornerRadius = 0
+            }
         }
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
             self.animationView?.alpha = 0
@@ -362,9 +387,12 @@ public class FoldingCell: UITableViewCell {
         var hidden = true
         configureAnimationItems(.Close)
         for var index = 0; index < animationItemViews?.count; index++ {
-            let animatedView = animationItemViews?.reverse()[index]
+
+            guard let animatedView = animationItemViews?.reverse()[index] else {
+                continue
+            }
             
-            animatedView!.foldingAnimation(timing, from: from, to: to, duration: durations[index], delay: delay, hidden: hidden)
+            animatedView.foldingAnimation(timing, from: from, to: to, duration: durations[index], delay: delay, hidden: hidden)
             
             to = to == 0.0 ? CGFloat(M_PI / 2) : 0.0;
             from = from == 0.0 ? CGFloat(-M_PI / 2) : 0.0;
@@ -374,14 +402,20 @@ public class FoldingCell: UITableViewCell {
         }
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
-            self.animationView!.alpha = 0
+            if let animationView = self.animationView {
+                animationView.alpha = 0
+            }
             completion?()
         }
         
-        let firstItemView = animationView!.subviews.filter{$0.tag == 0}.first
-        firstItemView!.layer.masksToBounds = false
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64((delay - durations.last! * 1.5) * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
-            firstItemView!.layer.cornerRadius = self.foregroundView.layer.cornerRadius
+        if let animationView = self.animationView {
+            let firstItemView = animationView.subviews.filter{$0.tag == 0}.first
+            firstItemView?.layer.masksToBounds = false
+            if let durationLast = durations.last {
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64((delay - durationLast * 1.5) * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+                    firstItemView?.layer.cornerRadius = self.foregroundView.layer.cornerRadius
+                }
+            }
         }
     }
 }
@@ -470,13 +504,17 @@ extension RotatedView {
 }
 
 extension UIView {
-    func pb_takeSnapshot(frame: CGRect) -> UIImage {
+    func pb_takeSnapshot(frame: CGRect) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0);
         
         let context = UIGraphicsGetCurrentContext();
         CGContextTranslateCTM(context, frame.origin.x * -1, frame.origin.y * -1);
         
-        self.layer.renderInContext(UIGraphicsGetCurrentContext()!);
+        guard let currentContext = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        
+        self.layer.renderInContext(currentContext);
         let image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
 
