@@ -132,7 +132,7 @@ Ok, we've finished configuring the cell.
 
 ## Licence
 
-Adaptive tab bar is released under the MIT license.
+Folding cell is released under the MIT license.
 See [LICENSE](./LICENSE) for details.
 
 
