@@ -47,7 +47,7 @@ property `containerView`. Add constraints from this view to the superview like i
 Your result should be something like this picture:
 ![1.3](/Tutorial-resources/1.3.png)
 
-4) Set ``` @IBInspectable var itemCount: NSInteger ``` property is a count of folding (it IBInspectable you can set in storyborad). range 2 or greater. Default value is 2
+4) Set ``` @IBInspectable var itemCount: NSInteger ``` property is a count of folding (it IBInspectable you can set in storyboard). range 2 or greater. Default value is 2
 
 Ok, we've finished configuring the cell.
 
