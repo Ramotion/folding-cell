@@ -277,7 +277,7 @@ public class FoldingCell: UITableViewCell {
   }
   
   func durationSequence(type: AnimationType)-> [NSTimeInterval] {
-    var durations = [NSTimeInterval]()
+    var durations  = [NSTimeInterval]()
     for var index = 0; index < itemCount-1; index++ {
       let duration = animationDuration(index, type: .Open)
       durations.append(NSTimeInterval(duration / 2.0))
@@ -302,10 +302,10 @@ public class FoldingCell: UITableViewCell {
     let durations = durationSequence(.Open)
     
     var delay: NSTimeInterval = 0
-    var timing = kCAMediaTimingFunctionEaseIn
-    var from: CGFloat = 0.0;
-    var to: CGFloat = CGFloat(-M_PI / 2)
-    var hidden = true
+    var timing                = kCAMediaTimingFunctionEaseIn
+    var from: CGFloat         = 0.0;
+    var to: CGFloat           = CGFloat(-M_PI / 2)
+    var hidden                = true
     configureAnimationItems(.Open)
     
     guard let animationItemViews = self.animationItemViews else {
@@ -346,16 +346,15 @@ public class FoldingCell: UITableViewCell {
     }
     
     animationView?.alpha = 1;
-    containerView.alpha = 0;
+    containerView.alpha  = 0;
     
-    var durations = durationSequence(.Close)
-    durations = durations.reverse()
+    var durations: [NSTimeInterval] = durationSequence(.Close).reverse()
     
     var delay: NSTimeInterval = 0
-    var timing = kCAMediaTimingFunctionEaseIn
-    var from: CGFloat = 0.0;
-    var to: CGFloat = CGFloat(M_PI / 2)
-    var hidden = true
+    var timing                = kCAMediaTimingFunctionEaseIn
+    var from: CGFloat         = 0.0;
+    var to: CGFloat           = CGFloat(M_PI / 2)
+    var hidden                = true
     configureAnimationItems(.Close)
     for var index = 0; index < animationItemViews?.count; index++ {
       
@@ -399,26 +398,24 @@ public class RotatedView: UIView {
   var backView: RotatedView?
   
   func addBackView(height: CGFloat, color:UIColor) {
-    let view = RotatedView(frame: CGRect.zero)
-    view.backgroundColor = color
-    view.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
-    view.layer.transform = view.transform3d()
+    let view                                       = RotatedView(frame: CGRect.zero)
+    view.backgroundColor                           = color
+    view.layer.anchorPoint                         = CGPoint.init(x: 0.5, y: 1)
+    view.layer.transform                           = view.transform3d()
     view.translatesAutoresizingMaskIntoConstraints = false;
     self.addSubview(view)
     backView = view
     
-    view.addConstraint(NSLayoutConstraint(item: view,
-      attribute: .Height,
-      relatedBy: .Equal,
-      toItem: nil,
-      attribute: .Height,
-      multiplier: 1,
-      constant: height))
+    view.addConstraint(NSLayoutConstraint(item: view, attribute: .Height, relatedBy: .Equal, toItem: nil,attribute: .Height,
+      multiplier: 1, constant: height))
     
     self.addConstraints([
-      NSLayoutConstraint(item: view, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1, constant: self.bounds.size.height - height + height / 2),
-      NSLayoutConstraint(item: view, attribute: .Leading, relatedBy: .Equal, toItem: self, attribute: .Leading, multiplier: 1, constant: 0),
-      NSLayoutConstraint(item: view, attribute: .Trailing, relatedBy: .Equal, toItem: self, attribute: .Trailing, multiplier: 1, constant: 0)
+      NSLayoutConstraint(item: view, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1,
+        constant: self.bounds.size.height - height + height / 2),
+      NSLayoutConstraint(item: view, attribute: .Leading, relatedBy: .Equal, toItem: self, attribute: .Leading,
+        multiplier: 1, constant: 0),
+      NSLayoutConstraint(item: view, attribute: .Trailing, relatedBy: .Equal, toItem: self, attribute: .Trailing,
+        multiplier: 1, constant: 0)
       ])
   }
 }
@@ -427,14 +424,14 @@ public class RotatedView: UIView {
 extension RotatedView {
   
   func rotatedX(angle : CGFloat) {
-    var allTransofrom = CATransform3DIdentity;
-    let rotateTransform = CATransform3DMakeRotation(angle, 1, 0, 0)
-    allTransofrom = CATransform3DConcat(allTransofrom, rotateTransform)
-    allTransofrom = CATransform3DConcat(allTransofrom, transform3d())
+    var allTransofrom    = CATransform3DIdentity;
+    let rotateTransform  = CATransform3DMakeRotation(angle, 1, 0, 0)
+    allTransofrom        = CATransform3DConcat(allTransofrom, rotateTransform)
+    allTransofrom        = CATransform3DConcat(allTransofrom, transform3d())
     self.layer.transform = allTransofrom
   }
   
-  func transform3d()-> CATransform3D {
+  func transform3d() -> CATransform3D {
     var transform = CATransform3DIdentity
     transform.m34 = 2.5 / -2000;
     return transform
@@ -445,14 +442,14 @@ extension RotatedView {
   func foldingAnimation(timing: String, from: CGFloat, to: CGFloat, duration: NSTimeInterval, delay:NSTimeInterval, hidden:Bool) {
     
     let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation.x")
-    rotateAnimation.timingFunction = CAMediaTimingFunction(name: timing)
-    rotateAnimation.fromValue = (from)
-    rotateAnimation.toValue = (to)
-    rotateAnimation.duration = duration
-    rotateAnimation.delegate = self;
-    rotateAnimation.fillMode = kCAFillModeForwards;
+    rotateAnimation.timingFunction      = CAMediaTimingFunction(name: timing)
+    rotateAnimation.fromValue           = (from)
+    rotateAnimation.toValue             = (to)
+    rotateAnimation.duration            = duration
+    rotateAnimation.delegate            = self;
+    rotateAnimation.fillMode            = kCAFillModeForwards
     rotateAnimation.removedOnCompletion = false;
-    rotateAnimation.beginTime = CACurrentMediaTime() + delay
+    rotateAnimation.beginTime           = CACurrentMediaTime() + delay
     
     self.hiddenAfterAnimation = hidden
     
@@ -476,18 +473,18 @@ extension RotatedView {
 
 extension UIView {
   func pb_takeSnapshot(frame: CGRect) -> UIImage? {
-    UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0);
+    UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0)
     
     let context = UIGraphicsGetCurrentContext();
-    CGContextTranslateCTM(context, frame.origin.x * -1, frame.origin.y * -1);
+    CGContextTranslateCTM(context, frame.origin.x * -1, frame.origin.y * -1)
     
     guard let currentContext = UIGraphicsGetCurrentContext() else {
       return nil
     }
     
-    self.layer.renderInContext(currentContext);
-    let image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+    self.layer.renderInContext(currentContext)
+    let image = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
     
     return image
   }
