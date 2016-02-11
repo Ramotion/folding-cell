@@ -120,123 +120,98 @@ public class FoldingCell: UITableViewCell {
     }
     
     func createAnimationView() {
-        
-        let anAnimationView = UIView(frame: containerView.frame)
-        anAnimationView.layer.cornerRadius = foregroundView.layer.cornerRadius
-        anAnimationView.backgroundColor = UIColor.clearColor()
-        anAnimationView.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.addSubview(anAnimationView)
-        
-        // copy constraints from containerView
-        var newConstraints = [NSLayoutConstraint]()
-        for constraint in self.contentView.constraints {
-            if let item: UIView = constraint.firstItem as? UIView {
-                if item == containerView {
-                    let newConstraint = NSLayoutConstraint(
-                        item: anAnimationView,
-                        attribute: constraint.firstAttribute,
-                        relatedBy: constraint.relation,
-                        toItem: constraint.secondItem,
-                        attribute: constraint.secondAttribute,
-                        multiplier: constraint.multiplier,
-                        constant: constraint.constant)
-                    
-                    newConstraints.append(newConstraint)
-                } else if let item: UIView = constraint.secondItem as? UIView {
-                    if item == containerView {
-                        let newConstraint = NSLayoutConstraint(
-                            item: constraint.firstItem,
-                            attribute: constraint.firstAttribute,
-                            relatedBy: constraint.relation,
-                            toItem: anAnimationView,
-                            attribute: constraint.secondAttribute,
-                            multiplier: constraint.multiplier,
-                            constant: constraint.constant)
-                        
-                        newConstraints.append(newConstraint)
-                    }
-                }
-            }
+      let anAnimationView = UIView(frame: containerView.frame)
+      anAnimationView.layer.cornerRadius = foregroundView.layer.cornerRadius
+      anAnimationView.backgroundColor = UIColor.clearColor()
+      anAnimationView.translatesAutoresizingMaskIntoConstraints = false
+      self.contentView.addSubview(anAnimationView)
+      
+      // copy constraints from containerView
+      var newConstraints = [NSLayoutConstraint]()
+      for constraint in self.contentView.constraints {
+        if let item = constraint.firstItem as? UIView where item == containerView {
+          let newConstraint = NSLayoutConstraint( item: anAnimationView, attribute: constraint.firstAttribute,
+            relatedBy: constraint.relation, toItem: constraint.secondItem, attribute: constraint.secondAttribute,
+            multiplier: constraint.multiplier, constant: constraint.constant)
+                
+            newConstraints.append(newConstraint)
+        } else if let item: UIView = constraint.secondItem as? UIView where item == containerView {
+          let newConstraint = NSLayoutConstraint(item: constraint.firstItem, attribute: constraint.firstAttribute,
+            relatedBy: constraint.relation, toItem: anAnimationView, attribute: constraint.secondAttribute,
+            multiplier: constraint.multiplier, constant: constraint.constant)
+
+          newConstraints.append(newConstraint)
         }
-        self.contentView.addConstraints(newConstraints)
-        
-        for constraint in containerView.constraints { // added height constraint
-            if constraint.firstAttribute == .Height {
-                let newConstraint = NSLayoutConstraint(
-                    item: anAnimationView,
-                    attribute: constraint.firstAttribute,
-                    relatedBy: constraint.relation,
-                    toItem: nil,
-                    attribute: constraint.secondAttribute,
-                    multiplier: constraint.multiplier,
-                    constant: constraint.constant)
-               
-                anAnimationView.addConstraint(newConstraint)
-            }
+      }
+      self.contentView.addConstraints(newConstraints)
+      
+      for constraint in containerView.constraints { // added height constraint
+        if constraint.firstAttribute == .Height {
+          let newConstraint = NSLayoutConstraint(item: anAnimationView, attribute: constraint.firstAttribute,
+            relatedBy: constraint.relation, toItem: nil, attribute: constraint.secondAttribute,
+            multiplier: constraint.multiplier, constant: constraint.constant)
+         
+          anAnimationView.addConstraint(newConstraint)
         }
-        
-        animationView = anAnimationView
+      }
+      
+      animationView = anAnimationView
     }
     
     func addImageItemsToAnimationView() {
-        containerView.alpha = 1;
-        
-        // added first item
-        var image = containerView.pb_takeSnapshot(CGRect(x: 0, y: 0, width: containerView.bounds.size.width, height: foregroundView.bounds.size.height))
-        var imageView = UIImageView(image: image)
-        imageView.tag = 0
-        imageView.layer.cornerRadius = foregroundView.layer.cornerRadius
-        animationView?.addSubview(imageView)
-        
-        // added secod item
-        
-        image = containerView.pb_takeSnapshot(
-            CGRect(x: 0,
-                y: foregroundView.bounds.size.height,
-                width: containerView.bounds.size.width,
-                height: foregroundView.bounds.size.height))
-        
-        imageView = UIImageView(image: image)
-        let rotatedView = RotatedView(frame: imageView.frame)
-        rotatedView.tag = 1
-        rotatedView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 0)
-        rotatedView.layer.transform = rotatedView.transform3d()
-        
-        rotatedView.addSubview(imageView)
-        animationView?.addSubview(rotatedView)
-        rotatedView.frame = CGRect(x: imageView.frame.origin.x,
-            y: foregroundView.bounds.size.height,
-            width: containerView.bounds.size.width,
-            height: foregroundView.bounds.size.height)
-        
-        // added other views
-        let itemHeight = (containerView.bounds.size.height - 2 * foregroundView.bounds.size.height) / CGFloat(itemCount - 2)
-        
-        if itemCount == 2 {
-            // decrease containerView height or increase itemCount
-            assert(containerView.bounds.size.height - 2 * foregroundView.bounds.size.height == 0, "contanerView.height too high")
-        }
-        // decrease containerView height or increase itemCount
-        assert(containerView.bounds.size.height - 2 * foregroundView.bounds.size.height >= itemHeight, "contanerView.height too high")
-        
-        var yPosition = 2 * foregroundView.bounds.size.height
-        var tag = 2
-        for var index = 2; index < itemCount; index++ {
-            
-            image = containerView.pb_takeSnapshot(CGRect(x: 0, y: yPosition, width: containerView.bounds.size.width, height: itemHeight))
-            
-            imageView = UIImageView(image: image)
-            let rotatedView = RotatedView(frame: imageView.frame)
-            
-            rotatedView.addSubview(imageView)
-            rotatedView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 0)
-            rotatedView.layer.transform = rotatedView.transform3d()
-            animationView?.addSubview(rotatedView)
-            rotatedView.frame = CGRect(x: 0, y: yPosition, width: rotatedView.bounds.size.width, height: itemHeight)
-            rotatedView.tag = tag
-            
-            yPosition += itemHeight
-            tag++;
+      containerView.alpha = 1;
+      let contSize        = containerView.bounds.size
+      let forgSize        = foregroundView.bounds.size
+      
+      // added first item
+      var image = containerView.pb_takeSnapshot(CGRect(x: 0, y: 0, width: contSize.width, height: forgSize.height))
+      var imageView = UIImageView(image: image)
+      imageView.tag = 0
+      imageView.layer.cornerRadius = foregroundView.layer.cornerRadius
+      animationView?.addSubview(imageView)
+      
+      // added secod item
+      
+      image = containerView.pb_takeSnapshot(CGRect(x: 0, y: forgSize.height, width: contSize.width, height: forgSize.height))
+      
+      imageView = UIImageView(image: image)
+      let rotatedView = RotatedView(frame: imageView.frame)
+      rotatedView.tag = 1
+      rotatedView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 0)
+      rotatedView.layer.transform = rotatedView.transform3d()
+      
+      rotatedView.addSubview(imageView)
+      animationView?.addSubview(rotatedView)
+      rotatedView.frame = CGRect(x: imageView.frame.origin.x, y: forgSize.height, width: contSize.width, height: forgSize.height)
+      
+      // added other views
+      let itemHeight = (contSize.height - 2 * forgSize.height) / CGFloat(itemCount - 2)
+      
+      if itemCount == 2 {
+          // decrease containerView height or increase itemCount
+          assert(contSize.height - 2 * forgSize.height == 0, "contanerView.height too high")
+      }
+      // decrease containerView height or increase itemCount
+      assert(contSize.height - 2 * forgSize.height >= itemHeight, "contanerView.height too high")
+      
+      var yPosition = 2 * forgSize.height
+      var tag = 2
+      for var index = 2; index < itemCount; index++ {
+          
+          image = containerView.pb_takeSnapshot(CGRect(x: 0, y: yPosition, width: contSize.width, height: itemHeight))
+          
+          imageView = UIImageView(image: image)
+          let rotatedView = RotatedView(frame: imageView.frame)
+          
+          rotatedView.addSubview(imageView)
+          rotatedView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 0)
+          rotatedView.layer.transform = rotatedView.transform3d()
+          animationView?.addSubview(rotatedView)
+          rotatedView.frame = CGRect(x: 0, y: yPosition, width: rotatedView.bounds.size.width, height: itemHeight)
+          rotatedView.tag = tag
+          
+          yPosition += itemHeight
+          tag++;
         }
         
         containerView.alpha = 0;
@@ -251,7 +226,6 @@ public class FoldingCell: UITableViewCell {
                 }
             }
         }
-        
         animationItemViews = createAnimationItemView()
     }
     
