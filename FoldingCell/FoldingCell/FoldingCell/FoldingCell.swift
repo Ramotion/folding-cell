@@ -195,7 +195,7 @@ public class FoldingCell: UITableViewCell {
     
     var yPosition = 2 * forgSize.height
     var tag = 2
-    for var index = 2; index < itemCount; index++ {
+    for _ in 2..<itemCount {
       image = containerView.pb_takeSnapshot(CGRect(x: 0, y: yPosition, width: contSize.width, height: itemHeight))
       
       imageView = UIImageView(image: image)
@@ -278,7 +278,7 @@ public class FoldingCell: UITableViewCell {
   
   func durationSequence(type: AnimationType)-> [NSTimeInterval] {
     var durations  = [NSTimeInterval]()
-    for var index = 0; index < itemCount-1; index++ {
+    for index in 0..<itemCount-1 {
       let duration = animationDuration(index, type: .Open)
       durations.append(NSTimeInterval(duration / 2.0))
       durations.append(NSTimeInterval(duration / 2.0))
@@ -312,7 +312,7 @@ public class FoldingCell: UITableViewCell {
       return
     }
     
-    for var index = 0; index < animationItemViews.count; index++ {
+    for index in 0..<animationItemViews.count {
       let animatedView = animationItemViews[index]
       
       animatedView.foldingAnimation(timing, from: from, to: to, duration: durations[index], delay: delay, hidden: hidden)
@@ -345,6 +345,10 @@ public class FoldingCell: UITableViewCell {
       addImageItemsToAnimationView()
     }
     
+    guard let animationItemViews = self.animationItemViews else {
+      fatalError()
+    }
+    
     animationView?.alpha = 1;
     containerView.alpha  = 0;
     
@@ -356,11 +360,12 @@ public class FoldingCell: UITableViewCell {
     var to: CGFloat           = CGFloat(M_PI / 2)
     var hidden                = true
     configureAnimationItems(.Close)
-    for var index = 0; index < animationItemViews?.count; index++ {
-      
-      guard let animatedView = animationItemViews?.reverse()[index] else {
-        continue
-      }
+    
+    if durations.count < animationItemViews.count {
+      fatalError("wrong override func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval")
+    }
+    for index in 0..<animationItemViews.count {
+      let animatedView = animationItemViews.reverse()[index]
       
       animatedView.foldingAnimation(timing, from: from, to: to, duration: durations[index], delay: delay, hidden: hidden)
       
