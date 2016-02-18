@@ -11,11 +11,13 @@ import UIKit
 class DemoCell: FoldingCell {
     
     override func awakeFromNib() {
-        
-        foregroundView.layer.cornerRadius = 10
-        foregroundView.layer.masksToBounds = true
-        
-        
+		
+		if let foregroundView = foregroundView {
+			
+			foregroundView.layer.cornerRadius = 10
+			foregroundView.layer.masksToBounds = true
+		}
+		
         super.awakeFromNib()
     }
     
