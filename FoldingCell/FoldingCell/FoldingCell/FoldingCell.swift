@@ -27,6 +27,7 @@ public protocol FoldingCellDataSource: NSObjectProtocol {
 
 	func numberOfFoldedItems(cell: FoldingCell) -> Int
 	func backViewBackgroundColor(cell: FoldingCell) -> UIColor
+    func foldedItem(cell: FoldingCell, index: Int) -> RotatedView
 }
 
 public class FoldingCell: UITableViewCell {
@@ -119,7 +120,7 @@ public class FoldingCell: UITableViewCell {
 	}
 	
 	func createAnimationItemView() -> [RotatedView] {
-		
+				
 		guard let animationView = self.animationView else {
 			
 			fatalError()
@@ -132,22 +133,22 @@ public class FoldingCell: UITableViewCell {
 			items.append(foregroundView)
 		}
 		
-		var rotatedViews = [RotatedView]()
-		
-		for case let itemView as RotatedView in animationView.subviews.filter({$0 is RotatedView}).sort({ $0.tag < $1.tag }) {
-			
-			rotatedViews.append(itemView)
-			
-			if let backView = itemView.backView {
-				
-				rotatedViews.append(backView)
-			}
-		}
-		
+        var rotatedViews = [RotatedView]()
+
+        for case let itemView as RotatedView in animationView.subviews.filter({$0 is RotatedView}).sort({ $0.tag < $1.tag }) {
+            
+            rotatedViews.append(itemView)
+            
+            if let backView = itemView.backView {
+                
+                rotatedViews.append(backView)
+            }
+        }
+        
 		items.appendContentsOf(rotatedViews)
 		
 		return items
-	}
+    }
 	
 	func configureAnimationItems(animationType: AnimationType) {
 		
@@ -233,7 +234,7 @@ public class FoldingCell: UITableViewCell {
 	
 	func addImageItemsToAnimationView() {
 		
-		if let containerView = containerView, foregroundView = foregroundView {
+		if let containerView = containerView, foregroundView = foregroundView, animationView = animationView {
 			
 			containerView.alpha = 1;
 			let contSize        = containerView.bounds.size
@@ -244,7 +245,7 @@ public class FoldingCell: UITableViewCell {
 			var imageView = UIImageView(image: image)
 			imageView.tag = 0
 			imageView.layer.cornerRadius = foregroundView.layer.cornerRadius
-			animationView?.addSubview(imageView)
+			animationView.addSubview(imageView)
 			
 			// added secod item
 			image = containerView.pb_takeSnapshot(CGRect(x: 0, y: forgSize.height, width: contSize.width, height: forgSize.height))
@@ -256,7 +257,7 @@ public class FoldingCell: UITableViewCell {
 			rotatedView.layer.transform   = rotatedView.transform3d()
 			
 			rotatedView.addSubview(imageView)
-			animationView?.addSubview(rotatedView)
+			animationView.addSubview(rotatedView)
 			rotatedView.frame = CGRect(x: imageView.frame.origin.x, y: forgSize.height, width: contSize.width, height: forgSize.height)
 			
 			// added other views
@@ -282,7 +283,7 @@ public class FoldingCell: UITableViewCell {
 				rotatedView.addSubview(imageView)
 				rotatedView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 0)
 				rotatedView.layer.transform = rotatedView.transform3d()
-				animationView?.addSubview(rotatedView)
+				animationView.addSubview(rotatedView)
 				rotatedView.frame = CGRect(x: 0, y: yPosition, width: rotatedView.bounds.size.width, height: itemHeight)
 				rotatedView.tag = tag
 				
@@ -295,14 +296,14 @@ public class FoldingCell: UITableViewCell {
 			if let animationView = self.animationView {
 				
 				// added back view
-				var previusView: RotatedView?
+				var previousView: RotatedView?
 				
 				for case let contener as RotatedView in animationView.subviews.sort({ $0.tag < $1.tag })
 					
 					where contener.tag > 0 && contener.tag < animationView.subviews.count {
 						
-						previusView?.addBackView(contener.bounds.size.height, color: backViewColor)
-						previusView = contener
+						previousView?.addBackView(contener.bounds.size.height, color: backViewColor)
+						previousView = contener
 				}
 			}
 			
