@@ -10,16 +10,18 @@ import UIKit
 
 class DemoCell: FoldingCell {
     
-    override func awakeFromNib() {
+    override func initialise() {
         
-        foregroundView.layer.cornerRadius = 10
-        foregroundView.layer.masksToBounds = true
+        if let foregroundView = foregroundView {
+            
+            foregroundView.layer.cornerRadius = 10
+            foregroundView.layer.masksToBounds = true
+        }
         
-        
-        super.awakeFromNib()
+        super.initialise()
     }
     
-    override func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval {
+    override func animationDuration(itemIndex:NSInteger, type:AnimationType) -> NSTimeInterval {
      
         let durations = [0.26, 0.2, 0.2]
         return durations[itemIndex]

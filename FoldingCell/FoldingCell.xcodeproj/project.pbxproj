@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A26F0F71C7B7880002026E4 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A26F0F61C7B7880002026E4 /* FoldingCell.swift */; };
+		0A26F0F91C7B7A8B002026E4 /* MainNoNibTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A26F0F81C7B7A8B002026E4 /* MainNoNibTableViewController.swift */; };
 		847A58081C294F750028FB84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A58071C294F750028FB84 /* AppDelegate.swift */; };
 		847A580D1C294F750028FB84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847A580B1C294F750028FB84 /* Main.storyboard */; };
 		847A580F1C294F750028FB84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 847A580E1C294F750028FB84 /* Assets.xcassets */; };
 		847A58121C294F750028FB84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847A58101C294F750028FB84 /* LaunchScreen.storyboard */; };
-		847A581B1C294FAB0028FB84 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A581A1C294FAB0028FB84 /* FoldingCell.swift */; };
 		847A581F1C29500B0028FB84 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A581E1C29500B0028FB84 /* MainTableViewController.swift */; };
-		848B463B1C56458C00D49B45 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A581A1C294FAB0028FB84 /* FoldingCell.swift */; };
 		8498513F1C5639F9006FA400 /* FoldingCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498513E1C5639F9006FA400 /* FoldingCellTests.swift */; };
 		8499F5DD1C2A83F70027D5D2 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8499F5D31C2A83F70027D5D2 /* OpenSans-Bold.ttf */; };
 		8499F5DE1C2A83F70027D5D2 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8499F5D41C2A83F70027D5D2 /* OpenSans-BoldItalic.ttf */; };
@@ -52,6 +52,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A26F0F61C7B7880002026E4 /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
+		0A26F0F81C7B7A8B002026E4 /* MainNoNibTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNoNibTableViewController.swift; sourceTree = "<group>"; };
 		840B984B1C33FE660081B926 /* FoldingCellFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldingCellFramework.h; sourceTree = "<group>"; };
 		840B984D1C33FE660081B926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		847A58041C294F750028FB84 /* FoldingCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoldingCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +62,6 @@
 		847A580E1C294F750028FB84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		847A58111C294F750028FB84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		847A58131C294F750028FB84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		847A581A1C294FAB0028FB84 /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
 		847A581E1C29500B0028FB84 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		8498513C1C5639F9006FA400 /* FoldingCellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoldingCellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8498513E1C5639F9006FA400 /* FoldingCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingCellTests.swift; sourceTree = "<group>"; };
@@ -130,6 +131,7 @@
 				847A58191C294FAB0028FB84 /* FoldingCell */,
 				8499F5D21C2A83D90027D5D2 /* Fonts */,
 				847A581E1C29500B0028FB84 /* MainTableViewController.swift */,
+				0A26F0F81C7B7A8B002026E4 /* MainNoNibTableViewController.swift */,
 				84CDB1591C2D416400FCD7C8 /* DemoCell.swift */,
 				847A58071C294F750028FB84 /* AppDelegate.swift */,
 				847A580B1C294F750028FB84 /* Main.storyboard */,
@@ -143,7 +145,7 @@
 		847A58191C294FAB0028FB84 /* FoldingCell */ = {
 			isa = PBXGroup;
 			children = (
-				847A581A1C294FAB0028FB84 /* FoldingCell.swift */,
+				0A26F0F61C7B7880002026E4 /* FoldingCell.swift */,
 			);
 			path = FoldingCell;
 			sourceTree = "<group>";
@@ -288,9 +290,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				847A58081C294F750028FB84 /* AppDelegate.swift in Sources */,
+				0A26F0F91C7B7A8B002026E4 /* MainNoNibTableViewController.swift in Sources */,
 				847A581F1C29500B0028FB84 /* MainTableViewController.swift in Sources */,
 				84CDB15A1C2D416400FCD7C8 /* DemoCell.swift in Sources */,
-				847A581B1C294FAB0028FB84 /* FoldingCell.swift in Sources */,
+				0A26F0F71C7B7880002026E4 /* FoldingCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,7 +302,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8498513F1C5639F9006FA400 /* FoldingCellTests.swift in Sources */,
-				848B463B1C56458C00D49B45 /* FoldingCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
