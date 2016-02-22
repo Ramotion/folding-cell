@@ -40,6 +40,8 @@ public class FoldingCell: UITableViewCell {
 	@IBInspectable public var itemCount: NSInteger = 2 //count of folding
 	@IBInspectable public var backViewColor: UIColor = .brownColor()
 	
+    private var cornerRadius: CGFloat = 0
+    
 	private var animationView: UIView?
 	
 	private var animationItemViews: [RotatedView]?
@@ -86,6 +88,7 @@ public class FoldingCell: UITableViewCell {
 			
 			if let dataSource = dataSource {
 				
+                cornerRadius = dataSource.cornerRadius(self)
 				backViewColor = dataSource.backViewBackgroundColor(self)
 				itemCount = dataSource.numberOfFoldedItems(self)
 				
@@ -93,7 +96,9 @@ public class FoldingCell: UITableViewCell {
 				
 				let foregroundView = dataSource.foregroundView(self)
 				foregroundView.translatesAutoresizingMaskIntoConstraints = false
-				
+				foregroundView.layer.cornerRadius = cornerRadius
+                foregroundView.layer.masksToBounds = true
+                
 				let containerView = createNewContainerView()
 				
 				var cummulHeight: CGFloat = 0
@@ -109,8 +114,12 @@ public class FoldingCell: UITableViewCell {
 					let height = dataSource.heightForFoldedItem(self, index: i)
 					
 					let hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[view]|", options: zero, metrics: ["height" : height], views: ["view" : foldedItem])
-					let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-top-[view(==height)]", options: zero, metrics: ["height" : height, "top" : cummulHeight], views: ["view" : foldedItem])
+					let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-top-[view]", options: zero, metrics: ["top" : cummulHeight], views: ["view" : foldedItem])
 					
+                    let heightConstraint = NSLayoutConstraint(item: foldedItem, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1, constant: height)
+                    
+                    foldedItem.addConstraint(heightConstraint)
+                    
 					containerView.addConstraints(hConstraints)
 					containerView.addConstraints(vConstraints)
 					
@@ -128,13 +137,17 @@ public class FoldingCell: UITableViewCell {
 				
 				var hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[foreground]|", options: zero, metrics: nil, views: ["foreground" : foregroundView])
 				var vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-top-[foreground(==height)]", options: zero, metrics: ["height" : height, "top" : height/2], views: ["foreground" : foregroundView])
-				
+                
 				contentView.addConstraints(hConstraints)
 				contentView.addConstraints(vConstraints)
 				
 				hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[container]|", options: zero, metrics: nil, views: ["container" : containerView])
-				vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[container(==height)]", options: zero, metrics: ["height" : cummulHeight], views: ["container" : containerView])
+				vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[container]", options: zero, metrics: nil, views: ["container" : containerView])
 				
+                let heightConstraint = NSLayoutConstraint(item: containerView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1, constant: cummulHeight)
+                
+                containerView.addConstraint(heightConstraint)
+                
 				contentView.addConstraints(hConstraints)
 				contentView.addConstraints(vConstraints)
 			}
@@ -177,9 +190,7 @@ public class FoldingCell: UITableViewCell {
 		}
 		
 		if let containerView = containerView, foregroundView = foregroundView {
-			
-			
-			
+
 			containerView.alpha = 0;
 			
 			foregroundView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
@@ -257,11 +268,11 @@ public class FoldingCell: UITableViewCell {
 		
 		if let containerView = containerView, foregroundView = foregroundView {
 			
-			let anAnimationView = UIView(frame: containerView.frame)
-			anAnimationView.layer.cornerRadius = foregroundView.layer.cornerRadius
-			anAnimationView.backgroundColor = UIColor.clearColor()
-			anAnimationView.translatesAutoresizingMaskIntoConstraints = false
-			contentView.addSubview(anAnimationView)
+			let animationView = UIView(frame: containerView.frame)
+			animationView.layer.cornerRadius = foregroundView.layer.cornerRadius
+			animationView.backgroundColor = UIColor.clearColor()
+			animationView.translatesAutoresizingMaskIntoConstraints = false
+			contentView.addSubview(animationView)
 			
 			// copy constraints from containerView
 			var newConstraints = [NSLayoutConstraint]()
@@ -270,7 +281,7 @@ public class FoldingCell: UITableViewCell {
 				
 				if let item = constraint.firstItem as? UIView where item == containerView {
 					
-					let newConstraint = NSLayoutConstraint( item: anAnimationView, attribute: constraint.firstAttribute,
+					let newConstraint = NSLayoutConstraint( item: animationView, attribute: constraint.firstAttribute,
 						relatedBy: constraint.relation, toItem: constraint.secondItem, attribute: constraint.secondAttribute,
 						multiplier: constraint.multiplier, constant: constraint.constant)
 					
@@ -279,7 +290,7 @@ public class FoldingCell: UITableViewCell {
 				} else if let item: UIView = constraint.secondItem as? UIView where item == containerView {
 					
 					let newConstraint = NSLayoutConstraint(item: constraint.firstItem, attribute: constraint.firstAttribute,
-						relatedBy: constraint.relation, toItem: anAnimationView, attribute: constraint.secondAttribute,
+						relatedBy: constraint.relation, toItem: animationView, attribute: constraint.secondAttribute,
 						multiplier: constraint.multiplier, constant: constraint.constant)
 					
 					newConstraints.append(newConstraint)
@@ -288,19 +299,19 @@ public class FoldingCell: UITableViewCell {
 			
 			contentView.addConstraints(newConstraints)
 			
-			for constraint in containerView.constraints { // added height constraint
+			for containerConstraint in containerView.constraints { // added height constraint
 				
-				if constraint.firstAttribute == .Height {
+				if containerConstraint.firstAttribute == .Height {
 					
-					let newConstraint = NSLayoutConstraint(item: anAnimationView, attribute: constraint.firstAttribute,
-						relatedBy: constraint.relation, toItem: nil, attribute: constraint.secondAttribute,
-						multiplier: constraint.multiplier, constant: constraint.constant)
-					
-					anAnimationView.addConstraint(newConstraint)
+					let newConstraint = NSLayoutConstraint(item: animationView, attribute: containerConstraint.firstAttribute,
+						relatedBy: containerConstraint.relation, toItem: nil, attribute: containerConstraint.secondAttribute,
+						multiplier: containerConstraint.multiplier, constant: containerConstraint.constant)
+					                    
+					animationView.addConstraint(newConstraint)
 				}
 			}
 			
-			animationView = anAnimationView
+			self.animationView = animationView
 		}
 	}
 	

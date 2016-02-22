@@ -29,7 +29,6 @@ class MainNoNibTableViewController: UITableViewController {
 		tableView.registerClass(DemoCell.self, forCellReuseIdentifier: "NoNibCell")
 		tableView.separatorStyle = .None
 		
-		kRowsCount = 1
 		kOpenCellHeight = 0
 		
 		for i in 0..<4 {
@@ -56,7 +55,7 @@ class MainNoNibTableViewController: UITableViewController {
 		let cell = tableView.dequeueReusableCellWithIdentifier("NoNibCell", forIndexPath: indexPath) as! DemoCell
 		
 		cell.dataSource = self
-		
+        
 		return cell
 	}
 	
@@ -130,7 +129,7 @@ extension MainNoNibTableViewController : FoldingCellDataSource {
 	
 	func heightForForegroundView(cell: FoldingCell?) -> CGFloat {
 		
-		return 180
+		return 100
 	}
 	
 	func foregroundView(cell: FoldingCell) -> RotatedView {
@@ -153,4 +152,9 @@ extension MainNoNibTableViewController : FoldingCellDataSource {
 		
 		return 100
 	}
+    
+    func cornerRadius(cell: FoldingCell?) -> CGFloat {
+        
+        return 10
+    }
 }

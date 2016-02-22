@@ -33,4 +33,6 @@ public protocol FoldingCellDataSource: NSObjectProtocol {
 	
 	func foldedItem(cell: FoldingCell, index: Int) -> RotatedView
 	func heightForFoldedItem(cell: FoldingCell?, index: Int) -> CGFloat
+    
+    func cornerRadius(cell: FoldingCell?) -> CGFloat
 }
