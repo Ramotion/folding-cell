@@ -35,4 +35,5 @@ public protocol FoldingCellDataSource: NSObjectProtocol {
 	func heightForFoldedItem(cell: FoldingCell?, index: Int) -> CGFloat
     
     func cornerRadius(cell: FoldingCell?) -> CGFloat
+    func edgeInsets(cell: FoldingCell?) -> UIEdgeInsets
 }

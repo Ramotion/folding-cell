@@ -92,6 +92,8 @@ public class FoldingCell: UITableViewCell {
 				backViewColor = dataSource.backViewBackgroundColor(self)
 				itemCount = dataSource.numberOfFoldedItems(self)
 				
+                let edge = dataSource.edgeInsets(self)
+                
 				let zero = NSLayoutFormatOptions(rawValue: 0)
 				
 				let foregroundView = dataSource.foregroundView(self)
@@ -133,16 +135,16 @@ public class FoldingCell: UITableViewCell {
 				contentView.addSubview(containerView)
 				
 				// constaints
-				let height = dataSource.heightForForegroundView(self)
+				let height = dataSource.heightForForegroundView(self) - edge.top - edge.bottom
 				
-				var hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[foreground]|", options: zero, metrics: nil, views: ["foreground" : foregroundView])
-				var vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-top-[foreground(==height)]", options: zero, metrics: ["height" : height, "top" : height/2], views: ["foreground" : foregroundView])
+                var hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-left-[foreground]-right-|", options: zero, metrics: ["left" : edge.left, "right" : edge.right], views: ["foreground" : foregroundView])
+				var vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-top-[foreground(==height)]", options: zero, metrics: ["height" : height, "top" : (height/2) + edge.top], views: ["foreground" : foregroundView])
                 
 				contentView.addConstraints(hConstraints)
 				contentView.addConstraints(vConstraints)
 				
-				hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[container]|", options: zero, metrics: nil, views: ["container" : containerView])
-				vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[container]", options: zero, metrics: nil, views: ["container" : containerView])
+				hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-left-[container]-right-|", options: zero, metrics: ["left" : edge.left, "right" : edge.right], views: ["container" : containerView])
+				vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-top-[container]", options: zero, metrics: ["top" : edge.top, "bottom" : edge.bottom], views: ["container" : containerView])
 				
                 let heightConstraint = NSLayoutConstraint(item: containerView, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .Height, multiplier: 1, constant: cummulHeight)
                 

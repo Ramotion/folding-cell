@@ -29,8 +29,10 @@ class MainNoNibTableViewController: UITableViewController {
 		tableView.registerClass(DemoCell.self, forCellReuseIdentifier: "NoNibCell")
 		tableView.separatorStyle = .None
 		
-		kOpenCellHeight = 0
-		
+        let edge = edgeInsets(nil)
+        
+        kOpenCellHeight = edge.top + edge.bottom
+        
 		for i in 0..<4 {
 		
 			kOpenCellHeight += heightForFoldedItem(nil, index: i)
@@ -150,11 +152,21 @@ extension MainNoNibTableViewController : FoldingCellDataSource {
 	
 	func heightForFoldedItem(cell: FoldingCell?, index: Int) -> CGFloat {
 		
+        if index == 0 {
+        
+            return 140
+        }
+        
 		return 100
 	}
     
     func cornerRadius(cell: FoldingCell?) -> CGFloat {
         
         return 10
+    }
+    
+    func edgeInsets(cell: FoldingCell?) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 0, left: 20, bottom: 20, right: 20)
     }
 }
