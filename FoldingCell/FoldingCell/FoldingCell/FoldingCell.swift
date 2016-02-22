@@ -23,148 +23,176 @@
 
 import UIKit
 
-public protocol FoldingCellDataSource: NSObjectProtocol {
-
-	func numberOfFoldedItems(cell: FoldingCell) -> Int
-	func backViewBackgroundColor(cell: FoldingCell) -> UIColor
-    
-    func foregroundView(cell: FoldingCell) -> RotatedView
-    func foldedItem(cell: FoldingCell, index: Int) -> RotatedView
-    func heightForFoldedItem(cell: FoldingCell, index: Int) -> CGFloat
-}
+public typealias CompletionHandler = () -> Void
 
 public class FoldingCell: UITableViewCell {
 	
-	public typealias CompletionHandler = () -> Void
+	public weak var dataSource: FoldingCellDataSource? {
+		
+		didSet {
+			
+			initialise()
+		}
+	}
 	
 	@IBOutlet weak public var containerView: UIView?
 	@IBOutlet weak public var foregroundView: RotatedView?
-	
 	@IBInspectable public var itemCount: NSInteger = 2 //count of folding
-	
-	@IBInspectable public var backViewColor: UIColor = UIColor.brownColor()
-	
-    public weak var dataSource: FoldingCellDataSource? {
-    
-        didSet {
-        
-            initialise()
-        }
-    }
+	@IBInspectable public var backViewColor: UIColor = .brownColor()
 	
 	private var animationView: UIView?
 	
 	private var animationItemViews: [RotatedView]?
 	
-    private var fromNib = false
-    private var initialised = false
-    
+	private var fromNib = false
+	private var initialised = false
+	
 	public enum AnimationType {
 		
 		case Open
 		case Close
 	}
-		
+	
 	// MARK: - life cicle
 	
 	override public func awakeFromNib() {
 		
 		super.awakeFromNib()
 		
-        fromNib = true
-        
+		fromNib = true
+		
 		initialise()
 	}
 	
-    private func createNewContainerView() -> UIView {
-    
-        let containerView = UIView(frame: .zero)
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.alpha = 0
-        
-        return containerView
-    }
-    
+	private func createNewContainerView() -> UIView {
+		
+		let containerView = UIView(frame: .zero)
+		containerView.translatesAutoresizingMaskIntoConstraints = false
+		containerView.alpha = 0
+		
+		return containerView
+	}
+	
 	public func initialise() {
 		
-        if initialised {
-        
-            return
-        }
-        
+		if initialised {
+			
+			return
+		}
+		
 		selectionStyle = .None
-    
-        if !fromNib {
-        
-            if let dataSource = dataSource {
-            
-                itemCount = dataSource.numberOfFoldedItems(self)
-                foregroundView = dataSource.foregroundView(self)
-                
-                containerView = createNewContainerView()
-                
-                for i in 0..<itemCount {
-                
-                    let foldedItem = dataSource.foldedItem(self, index: i)
-                    foldedItem.tag = i
-                    containerView?.addSubview(foldedItem)
-                    
-                    
-                }
-            }
-        }
-        
-        configureDefaultState()
-        
-        if let containerView = containerView, foregroundView = foregroundView {
-            
-            containerView.layer.cornerRadius = foregroundView.layer.cornerRadius
-            containerView.layer.masksToBounds = true
-        }
-        
-        initialised = true
+		
+		if !fromNib {
+			
+			if let dataSource = dataSource {
+				
+				backViewColor = dataSource.backViewBackgroundColor(self)
+				itemCount = dataSource.numberOfFoldedItems(self)
+				
+				let zero = NSLayoutFormatOptions(rawValue: 0)
+				
+				let foregroundView = dataSource.foregroundView(self)
+				foregroundView.translatesAutoresizingMaskIntoConstraints = false
+				
+				let containerView = createNewContainerView()
+				
+				var cummulHeight: CGFloat = 0
+				
+				for i in 0..<itemCount {
+					
+					let foldedItem = dataSource.foldedItem(self, index: i)
+					foldedItem.translatesAutoresizingMaskIntoConstraints = false
+					foldedItem.tag = i
+					
+					containerView.addSubview(foldedItem)
+					
+					let height = dataSource.heightForFoldedItem(self, index: i)
+					
+					let hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[view]|", options: zero, metrics: ["height" : height], views: ["view" : foldedItem])
+					let vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-top-[view(==height)]", options: zero, metrics: ["height" : height, "top" : cummulHeight], views: ["view" : foldedItem])
+					
+					containerView.addConstraints(hConstraints)
+					containerView.addConstraints(vConstraints)
+					
+					cummulHeight += height
+				}
+				
+				self.containerView = containerView
+				self.foregroundView = foregroundView
+				
+				contentView.addSubview(foregroundView)
+				contentView.addSubview(containerView)
+				
+				// constaints
+				let height = dataSource.heightForForegroundView(self)
+				
+				var hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[foreground]|", options: zero, metrics: nil, views: ["foreground" : foregroundView])
+				var vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-top-[foreground(==height)]", options: zero, metrics: ["height" : height, "top" : height/2], views: ["foreground" : foregroundView])
+				
+				contentView.addConstraints(hConstraints)
+				contentView.addConstraints(vConstraints)
+				
+				hConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|[container]|", options: zero, metrics: nil, views: ["container" : containerView])
+				vConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[container(==height)]", options: zero, metrics: ["height" : cummulHeight], views: ["container" : containerView])
+				
+				contentView.addConstraints(hConstraints)
+				contentView.addConstraints(vConstraints)
+			}
+		}
+		
+		configureDefaultState()
+		
+		if let containerView = containerView, foregroundView = foregroundView {
+			
+			containerView.layer.cornerRadius = foregroundView.layer.cornerRadius
+			containerView.layer.masksToBounds = true
+		}
+		
+		initialised = true
 	}
 	
 	// MARK: - configure
 	
 	func configureDefaultState() {
 		
-        if fromNib {
-            
-            let foregroundTopConstraint = contentView.constraints.filter{ $0.identifier == "ForegroundViewTop"}.first
-            let containerViewTopConstraint = contentView.constraints.filter{ $0.identifier == "ContainerViewTop"}.first
-            
-            guard let foregroundConstraint = foregroundTopConstraint else {
-                
-                fatalError("set identifier: ForegroundViewTop")
-            }
-            guard let containerConstraint = containerViewTopConstraint else {
-                
-                fatalError("set identifier: ContainerViewTop")
-            }
-            
-            if let foregroundView = foregroundView {
-                
-                containerConstraint.constant = foregroundConstraint.constant
-                foregroundConstraint.constant += foregroundView.bounds.height / 2
-            }
-        }
-        
+		if fromNib {
+			
+			let foregroundTopConstraint = contentView.constraints.filter{ $0.identifier == "ForegroundViewTop"}.first
+			let containerViewTopConstraint = contentView.constraints.filter{ $0.identifier == "ContainerViewTop"}.first
+			
+			guard let foregroundConstraint = foregroundTopConstraint else {
+				
+				fatalError("set identifier: ForegroundViewTop")
+			}
+			guard let containerConstraint = containerViewTopConstraint else {
+				
+				fatalError("set identifier: ContainerViewTop")
+			}
+			
+			if let foregroundView = foregroundView {
+				
+				containerConstraint.constant = foregroundConstraint.constant
+				foregroundConstraint.constant += foregroundView.bounds.height / 2
+			}
+		}
+		
 		if let containerView = containerView, foregroundView = foregroundView {
 			
+			
+			
 			containerView.alpha = 0;
-            
+			
 			foregroundView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
 			foregroundView.layer.transform = foregroundView.transform3d()
 			
 			createAnimationView();
-            
+			
 			contentView.bringSubviewToFront(foregroundView)
 		}
 	}
 	
 	func createAnimationItemView() -> [RotatedView] {
-				
+		
 		guard let animationView = animationView else {
 			
 			fatalError()
@@ -177,22 +205,22 @@ public class FoldingCell: UITableViewCell {
 			items.append(foregroundView)
 		}
 		
-        var rotatedViews = [RotatedView]()
-
-        for case let itemView as RotatedView in animationView.subviews.filter({$0 is RotatedView}).sort({ $0.tag < $1.tag }) {
-            
-            rotatedViews.append(itemView)
-            
-            if let backView = itemView.backView {
-                
-                rotatedViews.append(backView)
-            }
-        }
-        
+		var rotatedViews = [RotatedView]()
+		
+		for case let itemView as RotatedView in animationView.subviews.filter({$0 is RotatedView}).sort({ $0.tag < $1.tag }) {
+			
+			rotatedViews.append(itemView)
+			
+			if let backView = itemView.backView {
+				
+				rotatedViews.append(backView)
+			}
+		}
+		
 		items.appendContentsOf(rotatedViews)
 		
 		return items
-    }
+	}
 	
 	func configureAnimationItems(animationType: AnimationType) {
 		
@@ -233,12 +261,12 @@ public class FoldingCell: UITableViewCell {
 			anAnimationView.layer.cornerRadius = foregroundView.layer.cornerRadius
 			anAnimationView.backgroundColor = UIColor.clearColor()
 			anAnimationView.translatesAutoresizingMaskIntoConstraints = false
-			self.contentView.addSubview(anAnimationView)
+			contentView.addSubview(anAnimationView)
 			
 			// copy constraints from containerView
 			var newConstraints = [NSLayoutConstraint]()
 			
-			for constraint in self.contentView.constraints {
+			for constraint in contentView.constraints {
 				
 				if let item = constraint.firstItem as? UIView where item == containerView {
 					
@@ -258,7 +286,7 @@ public class FoldingCell: UITableViewCell {
 				}
 			}
 			
-			self.contentView.addConstraints(newConstraints)
+			contentView.addConstraints(newConstraints)
 			
 			for constraint in containerView.constraints { // added height constraint
 				
@@ -389,9 +417,9 @@ public class FoldingCell: UITableViewCell {
 		}
 	}
 	
-	public func isAnimating()->Bool {
+	public func isAnimating() -> Bool {
 		
-		guard let animationItemViews = self.animationItemViews else {
+		guard let animationItemViews = animationItemViews else {
 			
 			return false
 		}
@@ -442,7 +470,7 @@ public class FoldingCell: UITableViewCell {
 			addImageItemsToAnimationView()
 		}
 		
-		guard let animationView = self.animationView else {
+		guard let animationView = animationView else {
 			
 			return
 		}
@@ -459,9 +487,10 @@ public class FoldingCell: UITableViewCell {
 			var from: CGFloat         = 0.0;
 			var to: CGFloat           = CGFloat(-M_PI / 2)
 			var hidden                = true
+			
 			configureAnimationItems(.Open)
 			
-			guard let animationItemViews = self.animationItemViews else {
+			guard let animationItemViews = animationItemViews else {
 				
 				return
 			}
@@ -493,7 +522,7 @@ public class FoldingCell: UITableViewCell {
 			
 			dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
 				
-				self.animationView?.alpha = 0
+				animationView.alpha = 0
 				containerView.alpha  = 1
 				completion?()
 			}
@@ -507,7 +536,7 @@ public class FoldingCell: UITableViewCell {
 			addImageItemsToAnimationView()
 		}
 		
-		guard let animationItemViews = self.animationItemViews else {
+		guard let animationItemViews = animationItemViews else {
 			
 			fatalError()
 		}
@@ -545,9 +574,9 @@ public class FoldingCell: UITableViewCell {
 				delay += durations[index]
 			}
 			
-			dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+			if let animationView  = animationView {
 				
-				if let animationView  = self.animationView {
+				dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(delay * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
 					
 					animationView.alpha = 0
 				}
@@ -555,7 +584,7 @@ public class FoldingCell: UITableViewCell {
 				completion?()
 			}
 			
-			if let animationView = self.animationView {
+			if let animationView = animationView {
 				
 				let firstItemView = animationView.subviews.filter{ $0.tag == 0 }.first
 				
@@ -573,118 +602,5 @@ public class FoldingCell: UITableViewCell {
 				}
 			}
 		}
-	}
-}
-
-
-// MARK: RotatedView
-
-public class RotatedView: UIView {
-	
-	var hiddenAfterAnimation = false
-	var backView: RotatedView?
-	
-	func addBackView(height: CGFloat, color:UIColor) {
-		
-		let view                                       = RotatedView(frame: CGRect.zero)
-		view.backgroundColor                           = color
-		view.layer.anchorPoint                         = CGPoint.init(x: 0.5, y: 1)
-		view.layer.transform                           = view.transform3d()
-		view.translatesAutoresizingMaskIntoConstraints = false
-		
-		addSubview(view)
-		backView = view
-		
-		view.addConstraint(NSLayoutConstraint(item: view, attribute: .Height, relatedBy: .Equal, toItem: nil,attribute: .Height,
-			multiplier: 1, constant: height))
-		
-		self.addConstraints([
-			NSLayoutConstraint(item: view, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1,
-				constant: self.bounds.size.height - height + height / 2),
-			NSLayoutConstraint(item: view, attribute: .Leading, relatedBy: .Equal, toItem: self, attribute: .Leading,
-				multiplier: 1, constant: 0),
-			NSLayoutConstraint(item: view, attribute: .Trailing, relatedBy: .Equal, toItem: self, attribute: .Trailing,
-				multiplier: 1, constant: 0)
-			])
-	}
-}
-
-
-extension RotatedView {
-	
-	func rotatedX(angle : CGFloat) {
-		
-		var allTransofrom    = CATransform3DIdentity;
-		let rotateTransform  = CATransform3DMakeRotation(angle, 1, 0, 0)
-		allTransofrom        = CATransform3DConcat(allTransofrom, rotateTransform)
-		allTransofrom        = CATransform3DConcat(allTransofrom, transform3d())
-		layer.transform = allTransofrom
-	}
-	
-	func transform3d() -> CATransform3D {
-		
-		var transform = CATransform3DIdentity
-		transform.m34 = 2.5 / -2000
-		
-		return transform
-	}
-	
-	// MARK: animations
-	
-	func foldingAnimation(timing: String, from: CGFloat, to: CGFloat, duration: NSTimeInterval, delay:NSTimeInterval, hidden:Bool) {
-		
-		let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation.x")
-		rotateAnimation.timingFunction      = CAMediaTimingFunction(name: timing)
-		rotateAnimation.fromValue           = (from)
-		rotateAnimation.toValue             = (to)
-		rotateAnimation.duration            = duration
-		rotateAnimation.delegate            = self;
-		rotateAnimation.fillMode            = kCAFillModeForwards
-		rotateAnimation.removedOnCompletion = false;
-		rotateAnimation.beginTime           = CACurrentMediaTime() + delay
-		
-		self.hiddenAfterAnimation = hidden
-		
-		self.layer.addAnimation(rotateAnimation, forKey: "rotation.x")
-	}
-	
-	override public func animationDidStart(anim: CAAnimation) {
-		
-		layer.shouldRasterize = true
-		alpha = 1
-	}
-	
-	override public func animationDidStop(anim: CAAnimation, finished flag: Bool) {
-		
-		if hiddenAfterAnimation {
-			
-			alpha = 0
-		}
-		
-		layer.removeAllAnimations()
-		layer.shouldRasterize = false
-		rotatedX(CGFloat(0))
-	}
-}
-
-extension UIView {
-	
-	func pb_takeSnapshot(frame: CGRect) -> UIImage? {
-		
-		UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0)
-		
-		let context = UIGraphicsGetCurrentContext()
-		CGContextTranslateCTM(context, frame.origin.x * -1, frame.origin.y * -1)
-		
-		guard let currentContext = UIGraphicsGetCurrentContext() else {
-			
-			return nil
-		}
-		
-		layer.renderInContext(currentContext)
-		let image = UIGraphicsGetImageFromCurrentImageContext()
-		UIGraphicsEndImageContext()
-		
-		return image
 	}
 }

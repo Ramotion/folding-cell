@@ -28,24 +28,27 @@ class MainTableViewController: UITableViewController {
     let kCloseCellHeight: CGFloat = 179
     let kOpenCellHeight: CGFloat = 488
 
-    let kRowsCount = 10
+    var kRowsCount = 10
     
     var cellHeights = [CGFloat]()
-
+	
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        createCellHeightsArray()
-        
-        tableView.registerClass(DemoCell.self, forCellReuseIdentifier: "NoNibCell")
-        
-        if let image = UIImage(named: "background") {
-            
-            self.tableView.backgroundColor = UIColor(patternImage: image)
-        }
+		initialize()
     }
-    
+	
+	func initialize() {
+	
+		createCellHeightsArray()
+		
+		if let image = UIImage(named: "background") {
+			
+			self.tableView.backgroundColor = UIColor(patternImage: image)
+		}
+	}
+	
     // MARK: configure
     func createCellHeightsArray() {
         
@@ -59,7 +62,7 @@ class MainTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 10
+        return kRowsCount
     }
 
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
