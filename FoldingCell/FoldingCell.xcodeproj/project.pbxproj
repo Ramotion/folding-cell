@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A26F0F11C7B74C5002026E4 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A26F0F01C7B74C5002026E4 /* Extensions.swift */; };
-		0A26F0F31C7B756F002026E4 /* RotatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A26F0F21C7B756F002026E4 /* RotatedView.swift */; };
-		0A26F0F51C7B75CB002026E4 /* FoldingCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A26F0F41C7B75CB002026E4 /* FoldingCellDataSource.swift */; };
 		0A26F0F71C7B7880002026E4 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A26F0F61C7B7880002026E4 /* FoldingCell.swift */; };
 		0A26F0F91C7B7A8B002026E4 /* MainNoNibTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A26F0F81C7B7A8B002026E4 /* MainNoNibTableViewController.swift */; };
 		847A58081C294F750028FB84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A58071C294F750028FB84 /* AppDelegate.swift */; };
@@ -55,9 +52,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0A26F0F01C7B74C5002026E4 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		0A26F0F21C7B756F002026E4 /* RotatedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RotatedView.swift; sourceTree = "<group>"; };
-		0A26F0F41C7B75CB002026E4 /* FoldingCellDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCellDataSource.swift; sourceTree = "<group>"; };
 		0A26F0F61C7B7880002026E4 /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
 		0A26F0F81C7B7A8B002026E4 /* MainNoNibTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNoNibTableViewController.swift; sourceTree = "<group>"; };
 		840B984B1C33FE660081B926 /* FoldingCellFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldingCellFramework.h; sourceTree = "<group>"; };
@@ -152,9 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				0A26F0F61C7B7880002026E4 /* FoldingCell.swift */,
-				0A26F0F41C7B75CB002026E4 /* FoldingCellDataSource.swift */,
-				0A26F0F01C7B74C5002026E4 /* Extensions.swift */,
-				0A26F0F21C7B756F002026E4 /* RotatedView.swift */,
 			);
 			path = FoldingCell;
 			sourceTree = "<group>";
@@ -298,12 +289,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A26F0F11C7B74C5002026E4 /* Extensions.swift in Sources */,
 				847A58081C294F750028FB84 /* AppDelegate.swift in Sources */,
-				0A26F0F31C7B756F002026E4 /* RotatedView.swift in Sources */,
 				0A26F0F91C7B7A8B002026E4 /* MainNoNibTableViewController.swift in Sources */,
 				847A581F1C29500B0028FB84 /* MainTableViewController.swift in Sources */,
-				0A26F0F51C7B75CB002026E4 /* FoldingCellDataSource.swift in Sources */,
 				84CDB15A1C2D416400FCD7C8 /* DemoCell.swift in Sources */,
 				0A26F0F71C7B7880002026E4 /* FoldingCell.swift in Sources */,
 			);

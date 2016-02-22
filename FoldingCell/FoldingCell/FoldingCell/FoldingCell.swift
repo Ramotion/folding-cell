@@ -25,6 +25,21 @@ import UIKit
 
 public typealias CompletionHandler = () -> Void
 
+public protocol FoldingCellDataSource: NSObjectProtocol {
+    
+    func numberOfFoldedItems(cell: FoldingCell) -> Int
+    func backViewBackgroundColor(cell: FoldingCell) -> UIColor
+    
+    func foregroundView(cell: FoldingCell) -> RotatedView
+    func heightForForegroundView(cell: FoldingCell?) -> CGFloat
+    
+    func foldedItem(cell: FoldingCell, index: Int) -> RotatedView
+    func heightForFoldedItem(cell: FoldingCell?, index: Int) -> CGFloat
+    
+    func cornerRadius(cell: FoldingCell?) -> CGFloat
+    func edgeInsets(cell: FoldingCell?) -> UIEdgeInsets
+}
+
 public class FoldingCell: UITableViewCell {
 	
 	public weak var dataSource: FoldingCellDataSource? {
@@ -616,4 +631,118 @@ public class FoldingCell: UITableViewCell {
 			}
 		}
 	}
+}
+
+public class RotatedView: UIView {
+    
+    var hiddenAfterAnimation = false
+    var backView: RotatedView?
+    
+    func addBackView(height: CGFloat, color:UIColor) {
+        
+        let view                                       = RotatedView(frame: CGRect.zero)
+        view.backgroundColor                           = color
+        view.layer.anchorPoint                         = CGPoint.init(x: 0.5, y: 1)
+        view.layer.transform                           = view.transform3d()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(view)
+        backView = view
+        
+        view.addConstraint(NSLayoutConstraint(item: view, attribute: .Height, relatedBy: .Equal, toItem: nil,attribute: .Height,
+            multiplier: 1, constant: height))
+        
+        self.addConstraints([
+            NSLayoutConstraint(item: view, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Top, multiplier: 1,
+                constant: self.bounds.size.height - height + height / 2),
+            NSLayoutConstraint(item: view, attribute: .Leading, relatedBy: .Equal, toItem: self, attribute: .Leading,
+                multiplier: 1, constant: 0),
+            NSLayoutConstraint(item: view, attribute: .Trailing, relatedBy: .Equal, toItem: self, attribute: .Trailing,
+                multiplier: 1, constant: 0)
+            ])
+    }
+    
+    func rotatedX(angle : CGFloat) {
+        
+        var allTransofrom    = CATransform3DIdentity;
+        let rotateTransform  = CATransform3DMakeRotation(angle, 1, 0, 0)
+        allTransofrom        = CATransform3DConcat(allTransofrom, rotateTransform)
+        allTransofrom        = CATransform3DConcat(allTransofrom, transform3d())
+        layer.transform = allTransofrom
+    }
+    
+    func transform3d() -> CATransform3D {
+        
+        var transform = CATransform3DIdentity
+        transform.m34 = 2.5 / -2000
+        
+        return transform
+    }
+    
+    // MARK: animations
+    
+    func foldingAnimation(timing: String, from: CGFloat, to: CGFloat, duration: NSTimeInterval, delay:NSTimeInterval, hidden:Bool) {
+        
+        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation.x")
+        rotateAnimation.timingFunction      = CAMediaTimingFunction(name: timing)
+        rotateAnimation.fromValue           = (from)
+        rotateAnimation.toValue             = (to)
+        rotateAnimation.duration            = duration
+        rotateAnimation.delegate            = self;
+        rotateAnimation.fillMode            = kCAFillModeForwards
+        rotateAnimation.removedOnCompletion = false;
+        rotateAnimation.beginTime           = CACurrentMediaTime() + delay
+        
+        self.hiddenAfterAnimation = hidden
+        
+        self.layer.addAnimation(rotateAnimation, forKey: "rotation.x")
+    }
+    
+    override public func animationDidStart(anim: CAAnimation) {
+        
+        layer.shouldRasterize = true
+        alpha = 1
+    }
+    
+    override public func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+        
+        if hiddenAfterAnimation {
+            
+            alpha = 0
+        }
+        
+        layer.removeAllAnimations()
+        layer.shouldRasterize = false
+        rotatedX(CGFloat(0))
+    }
+}
+
+public extension UIView {
+    
+    func pb_takeSnapshot(frame: CGRect) -> UIImage? {
+        
+        UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0)
+        
+        let context = UIGraphicsGetCurrentContext()
+        CGContextTranslateCTM(context, frame.origin.x * -1, frame.origin.y * -1)
+        
+        guard let currentContext = UIGraphicsGetCurrentContext() else {
+            
+            return nil
+        }
+        
+        layer.renderInContext(currentContext)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+}
+
+internal extension UIColor {
+    
+    internal class func random() -> UIColor {
+        
+        return UIColor(red: CGFloat(arc4random_uniform(255))/255.0, green: CGFloat(arc4random_uniform(255))/255.0, blue: CGFloat(arc4random_uniform(255))/255.0, alpha: 1)
+    }
 }
