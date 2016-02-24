@@ -31,9 +31,9 @@ public class FoldingCell: UITableViewCell {
   @IBOutlet weak public var foregroundView: RotatedView!
   var animationView: UIView?
   
-  @IBInspectable var itemCount: NSInteger = 2 //count of folding
+  @IBInspectable public var itemCount: NSInteger = 2 //count of folding
   
-  @IBInspectable var backViewColor: UIColor = UIColor.brownColor()
+  @IBInspectable public var backViewColor: UIColor = UIColor.brownColor()
   
   var animationItemViews: [RotatedView]?
   
