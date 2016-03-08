@@ -94,7 +94,7 @@ class MainTableViewController: UITableViewController {
         } else {// close cell
             cellHeights[indexPath.row] = kCloseCellHeight
             cell.selectedAnimation(false, animated: true, completion: nil)
-            duration = 1.1
+            duration = 0.8
         }
         
         UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseOut, animations: { () -> Void in

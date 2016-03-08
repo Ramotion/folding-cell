@@ -1,12 +1,16 @@
+![header](./header.png)
 # FoldingCell
 [![CocoaPods](https://img.shields.io/cocoapods/p/FoldingCell.svg)](https://cocoapods.org/pods/FoldingCell)
 [![CocoaPods](https://img.shields.io/cocoapods/v/FoldingCell.svg)](http://cocoapods.org/pods/FoldingCell)
 [![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
 [![Travis](https://img.shields.io/travis/Ramotion/folding-cell.svg)](https://travis-ci.org/Ramotion/folding-cell)
+[![codebeat badge](https://codebeat.co/badges/6f67da5d-c416-4bac-9fb7-c2dc938feedc)](https://codebeat.co/projects/github-com-ramotion-folding-cell)
 
 [shot on dribbble](https://dribbble.com/shots/2121350-Delivery-Card):
 ![Animation](Screenshots/folding-cell.gif)
 
+
+The [iPhone mockup](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell) available [here](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell).
 ## Requirements
 
 - iOS 8.0+
@@ -18,7 +22,7 @@ Just add the FoldingCell.swift file to your project.
 
 or use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
-pod 'FoldingCell', '~> 0.6'
+pod 'FoldingCell', '~> 0.7.2'
 ```
     
 
@@ -47,7 +51,9 @@ property `containerView`. Add constraints from this view to the superview like i
 Your result should be something like this picture:
 ![1.3](/Tutorial-resources/1.3.png)
 
-4) Set ``` @IBInspectable var itemCount: NSInteger ``` property is a count of folding (it IBInspectable you can set in storyborad). range 2 or greater. Default value is 2
+[Demonstration adding constraints for foregroundView, containerView](https://vimeo.com/154954299)
+
+4) Set ``` @IBInspectable var itemCount: NSInteger ``` property is a count of folding (it IBInspectable you can set in storyboard). range 2 or greater. Default value is 2
 
 Ok, we've finished configuring the cell.
 
@@ -132,7 +138,7 @@ Ok, we've finished configuring the cell.
 
 ## Licence
 
-Adaptive tab bar is released under the MIT license.
+Folding cell is released under the MIT license.
 See [LICENSE](./LICENSE) for details.
 
 
