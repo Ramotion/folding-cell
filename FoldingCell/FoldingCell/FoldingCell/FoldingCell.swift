@@ -120,6 +120,7 @@ public class FoldingCell: UITableViewCell {
   }
   
   func createAnimationView() {
+    
     let anAnimationView = UIView(frame: containerView.frame)
     anAnimationView.layer.cornerRadius = foregroundView.layer.cornerRadius
     anAnimationView.backgroundColor = UIColor.clearColor()
@@ -154,9 +155,9 @@ public class FoldingCell: UITableViewCell {
         anAnimationView.addConstraint(newConstraint)
       }
     }
-    
     animationView = anAnimationView
   }
+
   
   func addImageItemsToAnimationView() {
     containerView.alpha = 1;
@@ -226,6 +227,16 @@ public class FoldingCell: UITableViewCell {
     animationItemViews = createAnimationItemView()
   }
   
+  private func removeImageItemsFromAnimationView() {
+    
+    guard let animationView = self.animationView else {
+      return
+    }
+
+    animationView.subviews.forEach({ $0.removeFromSuperview() })
+  }
+
+  
   // MARK: public
   
   public func selectedAnimation(isSelected: Bool, animated: Bool, completion: CompletionHandler?) {
@@ -288,9 +299,8 @@ public class FoldingCell: UITableViewCell {
   
   func openAnimation(completion completion: CompletionHandler?) {
     
-    if animationView?.subviews.count == 0 { // added animation items if need
-      addImageItemsToAnimationView()
-    }
+    removeImageItemsFromAnimationView()
+    addImageItemsToAnimationView()
     
     guard let animationView = self.animationView else {
       return
@@ -341,9 +351,8 @@ public class FoldingCell: UITableViewCell {
   
   func closeAnimation(completion completion: CompletionHandler?) {
     
-    if animationView?.subviews.count == 0 { // added animation items if need
-      addImageItemsToAnimationView()
-    }
+    removeImageItemsFromAnimationView()
+    addImageItemsToAnimationView()
     
     guard let animationItemViews = self.animationItemViews else {
       fatalError()
