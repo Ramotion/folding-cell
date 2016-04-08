@@ -20,6 +20,20 @@
                ReferencedContainer = "container:FoldingCell.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8498513B1C5639F9006FA400"
+               BuildableName = "FoldingCellTests.xctest"
+               BlueprintName = "FoldingCellTests"
+               ReferencedContainer = "container:FoldingCell.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -28,16 +42,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8498513B1C5639F9006FA400"
-               BuildableName = "FoldingCellTests.xctest"
-               BlueprintName = "FoldingCellTests"
-               ReferencedContainer = "container:FoldingCell.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
