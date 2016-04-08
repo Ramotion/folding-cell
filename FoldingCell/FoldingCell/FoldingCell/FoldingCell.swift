@@ -394,9 +394,9 @@ public class FoldingCell: UITableViewCell {
     
     if let animationView = self.animationView {
       let firstItemView = animationView.subviews.filter{$0.tag == 0}.first
-      firstItemView?.layer.masksToBounds = false
+      firstItemView?.layer.cornerRadius = 0
       if let durationLast = durations.last {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64((delay - durationLast * 1.5) * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64((delay - durationLast - durationLast / 2.0) * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) { () -> Void in
           firstItemView?.layer.cornerRadius = self.foregroundView.layer.cornerRadius
         }
       }
