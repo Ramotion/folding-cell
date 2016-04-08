@@ -14,7 +14,7 @@ The [iPhone mockup](https://store.ramotion.com/product/iphone-6-mockups?utm_sour
 ## Requirements
 
 - iOS 8.0+
-- Xcode 7.2
+- Xcode 7.3
 
 ## Installation
 
@@ -22,7 +22,7 @@ Just add the FoldingCell.swift file to your project.
 
 or use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
-pod 'FoldingCell', '~> 0.8.0'
+pod 'FoldingCell', '~> 0.8.1'
 ```
     
 
