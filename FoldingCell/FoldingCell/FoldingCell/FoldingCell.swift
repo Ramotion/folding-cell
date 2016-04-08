@@ -210,7 +210,7 @@ public class FoldingCell: UITableViewCell {
       rotatedView.tag = tag
       
       yPosition += itemHeight
-      tag++;
+      tag += 1;
     }
     
     containerView.alpha = 0;
