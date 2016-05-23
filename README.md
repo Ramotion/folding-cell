@@ -136,7 +136,7 @@ Ok, we've finished configuring the cell.
     }
 ```
 
-## Licence
+## License
 
 Folding cell is released under the MIT license.
 See [LICENSE](./LICENSE) for details.
