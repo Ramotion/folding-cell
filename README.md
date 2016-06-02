@@ -2,6 +2,7 @@
 # FoldingCell
 [![CocoaPods](https://img.shields.io/cocoapods/p/FoldingCell.svg)](https://cocoapods.org/pods/FoldingCell)
 [![CocoaPods](https://img.shields.io/cocoapods/v/FoldingCell.svg)](http://cocoapods.org/pods/FoldingCell)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Ramotion/folding-cell)
 [![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
 [![Travis](https://img.shields.io/travis/Ramotion/folding-cell.svg)](https://travis-ci.org/Ramotion/folding-cell)
 [![codebeat badge](https://codebeat.co/badges/6f67da5d-c416-4bac-9fb7-c2dc938feedc)](https://codebeat.co/projects/github-com-ramotion-folding-cell)
@@ -25,23 +26,11 @@ or use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
 pod 'FoldingCell', '~> 0.8.1'
 ```
-### Setting up with Carthage
 
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that automates the process of adding frameworks to your Cocoa application.
-
-You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
-
-```bash
-$ brew update
-$ brew install carthage
+or [Carthage](https://github.com/Carthage/Carthage) users can simply add Mantle to their `Cartfile`:
 ```
-
-To integrate FoldingCell into your Xcode project using Carthage, specify it in your `Cartfile`:
-
-```ogdl
-github "Dershowitz011/FoldingCell"
+github "Ramotion/folding-cell"
 ```
-    
 
 ## Solution
 ![Solution](/Tutorial-resources/Solution.png)
@@ -51,7 +40,7 @@ github "Dershowitz011/FoldingCell"
 
 2) Add a UIView to your cell in your storyboard or nib file, inheriting from `RotatedView`.
 Connect the outlet from this view to the cell property `foregroundView`.
-Add constraints from this view to the superview, as in this picture: 
+Add constraints from this view to the superview, as in this picture:
 ![1.1](/Tutorial-resources/1.1.png)
 
 (constants of constraints may be different). Add the identifier `ForegroundViewTop`
@@ -141,7 +130,7 @@ Ok, we've finished configuring the cell.
             }
         }
     }
-``` 
+```
 
 6) Add this code to your new cell class
 ``` swift
