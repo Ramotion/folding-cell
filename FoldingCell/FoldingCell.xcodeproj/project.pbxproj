@@ -15,6 +15,10 @@
 		847A581F1C29500B0028FB84 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A581E1C29500B0028FB84 /* MainTableViewController.swift */; };
 		848B463B1C56458C00D49B45 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A581A1C294FAB0028FB84 /* FoldingCell.swift */; };
 		8498513F1C5639F9006FA400 /* FoldingCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498513E1C5639F9006FA400 /* FoldingCellTests.swift */; };
+		8499D8881D0054A8004B5B37 /* FoldingCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8499D8871D0054A8004B5B37 /* FoldingCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8499D88C1D0054A8004B5B37 /* FoldingCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8499D8851D0054A8004B5B37 /* FoldingCell.framework */; };
+		8499D88D1D0054A8004B5B37 /* FoldingCell.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8499D8851D0054A8004B5B37 /* FoldingCell.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8499D8911D0054BF004B5B37 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A581A1C294FAB0028FB84 /* FoldingCell.swift */; };
 		8499F5DD1C2A83F70027D5D2 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8499F5D31C2A83F70027D5D2 /* OpenSans-Bold.ttf */; };
 		8499F5DE1C2A83F70027D5D2 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8499F5D41C2A83F70027D5D2 /* OpenSans-BoldItalic.ttf */; };
 		8499F5DF1C2A83F70027D5D2 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8499F5D51C2A83F70027D5D2 /* OpenSans-ExtraBold.ttf */; };
@@ -36,6 +40,13 @@
 			remoteGlobalIDString = 847A58031C294F750028FB84;
 			remoteInfo = FoldingCell;
 		};
+		8499D88A1D0054A8004B5B37 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 847A57FC1C294F750028FB84 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8499D8841D0054A8004B5B37;
+			remoteInfo = FoldingCell;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +56,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				8499D88D1D0054A8004B5B37 /* FoldingCell.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,7 +66,7 @@
 /* Begin PBXFileReference section */
 		840B984B1C33FE660081B926 /* FoldingCellFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldingCellFramework.h; sourceTree = "<group>"; };
 		840B984D1C33FE660081B926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		847A58041C294F750028FB84 /* FoldingCell.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoldingCell.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		847A58041C294F750028FB84 /* FoldingCellDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoldingCellDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847A58071C294F750028FB84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		847A580C1C294F750028FB84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		847A580E1C294F750028FB84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,6 +77,9 @@
 		8498513C1C5639F9006FA400 /* FoldingCellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoldingCellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8498513E1C5639F9006FA400 /* FoldingCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingCellTests.swift; sourceTree = "<group>"; };
 		849851401C5639F9006FA400 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8499D8851D0054A8004B5B37 /* FoldingCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FoldingCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8499D8871D0054A8004B5B37 /* FoldingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldingCell.h; sourceTree = "<group>"; };
+		8499D8891D0054A8004B5B37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8499F5D31C2A83F70027D5D2 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		8499F5D41C2A83F70027D5D2 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		8499F5D51C2A83F70027D5D2 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -83,10 +98,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8499D88C1D0054A8004B5B37 /* FoldingCell.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		849851391C5639F9006FA400 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8499D8811D0054A8004B5B37 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -111,6 +134,7 @@
 				847A58061C294F750028FB84 /* FoldingCell */,
 				840B984A1C33FE660081B926 /* FoldingCellFramework */,
 				8498513D1C5639F9006FA400 /* FoldingCellTests */,
+				8499D8861D0054A8004B5B37 /* FoldingCell */,
 				847A58051C294F750028FB84 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -118,8 +142,9 @@
 		847A58051C294F750028FB84 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				847A58041C294F750028FB84 /* FoldingCell.app */,
+				847A58041C294F750028FB84 /* FoldingCellDemo.app */,
 				8498513C1C5639F9006FA400 /* FoldingCellTests.xctest */,
+				8499D8851D0054A8004B5B37 /* FoldingCell.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -157,6 +182,15 @@
 			path = FoldingCellTests;
 			sourceTree = "<group>";
 		};
+		8499D8861D0054A8004B5B37 /* FoldingCell */ = {
+			isa = PBXGroup;
+			children = (
+				8499D8871D0054A8004B5B37 /* FoldingCell.h */,
+				8499D8891D0054A8004B5B37 /* Info.plist */,
+			);
+			path = FoldingCell;
+			sourceTree = "<group>";
+		};
 		8499F5D21C2A83D90027D5D2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -176,10 +210,21 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		8499D8821D0054A8004B5B37 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8499D8881D0054A8004B5B37 /* FoldingCell.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		847A58031C294F750028FB84 /* FoldingCell */ = {
+		847A58031C294F750028FB84 /* FoldingCellDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 847A58161C294F750028FB84 /* Build configuration list for PBXNativeTarget "FoldingCell" */;
+			buildConfigurationList = 847A58161C294F750028FB84 /* Build configuration list for PBXNativeTarget "FoldingCellDemo" */;
 			buildPhases = (
 				847A58001C294F750028FB84 /* Sources */,
 				847A58011C294F750028FB84 /* Frameworks */,
@@ -189,10 +234,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				8499D88B1D0054A8004B5B37 /* PBXTargetDependency */,
 			);
-			name = FoldingCell;
+			name = FoldingCellDemo;
 			productName = FoldingCell;
-			productReference = 847A58041C294F750028FB84 /* FoldingCell.app */;
+			productReference = 847A58041C294F750028FB84 /* FoldingCellDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8498513B1C5639F9006FA400 /* FoldingCellTests */ = {
@@ -213,6 +259,24 @@
 			productReference = 8498513C1C5639F9006FA400 /* FoldingCellTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		8499D8841D0054A8004B5B37 /* FoldingCell */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8499D88E1D0054A8004B5B37 /* Build configuration list for PBXNativeTarget "FoldingCell" */;
+			buildPhases = (
+				8499D8801D0054A8004B5B37 /* Sources */,
+				8499D8811D0054A8004B5B37 /* Frameworks */,
+				8499D8821D0054A8004B5B37 /* Headers */,
+				8499D8831D0054A8004B5B37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FoldingCell;
+			productName = FoldingCell;
+			productReference = 8499D8851D0054A8004B5B37 /* FoldingCell.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -231,6 +295,10 @@
 						CreatedOnToolsVersion = 7.2;
 						TestTargetID = 847A58031C294F750028FB84;
 					};
+					8499D8841D0054A8004B5B37 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = LEAZS7L33U;
+					};
 				};
 			};
 			buildConfigurationList = 847A57FF1C294F750028FB84 /* Build configuration list for PBXProject "FoldingCell" */;
@@ -246,8 +314,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				847A58031C294F750028FB84 /* FoldingCell */,
+				847A58031C294F750028FB84 /* FoldingCellDemo */,
 				8498513B1C5639F9006FA400 /* FoldingCellTests */,
+				8499D8841D0054A8004B5B37 /* FoldingCell */,
 			);
 		};
 /* End PBXProject section */
@@ -280,6 +349,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8499D8831D0054A8004B5B37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -303,13 +379,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8499D8801D0054A8004B5B37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8499D8911D0054BF004B5B37 /* FoldingCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		849851421C5639F9006FA400 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 847A58031C294F750028FB84 /* FoldingCell */;
+			target = 847A58031C294F750028FB84 /* FoldingCellDemo */;
 			targetProxy = 849851411C5639F9006FA400 /* PBXContainerItemProxy */;
+		};
+		8499D88B1D0054A8004B5B37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8499D8841D0054A8004B5B37 /* FoldingCell */;
+			targetProxy = 8499D88A1D0054A8004B5B37 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -468,6 +557,52 @@
 			};
 			name = Release;
 		};
+		8499D88F1D0054A8004B5B37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FoldingCell/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.FoldingCell;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8499D8901D0054A8004B5B37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FoldingCell/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.FoldingCell;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -480,7 +615,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		847A58161C294F750028FB84 /* Build configuration list for PBXNativeTarget "FoldingCell" */ = {
+		847A58161C294F750028FB84 /* Build configuration list for PBXNativeTarget "FoldingCellDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				847A58171C294F750028FB84 /* Debug */,
@@ -497,6 +632,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		8499D88E1D0054A8004B5B37 /* Build configuration list for PBXNativeTarget "FoldingCell" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8499D88F1D0054A8004B5B37 /* Debug */,
+				8499D8901D0054A8004B5B37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
