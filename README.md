@@ -27,7 +27,7 @@ or use [CocoaPods](https://cocoapods.org) with Podfile:
 pod 'FoldingCell', '~> 0.8.1'
 ```
 
-or [Carthage](https://github.com/Carthage/Carthage) users can simply add Mantle to their `Cartfile`:
+or [Carthage](https://github.com/Carthage/Carthage) users can simply add to their `Cartfile`:
 ```
 github "Ramotion/folding-cell"
 ```
