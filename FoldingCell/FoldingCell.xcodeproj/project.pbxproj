@@ -19,6 +19,7 @@
 		8499D88C1D0054A8004B5B37 /* FoldingCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8499D8851D0054A8004B5B37 /* FoldingCell.framework */; };
 		8499D88D1D0054A8004B5B37 /* FoldingCell.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8499D8851D0054A8004B5B37 /* FoldingCell.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8499D8911D0054BF004B5B37 /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A581A1C294FAB0028FB84 /* FoldingCell.swift */; };
+		8499D8931D005531004B5B37 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8499D8921D005531004B5B37 /* Default-568h@2x.png */; };
 		8499F5DD1C2A83F70027D5D2 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8499F5D31C2A83F70027D5D2 /* OpenSans-Bold.ttf */; };
 		8499F5DE1C2A83F70027D5D2 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8499F5D41C2A83F70027D5D2 /* OpenSans-BoldItalic.ttf */; };
 		8499F5DF1C2A83F70027D5D2 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8499F5D51C2A83F70027D5D2 /* OpenSans-ExtraBold.ttf */; };
@@ -80,6 +81,7 @@
 		8499D8851D0054A8004B5B37 /* FoldingCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FoldingCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8499D8871D0054A8004B5B37 /* FoldingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldingCell.h; sourceTree = "<group>"; };
 		8499D8891D0054A8004B5B37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8499D8921D005531004B5B37 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		8499F5D31C2A83F70027D5D2 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		8499F5D41C2A83F70027D5D2 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		8499F5D51C2A83F70027D5D2 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		847A57FB1C294F750028FB84 = {
 			isa = PBXGroup;
 			children = (
+				8499D8921D005531004B5B37 /* Default-568h@2x.png */,
 				847A58061C294F750028FB84 /* FoldingCell */,
 				840B984A1C33FE660081B926 /* FoldingCellFramework */,
 				8498513D1C5639F9006FA400 /* FoldingCellTests */,
@@ -331,6 +334,7 @@
 				847A58121C294F750028FB84 /* LaunchScreen.storyboard in Resources */,
 				8499F5E41C2A83F70027D5D2 /* OpenSans-Regular.ttf in Resources */,
 				8499F5E11C2A83F70027D5D2 /* OpenSans-Italic.ttf in Resources */,
+				8499D8931D005531004B5B37 /* Default-568h@2x.png in Resources */,
 				8499F5E01C2A83F70027D5D2 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				847A580F1C294F750028FB84 /* Assets.xcassets in Resources */,
 				8499F5E31C2A83F70027D5D2 /* OpenSans-LightItalic.ttf in Resources */,
