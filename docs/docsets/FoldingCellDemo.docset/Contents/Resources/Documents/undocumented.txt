@@ -1,0 +1,8 @@
+FoldingCell.swift
+	case Open
+	case Close
+	override public func awakeFromNib()
+	public func isAnimating()->Bool
+	public func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval
+	public class RotatedView: UIView
+	public class RotatedView : UIView

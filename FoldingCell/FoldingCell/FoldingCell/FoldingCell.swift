@@ -23,20 +23,30 @@
 
 import UIKit
 
+/// UITableViewCell with folding animation
 public class FoldingCell: UITableViewCell {
   
-  public typealias CompletionHandler = () -> Void
-  
+  /// UIView whitch display when cell open
   @IBOutlet weak public var containerView: UIView!
+  
+  /// UIView whitch display when cell close
   @IBOutlet weak public var foregroundView: RotatedView!
   var animationView: UIView?
   
-  @IBInspectable public var itemCount: NSInteger = 2 //count of folding
+  ///  the number of folding elements. Default 2
+  @IBInspectable public var itemCount: NSInteger = 2
   
+  /// The color of the back cell
   @IBInspectable public var backViewColor: UIColor = UIColor.brownColor()
   
   var animationItemViews: [RotatedView]?
   
+  /**
+   Folding animation types
+   
+   - Open:  Open direction
+   - Close: Close direction
+   */
   public enum AnimationType {
     case Open
     case Close
@@ -239,7 +249,14 @@ public class FoldingCell: UITableViewCell {
   
   // MARK: public
   
-  public func selectedAnimation(isSelected: Bool, animated: Bool, completion: CompletionHandler?) {
+  /**
+   Open or close cell
+   
+   - parameter isSelected: Specify true if you want to open cell or false if you close cell.
+   - parameter animated:   Specify true if you want to animate the change in visibility or false if you want immediately.
+   - parameter completion: A block object to be executed when the animation sequence ends.
+   */
+  public func selectedAnimation(isSelected: Bool, animated: Bool, completion: (Void -> Void)?) {
     
     if isSelected {
       
@@ -297,7 +314,7 @@ public class FoldingCell: UITableViewCell {
     return durations
   }
   
-  func openAnimation(completion completion: CompletionHandler?) {
+  func openAnimation(completion completion: (Void -> Void)?) {
     
     removeImageItemsFromAnimationView()
     addImageItemsToAnimationView()
@@ -349,7 +366,7 @@ public class FoldingCell: UITableViewCell {
     }
   }
   
-  func closeAnimation(completion completion: CompletionHandler?) {
+  func closeAnimation(completion completion: (Void -> Void)?) {
     
     removeImageItemsFromAnimationView()
     addImageItemsToAnimationView()
