@@ -2,6 +2,7 @@
 # FoldingCell
 [![CocoaPods](https://img.shields.io/cocoapods/p/FoldingCell.svg)](https://cocoapods.org/pods/FoldingCell)
 [![CocoaPods](https://img.shields.io/cocoapods/v/FoldingCell.svg)](http://cocoapods.org/pods/FoldingCell)
+[![CocoaPods](https://img.shields.io/cocoapods/metrics/doc-percent/FoldingCell.svg)](https://cdn.rawgit.com/Ramotion/folding-cell/master/docs/index.html)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Ramotion/folding-cell)
 [![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
 [![Travis](https://img.shields.io/travis/Ramotion/folding-cell.svg)](https://travis-ci.org/Ramotion/folding-cell)
@@ -27,7 +28,7 @@ or use [CocoaPods](https://cocoapods.org) with Podfile:
 pod 'FoldingCell', '~> 0.8.1'
 ```
 
-or [Carthage](https://github.com/Carthage/Carthage) users can simply add to their `Cartfile`:
+or [Carthage](https://github.com/Carthage/Carthage) users can simply add Mantle to their `Cartfile`:
 ```
 github "Ramotion/folding-cell"
 ```
