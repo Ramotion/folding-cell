@@ -40,15 +40,165 @@
         <section>
           <section class="section">
             
-            <a href='#foldingcelldemo' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='foldingcelldemo'>FoldingCellDemo</h1>
-<a href='#authors' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h3 id='authors'>Authors</h3>
+            <p><img src="./header.png" alt="header"></p>
+<a href='#foldingcell' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='foldingcell'>FoldingCell</h1>
 
-<p>AlexKalinkin</p>
+<p><a href="https://cocoapods.org/pods/FoldingCell"><img src="https://img.shields.io/cocoapods/p/FoldingCell.svg" alt="CocoaPods"></a>
+<a href="http://cocoapods.org/pods/FoldingCell"><img src="https://img.shields.io/cocoapods/v/FoldingCell.svg" alt="CocoaPods"></a>
+<a href="https://cdn.rawgit.com/Ramotion/folding-cell/master/docs/index.html"><img src="https://img.shields.io/cocoapods/metrics/doc-percent/FoldingCell.svg" alt="CocoaPods"></a>
+<a href="https://github.com/Ramotion/folding-cell"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible"></a>
+<a href="http://twitter.com/Ramotion"><img src="https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat" alt="Twitter"></a>
+<a href="https://travis-ci.org/Ramotion/folding-cell"><img src="https://img.shields.io/travis/Ramotion/folding-cell.svg" alt="Travis"></a>
+<a href="https://codebeat.co/projects/github-com-ramotion-folding-cell"><img src="https://codebeat.co/badges/6f67da5d-c416-4bac-9fb7-c2dc938feedc" alt="codebeat badge"></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible"></a></p>
+
+<p><a href="https://dribbble.com/shots/2121350-Delivery-Card">shot on dribbble</a>:
+<img src="Screenshots/folding-cell.gif" alt="Animation"></p>
+
+<p>The <a href="https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&amp;utm_medium=special&amp;utm_campaign=folding-cell">iPhone mockup</a> available <a href="https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&amp;utm_medium=special&amp;utm_campaign=folding-cell">here</a>.</p>
+<a href='#requirements' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='requirements'>Requirements</h2>
+
+<ul>
+<li>iOS 8.0+</li>
+<li>Xcode 7.3</li>
+</ul>
+<a href='#installation' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='installation'>Installation</h2>
+
+<p>Just add the FoldingCell.swift file to your project.</p>
+
+<p>or use <a href="https://cocoapods.org">CocoaPods</a> with Podfile:
+<code>ruby
+pod &#39;FoldingCell&#39;, &#39;~&gt; 0.8.1&#39;
+</code></p>
+
+<p>or <a href="https://github.com/Carthage/Carthage">Carthage</a> users can simply add Mantle to their <code>Cartfile</code>:
+<code>
+github &quot;Ramotion/folding-cell&quot;
+</code></p>
+<a href='#solution' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='solution'>Solution</h2>
+
+<p><img src="/Tutorial-resources/Solution.png" alt="Solution"></p>
+<a href='#usage' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h2 id='usage'>Usage</h2>
+
+<p>1) Create a new cell inheriting from <code>FoldingCell</code></p>
+
+<p>2) Add a UIView to your cell in your storyboard or nib file, inheriting from <code>RotatedView</code>.
+Connect the outlet from this view to the cell property <code>foregroundView</code>.
+Add constraints from this view to the superview, as in this picture:
+<img src="/Tutorial-resources/1.1.png" alt="1.1"></p>
+
+<p>(constants of constraints may be different). Add the identifier <code>ForegroundViewTop</code>
+for the top constraint. (This view will be shown when the cell is in its normal state).</p>
+
+<p>3) Add other UIViews to your cell, connect the outlet from this view to the cell
+property <code>containerView</code>. Add constraints from this view to the superview like in the picture:</p>
+
+<p><img src="/Tutorial-resources/1.2.png" alt="1.2"></p>
+
+<p>(constants of constraints may be different). Add the identifier <q>ContainerViewTop</q> for the top constraint.
+(This view will be shown when the cell is opened)</p>
+
+<p>Your result should be something like this picture:
+<img src="/Tutorial-resources/1.3.png" alt="1.3"></p>
+
+<p><a href="https://vimeo.com/154954299">Demonstration adding constraints for foregroundView, containerView</a></p>
+
+<p>4) Set <code>@IBInspectable var itemCount: NSInteger</code> property is a count of folding (it IBInspectable you can set in storyboard). range 2 or greater. Default value is 2</p>
+
+<p>Ok, we&rsquo;ve finished configuring the cell.</p>
+
+<p>5) Adding code to your UITableViewController</p>
+
+<p>5.1) Add constants:
+<code>swift
+     let kCloseCellHeight: CGFloat = *** // equal or greater foregroundView height
+     let kOpenCellHeight: CGFloat = *** // equal or greater containerView height
+</code>
+5.2) Add property</p>
+<pre class="highlight swift"><code>     <span class="k">var</span> <span class="nv">cellHeights</span> <span class="o">=</span> <span class="p">[</span><span class="kt">CGFloat</span><span class="p">]()</span>
+</code></pre>
+<pre class="highlight plaintext"><code> create in viewDidLoad:
+</code></pre>
+<pre class="highlight swift"><code>     <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">_</span> <span class="k">in</span> <span class="mi">0</span><span class="o">...</span><span class="n">kRowsCount</span> <span class="p">{</span>
+            <span class="n">cellHeights</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">kCloseCellHeight</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+</code></pre>
+
+<p>5.3) Override method:
+<code>swift
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -&gt; CGFloat {
+        return cellHeights[indexPath.row]
+    }
+</code></p>
+
+<p>5.4) Added code to method:
+&ldquo;` swift
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! FoldingCell</p>
+<pre class="highlight plaintext"><code>    var duration = 0.0
+    if cellHeights[indexPath.row] == kCloseCellHeight { // open cell
+        cellHeights[indexPath.row] = kOpenCellHeight
+        cell.selectedAnimation(true, animated: true, completion: nil)
+        duration = 0.5
+    } else {// close cell
+        cellHeights[indexPath.row] = kCloseCellHeight
+        cell.selectedAnimation(false, animated: true, completion: nil)
+        duration = 1.1
+    }
+
+    UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseOut, animations: { () -&gt; Void in
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }, completion: nil)
+}
+</code></pre>
+<pre class="highlight plaintext"><code>5.5) Control if the cell is open or closed
+``` swift
+  override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+
+        if cell is FoldingCell {
+            let foldingCell = cell as! FoldingCell
+
+            if cellHeights![indexPath.row] == kCloseCellHeight {
+                foldingCell.selectedAnimation(false, animated: false, completion:nil)
+            } else {
+                foldingCell.selectedAnimation(true, animated: false, completion: nil)
+            }
+        }
+    }
+</code></pre>
+
+<p>6) Add this code to your new cell class
+&rdquo;` swift
+    override func animationDuration(itemIndex:NSInteger, type:AnimationType)-&gt; NSTimeInterval {</p>
+<pre class="highlight plaintext"><code>    // durations count equal it itemCount
+    let durations = [0.33, 0.26, 0.26] // timing animation for each view
+    return durations[itemIndex]
+}
+</code></pre>
+<pre class="highlight plaintext"><code>
+## Licence
+
+Folding cell is released under the MIT license.
+See [LICENSE](./LICENSE) for details.
+
+
+## About
+The project maintained by [app development agency](https://ramotion.com?utm_source=gthb&amp;utm_medium=special&amp;utm_campaign=foolding-cell) [Ramotion Inc.](https://ramotion.com?utm_source=gthb&amp;utm_medium=special&amp;utm_campaign=foolding-cell)
+See our other [open-source projects](https://github.com/ramotion) or [hire](https://ramotion.com?utm_source=gthb&amp;utm_medium=special&amp;utm_campaign=foolding-cell) us to design, develop, and grow your product.
+
+[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/ramotion/foolding-cell)
+[![Twitter Follow](https://img.shields.io/twitter/follow/ramotion.svg?style=social)](https://twitter.com/ramotion)
+</code></pre>
 
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">AlexKalinkin</a>. All rights reserved. (Last updated: 2016-06-06)</p>
+          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">AlexKalinkin</a>. All rights reserved. (Last updated: 2016-06-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
