@@ -54,9 +54,22 @@ public class FoldingCell: UITableViewCell {
   
   // MARK:  life cicle
   
+  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    super.init(style: style, reuseIdentifier: reuseIdentifier)
+    commonInit()
+  }
+  
+  required public init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+  }
+  
   override public func awakeFromNib() {
     super.awakeFromNib()
     
+    commonInit()
+  }
+  
+  private func commonInit() {
     configureDefaultState()
     
     self.selectionStyle = .None
@@ -64,6 +77,7 @@ public class FoldingCell: UITableViewCell {
     containerView.layer.cornerRadius = foregroundView.layer.cornerRadius
     containerView.layer.masksToBounds = true
   }
+
   
   // MARK: configure
   
