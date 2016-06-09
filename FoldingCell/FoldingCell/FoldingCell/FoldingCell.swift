@@ -54,11 +54,6 @@ public class FoldingCell: UITableViewCell {
   
   // MARK:  life cicle
   
-  override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-    super.init(style: style, reuseIdentifier: reuseIdentifier)
-    commonInit()
-  }
-  
   required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
@@ -69,7 +64,10 @@ public class FoldingCell: UITableViewCell {
     commonInit()
   }
   
-  private func commonInit() {
+  /**
+   Call this method in methods init(style: UITableViewCellStyle, reuseIdentifier: String?) after creating Views
+   */
+  public func commonInit() {
     configureDefaultState()
     
     self.selectionStyle = .None
