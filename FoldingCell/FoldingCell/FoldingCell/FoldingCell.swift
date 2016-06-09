@@ -54,7 +54,7 @@ public class FoldingCell: UITableViewCell {
   
   // MARK:  life cicle
   
-  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+  override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     commonInit()
   }
