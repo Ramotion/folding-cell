@@ -143,6 +143,12 @@ Ok, we've finished configuring the cell.
     }
 ```
 
+
+#### if don't use storyboard and xib files
+
+Create foregroundView and containerView from code (steps 2 - 3) look example:
+[Folding-cell-programmatically](https://github.com/ober01/Folding-cell-programmatically)
+
 ## Licence
 
 Folding cell is released under the MIT license.
