@@ -42,6 +42,7 @@ github "Ramotion/folding-cell"
 2) Add a UIView to your cell in your storyboard or nib file, inheriting from `RotatedView`.
 Connect the outlet from this view to the cell property `foregroundView`.
 Add constraints from this view to the superview, as in this picture:
+
 ![1.1](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Tutorial-resources/1.1.png)
 
 (constants of constraints may be different). Add the identifier `ForegroundViewTop`

@@ -1,6 +1,7 @@
 FoldingCell.swift
 	case Open
 	case Close
+	override public init(style: UITableViewCellStyle, reuseIdentifier: String?)
 	required public init?(coder aDecoder: NSCoder)
 	override public func awakeFromNib()
 	public func isAnimating()->Bool
