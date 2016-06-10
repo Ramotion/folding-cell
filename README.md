@@ -1,4 +1,4 @@
-![header](./header.png)
+![header](https://raw.githubusercontent.com/Ramotion/folding-cell/master/header.png)
 # FoldingCell
 [![CocoaPods](https://img.shields.io/cocoapods/p/FoldingCell.svg)](https://cocoapods.org/pods/FoldingCell)
 [![CocoaPods](https://img.shields.io/cocoapods/v/FoldingCell.svg)](http://cocoapods.org/pods/FoldingCell)
@@ -10,7 +10,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 [shot on dribbble](https://dribbble.com/shots/2121350-Delivery-Card):
-![Animation](Screenshots/folding-cell.gif)
+![Animation](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Screenshots/folding-cell.gif)
 
 
 The [iPhone mockup](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell) available [here](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell).
@@ -34,7 +34,7 @@ github "Ramotion/folding-cell"
 ```
 
 ## Solution
-![Solution](/Tutorial-resources/Solution.png)
+![Solution](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Tutorial-resources/Solution.png)
 ## Usage
 
 1) Create a new cell inheriting from `FoldingCell`
@@ -42,7 +42,7 @@ github "Ramotion/folding-cell"
 2) Add a UIView to your cell in your storyboard or nib file, inheriting from `RotatedView`.
 Connect the outlet from this view to the cell property `foregroundView`.
 Add constraints from this view to the superview, as in this picture:
-![1.1](/Tutorial-resources/1.1.png)
+![1.1](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Tutorial-resources/1.1.png)
 
 (constants of constraints may be different). Add the identifier `ForegroundViewTop`
 for the top constraint. (This view will be shown when the cell is in its normal state).
@@ -50,13 +50,14 @@ for the top constraint. (This view will be shown when the cell is in its normal 
 3) Add other UIViews to your cell, connect the outlet from this view to the cell
 property `containerView`. Add constraints from this view to the superview like in the picture:
 
-![1.2](/Tutorial-resources/1.2.png)
+![1.2](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Tutorial-resources/1.2.png)
 
 (constants of constraints may be different). Add the identifier "ContainerViewTop" for the top constraint.
 (This view will be shown when the cell is opened)
 
 Your result should be something like this picture:
-![1.3](/Tutorial-resources/1.3.png)
+
+![1.3](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Tutorial-resources/1.3.png)
 
 [Demonstration adding constraints for foregroundView, containerView](https://vimeo.com/154954299)
 
