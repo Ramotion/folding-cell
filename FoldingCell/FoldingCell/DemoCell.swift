@@ -10,11 +10,19 @@ import UIKit
 
 class DemoCell: FoldingCell {
     
+  @IBOutlet weak var closeNumberLabel: UILabel!
+  @IBOutlet weak var openNumberLabel: UILabel!
+  
+  var number: Int = 0 {
+    didSet {
+      closeNumberLabel.text = String(number)
+      openNumberLabel.text = String(number)
+    }
+  }
     override func awakeFromNib() {
         
         foregroundView.layer.cornerRadius = 10
         foregroundView.layer.masksToBounds = true
-        
         
         super.awakeFromNib()
     }

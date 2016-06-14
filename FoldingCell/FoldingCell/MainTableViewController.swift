@@ -53,17 +53,20 @@ class MainTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        if cell is FoldingCell {
-            let foldingCell = cell as! FoldingCell
-            foldingCell.backgroundColor = UIColor.clearColor()
-            
-            if cellHeights[indexPath.row] == kCloseCellHeight {
-                foldingCell.selectedAnimation(false, animated: false, completion:nil)
-            } else {
-                foldingCell.selectedAnimation(true, animated: false, completion: nil)
-            }
-        }
+      
+      guard case let cell as DemoCell = cell else {
+        return
+      }
+      
+      cell.backgroundColor = UIColor.clearColor()
+      
+      if cellHeights[indexPath.row] == kCloseCellHeight {
+        cell.selectedAnimation(false, animated: false, completion:nil)
+      } else {
+        cell.selectedAnimation(true, animated: false, completion: nil)
+      }
+      
+      cell.number = indexPath.row
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
