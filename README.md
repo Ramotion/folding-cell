@@ -25,7 +25,7 @@ Just add the FoldingCell.swift file to your project.
 
 or use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
-pod 'FoldingCell', '~> 0.8.1'
+pod 'FoldingCell'
 ```
 
 or [Carthage](https://github.com/Carthage/Carthage) users can simply add Mantle to their `Cartfile`:
