@@ -3,9 +3,9 @@
 <plist version="1.0">
   <dict>
     <key>CFBundleIdentifier</key>
-      <string>com.jazzy.foldingcelldemo</string>
+      <string>com.jazzy.foldingcell</string>
     <key>CFBundleName</key>
-      <string>FoldingCellDemo</string>
+      <string>FoldingCell</string>
     <key>DocSetPlatformFamily</key>
       <string>jazzy</string>
     <key>isDashDocset</key>

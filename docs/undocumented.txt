@@ -1,4 +1,6 @@
 FoldingCell.swift
+	@IBOutlet weak public var containerViewTop: NSLayoutConstraint!
+	@IBOutlet weak public var foregroundViewTop: NSLayoutConstraint!
 	case Open
 	case Close
 	override public init(style: UITableViewCellStyle, reuseIdentifier: String?)
