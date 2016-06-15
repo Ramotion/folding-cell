@@ -45,15 +45,15 @@ Add constraints from this view to the superview, as in this picture:
 
 ![1.1](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Tutorial-resources/1.1.png)
 
-(constants of constraints may be different). Add the identifier `ForegroundViewTop`
-for the top constraint. (This view will be shown when the cell is in its normal state).
+(constants of constraints may be different). Connect the outlet from this top constraint to the cell property `foregroundViewTop`
+. (This view will be shown when the cell is in its normal state).
 
 3) Add other UIViews to your cell, connect the outlet from this view to the cell
 property `containerView`. Add constraints from this view to the superview like in the picture:
 
 ![1.2](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Tutorial-resources/1.2.png)
 
-(constants of constraints may be different). Add the identifier "ContainerViewTop" for the top constraint.
+(constants of constraints may be different). Connect the outlet from this top constraint to the cell property `containerViewTop`.
 (This view will be shown when the cell is opened)
 
 Your result should be something like this picture:

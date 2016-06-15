@@ -28,9 +28,11 @@ public class FoldingCell: UITableViewCell {
   
   /// UIView whitch display when cell open
   @IBOutlet weak public var containerView: UIView!
+  @IBOutlet weak public var containerViewTop: NSLayoutConstraint!
   
   /// UIView whitch display when cell close
   @IBOutlet weak public var foregroundView: RotatedView!
+  @IBOutlet weak public var foregroundViewTop: NSLayoutConstraint!
   var animationView: UIView?
   
   ///  the number of folding elements. Default 2
@@ -84,21 +86,17 @@ public class FoldingCell: UITableViewCell {
   // MARK: configure
   
   func configureDefaultState() {
-    let foregroundTopConstraint = self.contentView.constraints.filter{ $0.identifier == "ForegroundViewTop"}.first
-    let containerViewTopConstraint = self.contentView.constraints.filter{ $0.identifier == "ContainerViewTop"}.first
     
-    guard let foregroundConstraint = foregroundTopConstraint else {
-      fatalError("set identifier")
-    }
-    guard let containerConstraint = containerViewTopConstraint else {
-      fatalError("set identifier")
+    guard let foregroundViewTop = self.foregroundViewTop,
+      let containerViewTop = self.containerViewTop else {
+        fatalError("set constratins outlets")
     }
     
-    containerConstraint.constant = foregroundConstraint.constant
+    containerViewTop.constant = foregroundViewTop.constant
     containerView.alpha = 0;
     
     foregroundView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
-    foregroundConstraint.constant += foregroundView.bounds.height / 2
+    foregroundViewTop.constant += foregroundView.bounds.height / 2
     foregroundView.layer.transform = foregroundView.transform3d()
     
     createAnimationView();
