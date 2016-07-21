@@ -1,4 +1,4 @@
-![header](https://raw.githubusercontent.com/Ramotion/folding-cell/master/header.png)
+[![header](https://raw.githubusercontent.com/Ramotion/folding-cell/master/header.png)](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell-logo)
 # FoldingCell
 [![CocoaPods](https://img.shields.io/cocoapods/p/FoldingCell.svg)](https://cocoapods.org/pods/FoldingCell)
 [![CocoaPods](https://img.shields.io/cocoapods/v/FoldingCell.svg)](http://cocoapods.org/pods/FoldingCell)
@@ -9,7 +9,10 @@
 [![codebeat badge](https://codebeat.co/badges/6f67da5d-c416-4bac-9fb7-c2dc938feedc)](https://codebeat.co/projects/github-com-ramotion-folding-cell)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-[shot on dribbble](https://dribbble.com/shots/2121350-Delivery-Card):
+
+## About
+This project is maintained by Ramotion, an agency specialized in building dedicated engineering teams and developing custom software.<br><br> [Contact our team](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell-contact-us) and we’ll help you work with the best engineers from Eastern Europe.
+
 ![Animation](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Screenshots/folding-cell.gif)
 
 
@@ -157,9 +160,7 @@ Folding cell is released under the MIT license.
 See [LICENSE](./LICENSE) for details.
 
 
-## About
-The project maintained by [app development agency](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell) [Ramotion Inc.](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell)
-See our other [open-source projects](https://github.com/ramotion) or [hire](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell) us to design, develop, and grow your product.
+## Follow Us
 
 [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/ramotion/foolding-cell)
 [![Twitter Follow](https://img.shields.io/twitter/follow/ramotion.svg?style=social)](https://twitter.com/ramotion)
