@@ -1,4 +1,4 @@
-[![header](https://raw.githubusercontent.com/Ramotion/folding-cell/master/header.png)](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell-logo)
+[![header](https://raw.githubusercontent.com/Ramotion/folding-cell/master/header.png)](https://business.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell-logo)
 # FoldingCell
 [![CocoaPods](https://img.shields.io/cocoapods/p/FoldingCell.svg)](https://cocoapods.org/pods/FoldingCell)
 [![CocoaPods](https://img.shields.io/cocoapods/v/FoldingCell.svg)](http://cocoapods.org/pods/FoldingCell)
@@ -11,7 +11,7 @@
 
 
 ## About
-This project is maintained by Ramotion, an agency specialized in building dedicated engineering teams and developing custom software.<br><br> [Contact our team](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell-contact-us) and we’ll help you work with the best engineers from Eastern Europe.
+This project is maintained by Ramotion, an agency specialized in building dedicated engineering teams and developing custom software.<br><br> [Contact our team](https://business.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell-contact-us) and we’ll help you work with the best engineers from Eastern Europe.
 
 ![Animation](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Screenshots/folding-cell.gif)
 
