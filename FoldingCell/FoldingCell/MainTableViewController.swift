@@ -60,7 +60,7 @@ class MainTableViewController: UITableViewController {
       
       cell.backgroundColor = UIColor.clearColor()
       
-      if cellHeights[indexPath.row] == kCloseCellHeight {
+      if isCellClosed(indexPath.row) {
         cell.selectedAnimation(false, animated: false, completion:nil)
       } else {
         cell.selectedAnimation(true, animated: false, completion: nil)
@@ -90,7 +90,7 @@ class MainTableViewController: UITableViewController {
         }
         
         var duration = 0.0
-        if cellHeights[indexPath.row] == kCloseCellHeight { // open cell
+        if isCellClosed(indexPath.row) { // open cell
             cellHeights[indexPath.row] = kOpenCellHeight
             cell.selectedAnimation(true, animated: true, completion: nil)
             duration = 0.5
@@ -106,5 +106,9 @@ class MainTableViewController: UITableViewController {
         }, completion: nil)
 
         
+    }
+    
+    private func isCellClosed(indexRow:Int) ->Bool{
+        return cellHeights[indexRow] == kCloseCellHeight
     }
 }
