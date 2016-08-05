@@ -13,7 +13,7 @@
 ## About
 This project is maintained by Ramotion, an agency specialized in building dedicated engineering teams and developing custom software.<br><br> [Contact our team](https://business.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell-contact-us) and we’ll help you work with the best engineers from Eastern Europe.
 
-![Animation](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Screenshots/folding-cell.gif)
+[![Animation](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Screenshots/folding-cell.gif)](https://dribbble.com/shots/2121350-Delivery-Card)
 
 
 The [iPhone mockup](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell) available [here](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell).
