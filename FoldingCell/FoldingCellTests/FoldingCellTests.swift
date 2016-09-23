@@ -16,7 +16,7 @@ class FoldingCellTests: XCTestCase {
         super.setUp()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        viewController = storyboard.instantiateViewControllerWithIdentifier("MainTableViewController") as! UITableViewController
+        viewController = storyboard.instantiateViewController(withIdentifier: "MainTableViewController") as! UITableViewController
         viewController.beginAppearanceTransition(true, animated: false)
     }
     
@@ -28,7 +28,7 @@ class FoldingCellTests: XCTestCase {
     func testExample() {
         let tableView = viewController.tableView
         
-        for case let cell as FoldingCell in tableView.visibleCells {
+        for case let cell as FoldingCell in (tableView?.visibleCells)! {
             XCTAssertTrue(cell.itemCount >= 2)
         }
         
@@ -37,7 +37,7 @@ class FoldingCellTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }
