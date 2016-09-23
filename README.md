@@ -33,7 +33,9 @@ pod 'FoldingCell'
 
 or [Carthage](https://github.com/Carthage/Carthage) users can simply add Mantle to their `Cartfile`:
 ```
-github "Ramotion/folding-cell"
+github "Ramotion/folding-cell" "~> 1.0.0" swift 2.2
+
+github "Ramotion/folding-cell" "~> 2.0.0" swift 3
 ```
 
 ## Solution
