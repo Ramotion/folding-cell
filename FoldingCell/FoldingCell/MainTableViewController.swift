@@ -66,7 +66,7 @@ class MainTableViewController: UITableViewController {
         cell.selectedAnimation(true, animated: false, completion: nil)
       }
       
-      cell.number = (indexPath as NSIndexPath).row
+      cell.number = indexPath.row
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

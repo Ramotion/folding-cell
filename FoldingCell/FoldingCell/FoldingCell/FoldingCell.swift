@@ -95,8 +95,10 @@ open class FoldingCell: UITableViewCell {
     containerViewTop.constant = foregroundViewTop.constant
     containerView.alpha = 0;
     
-    foregroundView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
-    foregroundViewTop.constant += foregroundView.bounds.height / 2
+    if let height = (foregroundView.constraints.filter { $0.firstAttribute == .height && $0.secondItem == nil}).first?.constant {
+      foregroundView.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
+      foregroundViewTop.constant += height / 2
+    }
     foregroundView.layer.transform = foregroundView.transform3d()
     
     createAnimationView();
@@ -147,7 +149,7 @@ open class FoldingCell: UITableViewCell {
     
     let anAnimationView = UIView(frame: containerView.frame)
     anAnimationView.layer.cornerRadius = foregroundView.layer.cornerRadius
-    anAnimationView.backgroundColor = UIColor.clear
+    anAnimationView.backgroundColor = .clear
     anAnimationView.translatesAutoresizingMaskIntoConstraints = false
     self.contentView.addSubview(anAnimationView)
     
