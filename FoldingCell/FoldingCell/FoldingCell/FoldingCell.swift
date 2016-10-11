@@ -147,24 +147,28 @@ open class FoldingCell: UITableViewCell {
   
   func createAnimationView() {
     
-    let anAnimationView = UIView(frame: containerView.frame)
-    anAnimationView.layer.cornerRadius = foregroundView.layer.cornerRadius
-    anAnimationView.backgroundColor = .clear
-    anAnimationView.translatesAutoresizingMaskIntoConstraints = false
-    self.contentView.addSubview(anAnimationView)
+    animationView = UIView(frame: containerView.frame)
+    animationView?.layer.cornerRadius = foregroundView.layer.cornerRadius
+    animationView?.backgroundColor = .clear
+    animationView?.translatesAutoresizingMaskIntoConstraints = false
+    animationView?.alpha = 0
+    
+    guard let animationView = self.animationView else { return }
+
+    self.contentView.addSubview(animationView)
     
     // copy constraints from containerView
     var newConstraints = [NSLayoutConstraint]()
     for constraint in self.contentView.constraints {
       if let item = constraint.firstItem as? UIView , item == containerView {
-        let newConstraint = NSLayoutConstraint( item: anAnimationView, attribute: constraint.firstAttribute,
+        let newConstraint = NSLayoutConstraint( item: animationView, attribute: constraint.firstAttribute,
           relatedBy: constraint.relation, toItem: constraint.secondItem, attribute: constraint.secondAttribute,
           multiplier: constraint.multiplier, constant: constraint.constant)
         
         newConstraints.append(newConstraint)
       } else if let item: UIView = constraint.secondItem as? UIView , item == containerView {
         let newConstraint = NSLayoutConstraint(item: constraint.firstItem, attribute: constraint.firstAttribute,
-          relatedBy: constraint.relation, toItem: anAnimationView, attribute: constraint.secondAttribute,
+          relatedBy: constraint.relation, toItem: animationView, attribute: constraint.secondAttribute,
           multiplier: constraint.multiplier, constant: constraint.constant)
         
         newConstraints.append(newConstraint)
@@ -174,14 +178,13 @@ open class FoldingCell: UITableViewCell {
     
     for constraint in containerView.constraints { // added height constraint
       if constraint.firstAttribute == .height {
-        let newConstraint = NSLayoutConstraint(item: anAnimationView, attribute: constraint.firstAttribute,
+        let newConstraint = NSLayoutConstraint(item: animationView, attribute: constraint.firstAttribute,
           relatedBy: constraint.relation, toItem: nil, attribute: constraint.secondAttribute,
           multiplier: constraint.multiplier, constant: constraint.constant)
         
-        anAnimationView.addConstraint(newConstraint)
+        animationView.addConstraint(newConstraint)
       }
     }
-    animationView = anAnimationView
   }
 
   
@@ -295,29 +298,10 @@ open class FoldingCell: UITableViewCell {
   }
   
   open func isAnimating()->Bool {
-    
-    
-    guard let /*animationItemViews*/_  = self.animationItemViews else {
-      return false
-    }
-    // I found a bug in Xcode 8 (Beta 6) which will lose the reference to the array afterg guard and therefore this check will crash! Hopefully next beta will solve it.
-    
-//    for item in animationItemViews {
-//      if (item.layer.animationKeys()?.count)! > 0 {
-//        return true
-//      }
-//    }
-    
-    if animationView?.alpha == 1 {
-      return true
-    }
-    
-    return false
+    return animationView?.alpha == 1 ? true : false
   }
   
-  
   // MARK: animations
-  
   open func animationDuration(_ itemIndex:NSInteger, type:AnimationType)-> TimeInterval {
     assert(false, "added this method to cell")
     return 0
@@ -372,12 +356,11 @@ open class FoldingCell: UITableViewCell {
     
     let firstItemView = animationView.subviews.filter{$0.tag == 0}.first
     
-    if let first = firstItemView {
-      first.layer.masksToBounds = true
-      DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(durations[0] * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: { 
-                first.layer.cornerRadius = 0
-      })
-    }
+    firstItemView?.layer.masksToBounds = true
+    DispatchQueue.main.asyncAfter(deadline: .now() + durations[0], execute: {
+      firstItemView?.layer.cornerRadius = 0
+    })
+    
     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
       self.animationView?.alpha = 0
       self.containerView.alpha  = 1
@@ -420,28 +403,26 @@ open class FoldingCell: UITableViewCell {
       hidden = !hidden
       delay += durations[index]
     }
-    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
-      if let animationView  = self.animationView {
-        animationView.alpha = 0
-      }
+    DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: {
+      self.animationView?.alpha = 0
       completion?()
     })
     
-    if let animationView = self.animationView {
-      let firstItemView = animationView.subviews.filter{$0.tag == 0}.first
-      firstItemView?.layer.cornerRadius = 0
-      if let durationLast = durations.last {
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64((delay - durationLast - durationLast / 2.0) * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: {
-          firstItemView?.layer.cornerRadius = self.foregroundView.layer.cornerRadius
-        })
-      }
+    let firstItemView = animationView?.subviews.filter{$0.tag == 0}.first
+    firstItemView?.layer.cornerRadius = 0
+    firstItemView?.layer.masksToBounds = true
+    if let durationFirst = durations.first {
+      DispatchQueue.main.asyncAfter(deadline: .now() + delay - durationFirst * 2, execute: {
+        firstItemView?.layer.cornerRadius = self.foregroundView.layer.cornerRadius
+        firstItemView?.setNeedsDisplay()
+        firstItemView?.setNeedsLayout()
+      })
     }
   }
 }
 
 
 // MARK: RotatedView
-
 open class RotatedView: UIView {
   var hiddenAfterAnimation = false
   var backView: RotatedView?
@@ -487,7 +468,6 @@ extension RotatedView: CAAnimationDelegate {
   }
   
   // MARK: animations
-  
   func foldingAnimation(_ timing: String, from: CGFloat, to: CGFloat, duration: TimeInterval, delay:TimeInterval, hidden:Bool) {
     
     let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation.x")
