@@ -29,14 +29,14 @@ Just add the FoldingCell.swift file to your project.
 
 or use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
-pod 'FoldingCell'
+pod 'FoldingCell' '~> 1.0.0' swift 2.2
+pod 'FoldingCell' '~> 2.0.1' swift 3
 ```
 
 or [Carthage](https://github.com/Carthage/Carthage) users can simply add Mantle to their `Cartfile`:
 ```
-github "Ramotion/folding-cell" "~> 1.0.0" swift 2.2
+github "Ramotion/folding-cell" 
 
-github "Ramotion/folding-cell" "~> 2.0.1" swift 3
 ```
 
 or just drag and drop FoldingCell.swift file to your project 
