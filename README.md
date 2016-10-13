@@ -35,11 +35,11 @@ pod 'FoldingCell' '~> 2.0.1' swift 3
 
 or [Carthage](https://github.com/Carthage/Carthage) users can simply add Mantle to their `Cartfile`:
 ```
-github "Ramotion/folding-cell" 
+github "Ramotion/folding-cell"
 
 ```
 
-or just drag and drop FoldingCell.swift file to your project 
+or just drag and drop FoldingCell.swift file to your project
 
 ## Solution
 ![Solution](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Tutorial-resources/Solution.png)
@@ -78,24 +78,17 @@ Ok, we've finished configuring the cell.
 
 5.1) Add constants:
 ``` swift
-     let kCloseCellHeight: CGFloat = *** // equal or greater foregroundView height
-     let kOpenCellHeight: CGFloat = *** // equal or greater containerView height
+fileprivate struct C {
+  struct CellHeight {
+    static let close: CGFloat = *** // equal or greater foregroundView height
+    static let open: CGFloat = *** // equal or greater containerView height
+  }
+}
 ```
-5.2) Add property
+5.2) Add property for calculate cells height
 
 ``` swift
-     var cellHeights = [CGFloat]()
-```
-
-     create in viewDidLoad:
-``` swift
-     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        for _ in 0...kRowsCount {
-            cellHeights.append(kCloseCellHeight)
-        }
-    }
+     var cellHeights = (0..<CELLCOUNT).map { _ in C.CellHeight.close }
 ```
 
 5.3) Override method:
@@ -108,7 +101,9 @@ Ok, we've finished configuring the cell.
 5.4) Added code to method:
 ``` swift
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! FoldingCell
+        guard case let cell as FoldingCell = tableView.cellForRowAtIndexPath(indexPath) else {
+          return
+        }
 
         var duration = 0.0
         if cellHeights[indexPath.row] == kCloseCellHeight { // open cell
@@ -121,7 +116,7 @@ Ok, we've finished configuring the cell.
             duration = 1.1
         }
 
-        UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseOut, animations: { () -> Void in
+        UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseOut, animations: { _ in
             tableView.beginUpdates()
             tableView.endUpdates()
         }, completion: nil)
@@ -131,10 +126,8 @@ Ok, we've finished configuring the cell.
 ``` swift
   override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
 
-        if cell is FoldingCell {
-            let foldingCell = cell as! FoldingCell
-
-            if cellHeights![indexPath.row] == kCloseCellHeight {
+        if case let cell as FoldingCell = cell {
+            if cellHeights![indexPath.row] == C.cellHeights.close {
                 foldingCell.selectedAnimation(false, animated: false, completion:nil)
             } else {
                 foldingCell.selectedAnimation(true, animated: false, completion: nil)
