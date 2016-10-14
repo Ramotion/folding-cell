@@ -10,9 +10,9 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Analytics](https://ga-beacon.appspot.com/UA-84973210-1/ramotion/folding-cell)](https://github.com/igrigorik/ga-beacon)
 
-
 ## About
-This project is maintained by Ramotion, an agency specialized in building dedicated engineering teams and developing custom software.<br><br> [Contact our team](https://business.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell-contact-us) and we’ll help you work with the best engineers from Eastern Europe.
+This project is maintained by Ramotion, Inc.<br>
+We specialize in the designing and coding of custom UI for Mobile Apps and Websites.<br><br>[**Looking for developers for your project?** [CONTACT OUR TEAM](http://business.ramotion.com/#Get_in_Touch??utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell-contact-us)]
 
 [![Animation](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Screenshots/folding-cell.gif)](https://dribbble.com/shots/2121350-Delivery-Card)
 
