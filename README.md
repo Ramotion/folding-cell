@@ -28,10 +28,7 @@ The [iPhone mockup](https://store.ramotion.com/product/iphone-6-mockups?utm_sour
 Just add the FoldingCell.swift file to your project.
 
 or use [CocoaPods](https://cocoapods.org) with Podfile:
-``` ruby
-pod 'FoldingCell' '~> 1.0.0' swift 2.2
-pod 'FoldingCell' '~> 2.0.1' swift 3
-```
+pod 'FoldingCell' '~> 2.0.2' 
 
 or [Carthage](https://github.com/Carthage/Carthage) users can simply add Mantle to their `Cartfile`:
 ```
