@@ -310,7 +310,7 @@ open class FoldingCell: UITableViewCell {
   func durationSequence(_ type: AnimationType)-> [TimeInterval] {
     var durations  = [TimeInterval]()
     for index in 0..<itemCount-1 {
-      let duration = animationDuration(index, type: .open)
+      let duration = animationDuration(index, type: type)
       durations.append(TimeInterval(duration / 2.0))
       durations.append(TimeInterval(duration / 2.0))
     }
