@@ -34,7 +34,8 @@ class MainTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.estimatedRowHeight = kCloseCellHeight
+        tableView.rowHeight = UITableViewAutomaticDimension
         createCellHeightsArray()
         self.tableView.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
     }
