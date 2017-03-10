@@ -19,7 +19,7 @@ We specialize in the designing and coding of custom UI for Mobile Apps and Websi
 [![Animation](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Screenshots/folding-cell.gif)](https://dribbble.com/shots/2121350-Delivery-Card)
 
 
-The [iPhone mockup](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell) available [here](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell).
+The [iPhone mockup](https://store.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell) available [here](https://store.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell).
 
 ## Try this UI control in action
 
