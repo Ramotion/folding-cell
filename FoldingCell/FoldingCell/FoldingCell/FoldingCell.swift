@@ -177,7 +177,7 @@ open class FoldingCell: UITableViewCell {
     self.contentView.addConstraints(newConstraints)
     
     for constraint in containerView.constraints { // added height constraint
-      if constraint.firstAttribute == .height {
+      if constraint.firstAttribute == .height, let item: UIView = constraint.firstItem as? UIView, item == containerView {
         let newConstraint = NSLayoutConstraint(item: animationView, attribute: constraint.firstAttribute,
           relatedBy: constraint.relation, toItem: nil, attribute: constraint.secondAttribute,
           multiplier: constraint.multiplier, constant: constraint.constant)
