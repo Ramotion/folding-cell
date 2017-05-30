@@ -7,5 +7,5 @@ Pod::Spec.new do |s|
   s.authors = { 'Juri Vasylenko' => 'juri.v@ramotion.com' }
   s.ios.deployment_target = '8.0'
   s.source       = { :git => 'https://github.com/Ramotion/folding-cell.git', :tag => s.version.to_s }
-  s.source_files  = 'FoldingCell/**/*.swift'
+  s.source_files  = 'FoldingCell/FoldingCell/*.swift'
 end
