@@ -69,7 +69,10 @@ extension MainTableViewController {
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: indexPath) as! FoldingCell
+    let durations: [TimeInterval] = [0.26, 0.2, 0.2]
+    cell.durationsForExpandedState = durations
+    cell.durationsForCollapsedState = durations
     return cell
   }
   

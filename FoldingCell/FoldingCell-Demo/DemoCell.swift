@@ -27,11 +27,6 @@ class DemoCell: FoldingCell {
     super.awakeFromNib()
   }
   
-  override func animationDuration(_ itemIndex:NSInteger, type:AnimationType)-> TimeInterval {
-    let durations = [0.26, 0.2, 0.2]
-    return durations[itemIndex]
-  }
-  
 }
 
 // MARK: - Actions ⚡️

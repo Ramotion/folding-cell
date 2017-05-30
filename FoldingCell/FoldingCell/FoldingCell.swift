@@ -303,16 +303,14 @@ open class FoldingCell: UITableViewCell {
     return animationView?.alpha == 1 ? true : false
   }
   
-  // MARK: animations
-  open func animationDuration(_ itemIndex:NSInteger, type:AnimationType)-> TimeInterval {
-    assert(false, "added this method to cell")
-    return 0
-  }
+  // MARK: animations  
+  open var durationsForExpandedState: [TimeInterval] = []
+  open var durationsForCollapsedState: [TimeInterval] = []
   
   func durationSequence(_ type: AnimationType)-> [TimeInterval] {
     var durations  = [TimeInterval]()
-    for index in 0..<itemCount-1 {
-      let duration = animationDuration(index, type: type)
+    for i in 0..<itemCount-1 {
+      let duration = type == .close ? durationsForCollapsedState[i] : durationsForExpandedState[i]
       durations.append(TimeInterval(duration / 2.0))
       durations.append(TimeInterval(duration / 2.0))
     }
