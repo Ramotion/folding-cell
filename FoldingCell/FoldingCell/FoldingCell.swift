@@ -190,18 +190,18 @@ open class FoldingCell: UITableViewCell {
   
   func addImageItemsToAnimationView() {
     containerView.alpha = 1;
-    let contSize        = containerView.bounds.size
-    let forgSize        = foregroundView.bounds.size
+    let containerViewSize = containerView.bounds.size
+    let foregroundViewSize = foregroundView.bounds.size
     
     // added first item
-    var image = containerView.pb_takeSnapshot(CGRect(x: 0, y: 0, width: contSize.width, height: forgSize.height))
+    var image = containerView.pb_takeSnapshot(CGRect(x: 0, y: 0, width: containerViewSize.width, height: foregroundViewSize.height))
     var imageView = UIImageView(image: image)
     imageView.tag = 0
     imageView.layer.cornerRadius = foregroundView.layer.cornerRadius
     animationView?.addSubview(imageView)
     
     // added secod item
-    image = containerView.pb_takeSnapshot(CGRect(x: 0, y: forgSize.height, width: contSize.width, height: forgSize.height))
+    image = containerView.pb_takeSnapshot(CGRect(x: 0, y: foregroundViewSize.height, width: containerViewSize.width, height: foregroundViewSize.height))
     
     imageView                     = UIImageView(image: image)
     let rotatedView               = RotatedView(frame: imageView.frame)
@@ -211,24 +211,24 @@ open class FoldingCell: UITableViewCell {
     
     rotatedView.addSubview(imageView)
     animationView?.addSubview(rotatedView)
-    rotatedView.frame = CGRect(x: imageView.frame.origin.x, y: forgSize.height, width: contSize.width, height: forgSize.height)
+    rotatedView.frame = CGRect(x: imageView.frame.origin.x, y: foregroundViewSize.height, width: containerViewSize.width, height: foregroundViewSize.height)
     
     // added other views
-    let itemHeight = (contSize.height - 2 * forgSize.height) / CGFloat(itemCount - 2)
+    let itemHeight = (containerViewSize.height - 2 * foregroundViewSize.height) / CGFloat(itemCount - 2)
     
     if itemCount == 2 {
         // decrease containerView height or increase itemCount
-        assert(contSize.height - 2 * forgSize.height == 0, "contanerView.height too high")
+        assert(containerViewSize.height - 2 * foregroundViewSize.height == 0, "contanerView.height too high")
     }
     else{
         // decrease containerView height or increase itemCount
-        assert(contSize.height - 2 * forgSize.height >= itemHeight, "contanerView.height too high")
+        assert(containerViewSize.height - 2 * foregroundViewSize.height >= itemHeight, "contanerView.height too high")
     }
     
-    var yPosition = 2 * forgSize.height
+    var yPosition = 2 * foregroundViewSize.height
     var tag = 2
     for _ in 2..<itemCount {
-      image = containerView.pb_takeSnapshot(CGRect(x: 0, y: yPosition, width: contSize.width, height: itemHeight))
+      image = containerView.pb_takeSnapshot(CGRect(x: 0, y: yPosition, width: containerViewSize.width, height: itemHeight))
       
       imageView = UIImageView(image: image)
       let rotatedView = RotatedView(frame: imageView.frame)
@@ -248,11 +248,11 @@ open class FoldingCell: UITableViewCell {
     
     if let animationView = self.animationView {
       // added back view
-      var previusView: RotatedView?
-      for case let contener as RotatedView in animationView.subviews.sorted(by: { $0.tag < $1.tag })
-        where contener.tag > 0 && contener.tag < animationView.subviews.count {
-          previusView?.addBackView(contener.bounds.size.height, color: backViewColor)
-          previusView = contener
+      var previuosView: RotatedView?
+      for case let container as RotatedView in animationView.subviews.sorted(by: { $0.tag < $1.tag })
+        where container.tag > 0 && container.tag < animationView.subviews.count {
+          previuosView?.addBackView(container.bounds.size.height, color: backViewColor)
+          previuosView = container
       }
     }
     animationItemViews = createAnimationItemView()
