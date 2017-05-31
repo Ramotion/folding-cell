@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'FoldingCell'
-  s.version      = '2.1.1'
+  s.version      = '2.1.2'
   s.summary      = 'UITableViewCell with folding animation.'
   s.homepage     = 'https://github.com/Ramotion/folding-cell'
   s.license      = 'MIT'
