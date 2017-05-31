@@ -506,16 +506,12 @@ extension RotatedView: CAAnimationDelegate {
 
 extension UIView {
   func pb_takeSnapshot(_ frame: CGRect) -> UIImage? {
-    UIGraphicsBeginImageContextWithOptions(frame.size, false, 0.0)
+    UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
     
     guard let context = UIGraphicsGetCurrentContext() else { return nil }
     context.translateBy(x: frame.origin.x * -1, y: frame.origin.y * -1)
     
-    guard let currentContext = UIGraphicsGetCurrentContext() else {
-      return nil
-    }
-    
-    self.layer.render(in: currentContext)
+    layer.render(in: context)
     let image = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     
