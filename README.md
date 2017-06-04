@@ -1,5 +1,7 @@
 [![header](https://raw.githubusercontent.com/Ramotion/folding-cell/master/header.png)](https://business.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell-logo)
 # FoldingCell
+TableViewCell replacement with parallax detail view for Swift :large_orange_diamond:
+
 [![CocoaPods](https://img.shields.io/cocoapods/p/FoldingCell.svg)](https://cocoapods.org/pods/FoldingCell)
 [![CocoaPods](https://img.shields.io/cocoapods/v/FoldingCell.svg)](http://cocoapods.org/pods/FoldingCell)
 [![CocoaPods](https://img.shields.io/cocoapods/metrics/doc-percent/FoldingCell.svg)](https://cdn.rawgit.com/Ramotion/folding-cell/master/docs/index.html)
