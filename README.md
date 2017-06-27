@@ -1,4 +1,4 @@
-[![header](https://raw.githubusercontent.com/Ramotion/folding-cell/master/header.png)](https://business.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell-logo)
+[![header](https://raw.githubusercontent.com/Ramotion/folding-cell/master/header.png)](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell-logo)
 # FoldingCell
 [![CocoaPods](https://img.shields.io/cocoapods/p/FoldingCell.svg)](https://cocoapods.org/pods/FoldingCell)
 [![CocoaPods](https://img.shields.io/cocoapods/v/FoldingCell.svg)](http://cocoapods.org/pods/FoldingCell)
@@ -14,7 +14,7 @@
 This project is maintained by Ramotion, Inc.<br>
 We specialize in the designing and coding of custom UI for Mobile Apps and Websites.<br><br>**Looking for developers for your project?** 
 
-<a href="https://business.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell-contact-us/#Get_in_Touch" > <img src="https://github.com/Ramotion/navigation-stack/raw/master/contact_our_team@2x.png" width="150" height="30"></a>
+<a href="https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=foolding-cell-contact-us/#Get_in_Touch" > <img src="https://github.com/Ramotion/navigation-stack/raw/master/contact_our_team@2x.png" width="150" height="30"></a>
 
 [![Animation](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Screenshots/folding-cell.gif)](https://dribbble.com/shots/2121350-Delivery-Card)
 
