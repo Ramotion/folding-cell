@@ -165,8 +165,8 @@ open class FoldingCell: UITableViewCell {
           multiplier: constraint.multiplier, constant: constraint.constant)
         
         newConstraints.append(newConstraint)
-      } else if let item: UIView = constraint.secondItem as? UIView , item == containerView {
-        let newConstraint = NSLayoutConstraint(item: constraint.firstItem, attribute: constraint.firstAttribute,
+      } else if let firstItem = constraint.firstItem as? UIView, let secondItem: UIView = constraint.secondItem as? UIView , secondItem == containerView {
+        let newConstraint = NSLayoutConstraint(item: firstItem, attribute: constraint.firstAttribute,
           relatedBy: constraint.relation, toItem: animationView, attribute: constraint.secondAttribute,
           multiplier: constraint.multiplier, constant: constraint.constant)
         
@@ -275,7 +275,7 @@ open class FoldingCell: UITableViewCell {
   ///   - value: unfold = true; collapse = false.
   ///   - animated: animate changes.
   ///   - completion: A block object to be executed when the animation sequence ends.
-  open func unfold(_ value: Bool, animated: Bool = true, completion: ((Void) -> Void)? = nil) {
+  open func unfold(_ value: Bool, animated: Bool = true, completion: (() -> Void)? = nil) {
     if animated {
       value ? openAnimation(completion) : closeAnimation(completion)
     } else {
@@ -292,7 +292,7 @@ open class FoldingCell: UITableViewCell {
    - parameter completion: A block object to be executed when the animation sequence ends.
    */
   @available(iOS, deprecated, message: "Use unfold(_:animated:completion) method instead.")
-  open func selectedAnimation(_ isSelected: Bool, animated: Bool, completion: ((Void) -> Void)?) {
+  open func selectedAnimation(_ isSelected: Bool, animated: Bool, completion: (() -> Void)?) {
     unfold(isSelected, animated: animated, completion: completion)
   }
   
@@ -320,7 +320,7 @@ open class FoldingCell: UITableViewCell {
     return durations
   }
   
-  func openAnimation(_ completion: ((Void) -> Void)?) {
+  func openAnimation(_ completion: (() -> Void)?) {
     isUnfolded = true
     removeImageItemsFromAnimationView()
     addImageItemsToAnimationView()
@@ -371,7 +371,7 @@ open class FoldingCell: UITableViewCell {
     }
   }
   
-  func closeAnimation(_ completion: ((Void) -> Void)?) {
+  func closeAnimation(_ completion: (() -> Void)?) {
     isUnfolded = false
     removeImageItemsFromAnimationView()
     addImageItemsToAnimationView()
