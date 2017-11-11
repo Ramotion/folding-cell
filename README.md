@@ -11,9 +11,9 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Analytics](https://ga-beacon.appspot.com/UA-84973210-1/ramotion/folding-cell)](https://github.com/igrigorik/ga-beacon)
 
-## About
-This project is maintained by Ramotion, Inc.<br>
-We specialize in the designing and coding of custom UI for Mobile Apps and Websites.<br>
+# Check this library on other platforms:
+<a href="https://github.com/Ramotion/folding-cell-android"> 
+<img src="https://github.com/ramotion/navigation-stack/raw/master/Android_Java@2x.png" width="178" height="81"></a>
 
 **Looking for developers for your project?**<br>
 This project is maintained by Ramotion, Inc. We specialize in the designing and coding of custom UI for Mobile Apps and Websites.
