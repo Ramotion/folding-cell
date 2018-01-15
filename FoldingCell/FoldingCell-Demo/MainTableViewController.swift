@@ -60,9 +60,9 @@ extension MainTableViewController {
     cell.backgroundColor = .clear
     
     if cellHeights[indexPath.row] == kCloseCellHeight {
-      cell.selectedAnimation(false, animated: false, completion:nil)
+        cell.unfold(false, animated: false, completion: nil)
     } else {
-      cell.selectedAnimation(true, animated: false, completion: nil)
+        cell.unfold(true, animated: false, completion: nil)
     }
     
     cell.number = indexPath.row
@@ -92,11 +92,11 @@ extension MainTableViewController {
     let cellIsCollapsed = cellHeights[indexPath.row] == kCloseCellHeight
     if cellIsCollapsed {
       cellHeights[indexPath.row] = kOpenCellHeight
-      cell.selectedAnimation(true, animated: true, completion: nil)
+      cell.unfold(true, animated: true, completion: nil)
       duration = 0.5
     } else {
       cellHeights[indexPath.row] = kCloseCellHeight
-      cell.selectedAnimation(false, animated: true, completion: nil)
+      cell.unfold(false, animated: true, completion: nil)
       duration = 0.8
     }
     
