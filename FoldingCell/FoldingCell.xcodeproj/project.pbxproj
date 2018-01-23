@@ -316,12 +316,12 @@
 					};
 					8499D8841D0054A8004B5B37 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 2VFCBFYPFW;
+						DevelopmentTeam = LEAZS7L33U;
 						LastSwiftMigration = 0830;
 					};
 					9D57F31B1EDC7A6F0004599F = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 2VFCBFYPFW;
+						DevelopmentTeam = 34MUF9YXTA;
 						ProvisioningStyle = Automatic;
 					};
 					9DAA51531EDDBAD700DFC539 = {
@@ -602,7 +602,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2VFCBFYPFW;
+				DEVELOPMENT_TEAM = LEAZS7L33U;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -630,7 +630,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2VFCBFYPFW;
+				DEVELOPMENT_TEAM = LEAZS7L33U;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -658,7 +658,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 2VFCBFYPFW;
+				DEVELOPMENT_TEAM = 34MUF9YXTA;
 				INFOPLIST_FILE = "FoldingCell-Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -680,7 +680,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 2VFCBFYPFW;
+				DEVELOPMENT_TEAM = 34MUF9YXTA;
 				INFOPLIST_FILE = "FoldingCell-Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

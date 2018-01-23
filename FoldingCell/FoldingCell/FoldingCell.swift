@@ -54,15 +54,7 @@ open class FoldingCell: UITableViewCell {
     case close
   }
   
-  // MARK:  life cicle
-  
-  override public init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-    super.init(style: style, reuseIdentifier: reuseIdentifier)
-  }
-  
-  required public init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-  }
+  // MARK: Life Cycle
   
   override open func awakeFromNib() {
     super.awakeFromNib()
