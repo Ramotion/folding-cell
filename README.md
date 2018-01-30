@@ -27,7 +27,7 @@ The [iPhone mockup](https://store.ramotion.com?utm_source=gthb&utm_medium=specia
 ## Requirements
 
 - iOS 8.0+
-- Xcode 7.3
+- Xcode 9.0+
 
 ## Installation
 
