@@ -80,7 +80,7 @@ open class FoldingCell: UITableViewCell {
 
         guard let foregroundViewTop = self.foregroundViewTop,
             let containerViewTop = self.containerViewTop else {
-            fatalError("set constratins outlets")
+            fatalError("set foregroundViewTop or containerViewTop outlets in storyboard")
         }
 
         containerViewTop.constant = foregroundViewTop.constant
