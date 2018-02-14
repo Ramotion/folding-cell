@@ -314,11 +314,7 @@ open class FoldingCell: UITableViewCell {
         removeImageItemsFromAnimationView()
         addImageItemsToAnimationView()
 
-        guard let animationView = self.animationView else {
-            return
-        }
-
-        animationView.alpha = 1
+        animationView?.alpha = 1
         containerView.alpha = 0
 
         let durations = durationSequence(.open)
@@ -346,7 +342,7 @@ open class FoldingCell: UITableViewCell {
             delay += durations[index]
         }
 
-        let firstItemView = animationView.subviews.filter { $0.tag == 0 }.first
+        let firstItemView = animationView?.subviews.filter { $0.tag == 0 }.first
 
         firstItemView?.layer.masksToBounds = true
         DispatchQueue.main.asyncAfter(deadline: .now() + durations[0], execute: {
