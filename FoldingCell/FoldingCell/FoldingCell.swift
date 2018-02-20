@@ -272,18 +272,6 @@ open class FoldingCell: UITableViewCell {
         }
     }
 
-    /**
-     Open or close cell
-
-     - parameter isSelected: Specify true if you want to open cell or false if you close cell.
-     - parameter animated:   Specify true if you want to animate the change in visibility or false if you want immediately.
-     - parameter completion: A block object to be executed when the animation sequence ends.
-     */
-    @available(iOS, deprecated, message: "Use unfold(_:animated:completion) method instead.")
-    open func selectedAnimation(_ isSelected: Bool, animated: Bool, completion: (() -> Void)?) {
-        unfold(isSelected, animated: animated, completion: completion)
-    }
-
     open func isAnimating() -> Bool {
         return animationView?.alpha == 1 ? true : false
     }
