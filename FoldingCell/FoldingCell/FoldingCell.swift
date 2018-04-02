@@ -118,22 +118,20 @@ open class FoldingCell: UITableViewCell {
     
     func configureAnimationItems(_ animationType: AnimationType) {
         
-        guard let animationViewSuperView = animationView?.subviews else {
-            fatalError()
-        }
-        
         if animationType == .open {
-            for view in animationViewSuperView.filter({ $0 is RotatedView }) {
-                view.alpha = 0
-            }
+            animationView?.subviews
+                .flatMap { $0 as? RotatedView }
+                .forEach { $0.alpha = 0 }
         } else {
-            for case let view as RotatedView in animationViewSuperView.filter({ $0 is RotatedView }) {
-                if animationType == .open {
-                    view.alpha = 0
-                } else {
-                    view.alpha = 1
-                    view.backView?.alpha = 0
-                }
+            animationView?.subviews
+                .flatMap { $0 as? RotatedView }
+                .forEach {
+                    if animationType == .open {
+                        $0.alpha = 0
+                    } else {
+                        $0.alpha = 1
+                        $0.backView?.alpha = 0
+                    }
             }
         }
     }
