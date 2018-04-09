@@ -1,5 +1,5 @@
 ![header](./header.png)
-![Animation](./Screenshots/folding-cell.gif)
+![Animation](./Screenshots/foldingCell.gif)
 
 # FoldingCell
 [![CocoaPods](https://img.shields.io/cocoapods/p/FoldingCell.svg)](https://cocoapods.org/pods/FoldingCell)
