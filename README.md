@@ -73,7 +73,6 @@ Your result should be something like this picture:
 
 ![1.3](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Tutorial-resources/1.3.png)
 
-[Demonstration adding constraints for foregroundView, containerView](https://vimeo.com/154954299)
 
 4) Set ``` @IBInspectable var itemCount: NSInteger ``` property is a count of folding (it IBInspectable you can set in storyboard). range 2 or greater. Default value is 2
 
