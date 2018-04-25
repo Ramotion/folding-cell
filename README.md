@@ -1,5 +1,6 @@
 ![header](./header.png)
-![Animation](./Screenshots/foldingCell.gif)
+<img src="https://github.com/Ramotion/folding-cell/blob/master/Screenshots/foldingCell.gif" width="600" height="450" /></a>
+<br><br/>
 
 # FoldingCell
 [![CocoaPods](https://img.shields.io/cocoapods/p/FoldingCell.svg)](https://cocoapods.org/pods/FoldingCell)
