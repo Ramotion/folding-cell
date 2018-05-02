@@ -1,5 +1,6 @@
 ![header](./header.png)
-![Animation](./Screenshots/folding-cell.gif)
+<img src="https://github.com/Ramotion/folding-cell/blob/master/Screenshots/foldingCell.gif" width="600" height="450" /></a>
+<br><br/>
 
 # FoldingCell
 [![CocoaPods](https://img.shields.io/cocoapods/p/FoldingCell.svg)](https://cocoapods.org/pods/FoldingCell)
@@ -10,6 +11,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Swift 4.0](https://img.shields.io/badge/Swift-4.0-green.svg?style=flat)](https://developer.apple.com/swift/)
 [![Analytics](https://ga-beacon.appspot.com/UA-84973210-1/ramotion/folding-cell)](https://github.com/igrigorik/ga-beacon)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/Ramotion)
 
 # Check this library on other platforms:
 <a href="https://github.com/Ramotion/folding-cell-android"> 
@@ -72,7 +74,6 @@ Your result should be something like this picture:
 
 ![1.3](https://raw.githubusercontent.com/Ramotion/folding-cell/master/Tutorial-resources/1.3.png)
 
-[Demonstration adding constraints for foregroundView, containerView](https://vimeo.com/154954299)
 
 4) Set ``` @IBInspectable var itemCount: NSInteger ``` property is a count of folding (it IBInspectable you can set in storyboard). range 2 or greater. Default value is 2
 
