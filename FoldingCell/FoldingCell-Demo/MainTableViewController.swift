@@ -41,6 +41,20 @@ class MainTableViewController: UITableViewController {
         tableView.estimatedRowHeight = kCloseCellHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = UIRefreshControl()
+            tableView.refreshControl?.addTarget(self, action: #selector(refreshHandler), for: .valueChanged)
+        }
+    }
+    
+    @objc func refreshHandler() {
+        let deadlineTime = DispatchTime.now() + .seconds(1)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: { [weak self] in
+            if #available(iOS 10.0, *) {
+                self?.tableView.refreshControl?.endRefreshing()
+            } 
+            self?.tableView.reloadData()
+        })
     }
 }
 
