@@ -59,9 +59,12 @@
   NSNumber *height = [self.cellHeights objectAtIndex:indexPath.row];
   bool cellIsCollapsed = height.floatValue == self.kCloseCellHeight;
   if (cellIsCollapsed) {
-    [(FoldingCell *) cell selectedAnimation:false animated:false completion: nil];
+      
+      [(FoldingCell *)cell unfold:NO animated:NO completion:nil];
+    //[(FoldingCell *) cell selectedAnimation:false animated:false completion: nil];
   } else {
-    [(FoldingCell *) cell selectedAnimation:true animated:false completion: nil];
+      [(FoldingCell *)cell unfold:YES animated:NO completion:nil];
+    //[(FoldingCell *) cell selectedAnimation:true animated:false completion: nil];
   }
   
   UIView *backgroundTopView = [cell viewWithTag:11];
@@ -108,11 +111,13 @@
   bool cellIsCollapsed = height.floatValue == self.kCloseCellHeight;
   if (cellIsCollapsed) {
     [self.cellHeights setObject:[NSNumber numberWithFloat:self.kOpenCellHeight] atIndexedSubscript:indexPath.row];
-    [cell selectedAnimation:true animated:true completion: nil];
+    //[cell selectedAnimation:true animated:true completion: nil];
+      [cell unfold:YES animated:YES completion:nil];
     duration = 0.5;
   } else {
     [self.cellHeights setObject:[NSNumber numberWithFloat:self.kCloseCellHeight] atIndexedSubscript:indexPath.row];
-    [cell selectedAnimation:false animated:true completion: nil];
+    //[cell selectedAnimation:false animated:true completion: nil];
+      [cell unfold:NO animated:YES completion:nil];
     duration = 0.8;
   }
   

@@ -263,7 +263,7 @@ open class FoldingCell: UITableViewCell {
     ///   - value: unfold = true; collapse = false.
     ///   - animated: animate changes.
     ///   - completion: A block object to be executed when the animation sequence ends.
-    open func unfold(_ value: Bool, animated: Bool = true, completion: (() -> Void)? = nil) {
+    @objc open func unfold(_ value: Bool, animated: Bool = true, completion: (() -> Void)? = nil) {
         if animated {
             value ? openAnimation(completion) : closeAnimation(completion)
         } else {
@@ -272,7 +272,7 @@ open class FoldingCell: UITableViewCell {
         }
     }
     
-    open func isAnimating() -> Bool {
+    @objc open func isAnimating() -> Bool {
         return animationView?.alpha == 1 ? true : false
     }
     
@@ -284,8 +284,8 @@ open class FoldingCell: UITableViewCell {
         return type == .close ? durationsForCollapsedState[itemIndex] : durationsForExpandedState[itemIndex]
     }
     
-    open var durationsForExpandedState: [TimeInterval] = []
-    open var durationsForCollapsedState: [TimeInterval] = []
+    @objc open var durationsForExpandedState: [TimeInterval] = []
+    @objc open var durationsForCollapsedState: [TimeInterval] = []
     
     func durationSequence(_ type: AnimationType) -> [TimeInterval] {
         var durations = [TimeInterval]()
