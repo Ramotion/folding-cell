@@ -103,7 +103,7 @@ open class FoldingCell: UITableViewCell {
         var rotatedViews = [RotatedView]()
         
         animationView?.subviews
-            .flatMap({ $0 as? RotatedView })
+            .compactMap({ $0 as? RotatedView })
             .sorted(by: { $0.tag < $1.tag })
             .forEach { itemView in
                 rotatedViews.append(itemView)
@@ -120,11 +120,11 @@ open class FoldingCell: UITableViewCell {
         
         if animationType == .open {
             animationView?.subviews
-                .flatMap { $0 as? RotatedView }
+                .compactMap { $0 as? RotatedView }
                 .forEach { $0.alpha = 0 }
         } else {
             animationView?.subviews
-                .flatMap { $0 as? RotatedView }
+                .compactMap { $0 as? RotatedView }
                 .forEach {
                     if animationType == .open {
                         $0.alpha = 0
