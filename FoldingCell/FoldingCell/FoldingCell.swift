@@ -26,7 +26,7 @@ import UIKit
 /// UITableViewCell with folding animation
 open class FoldingCell: UITableViewCell {
     
-    /// UIView whitch display when cell open
+    /// UIView is displayed when cell open
     @IBOutlet open var containerView: UIView!
     @IBOutlet open var containerViewTop: NSLayoutConstraint!
     
