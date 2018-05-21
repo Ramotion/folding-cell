@@ -183,14 +183,14 @@ open class FoldingCell: UITableViewCell {
         let foregroundViewSize = foregroundView.bounds.size
         
         // added first item
-        var image = containerView.pb_takeSnapshot(CGRect(x: 0, y: 0, width: containerViewSize.width, height: foregroundViewSize.height))
+        var image = containerView.takeSnapshot(CGRect(x: 0, y: 0, width: containerViewSize.width, height: foregroundViewSize.height))
         var imageView = UIImageView(image: image)
         imageView.tag = 0
         imageView.layer.cornerRadius = foregroundView.layer.cornerRadius
         animationView?.addSubview(imageView)
         
         // added secod item
-        image = containerView.pb_takeSnapshot(CGRect(x: 0, y: foregroundViewSize.height, width: containerViewSize.width, height: foregroundViewSize.height))
+        image = containerView.takeSnapshot(CGRect(x: 0, y: foregroundViewSize.height, width: containerViewSize.width, height: foregroundViewSize.height))
         
         imageView = UIImageView(image: image)
         let rotatedView = RotatedView(frame: imageView.frame)
@@ -216,7 +216,7 @@ open class FoldingCell: UITableViewCell {
         var yPosition = 2 * foregroundViewSize.height
         var tag = 2
         for _ in 2 ..< itemCount {
-            image = containerView.pb_takeSnapshot(CGRect(x: 0, y: yPosition, width: containerViewSize.width, height: itemHeight))
+            image = containerView.takeSnapshot(CGRect(x: 0, y: yPosition, width: containerViewSize.width, height: itemHeight))
             
             imageView = UIImageView(image: image)
             let rotatedView = RotatedView(frame: imageView.frame)
@@ -478,7 +478,7 @@ extension RotatedView: CAAnimationDelegate {
 
 private extension UIView {
     
-    func pb_takeSnapshot(_ frame: CGRect) -> UIImage? {
+    func takeSnapshot(_ frame: CGRect) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(frame.size, false, 0)
         
         guard let context = UIGraphicsGetCurrentContext() else { return nil }
