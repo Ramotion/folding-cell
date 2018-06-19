@@ -476,6 +476,7 @@ extension RotatedView: CAAnimationDelegate {
     }
 }
 
+// MARK: UIView + extension
 private extension UIView {
     
     func takeSnapshot(_ frame: CGRect) -> UIImage? {
