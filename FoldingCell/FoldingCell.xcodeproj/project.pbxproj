@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8498513F1C5639F9006FA400 /* FoldingCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8498513E1C5639F9006FA400 /* FoldingCellTests.swift */; };
 		8499D8881D0054A8004B5B37 /* FoldingCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8499D8871D0054A8004B5B37 /* FoldingCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D57F31F1EDC7A6F0004599F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57F31E1EDC7A6F0004599F /* AppDelegate.swift */; };
 		9D57F3241EDC7A6F0004599F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D57F3221EDC7A6F0004599F /* Main.storyboard */; };
@@ -72,8 +71,6 @@
 
 /* Begin PBXFileReference section */
 		8498513C1C5639F9006FA400 /* FoldingCellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoldingCellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8498513E1C5639F9006FA400 /* FoldingCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingCellTests.swift; sourceTree = "<group>"; };
-		849851401C5639F9006FA400 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8499D8851D0054A8004B5B37 /* FoldingCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FoldingCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8499D8871D0054A8004B5B37 /* FoldingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldingCell.h; sourceTree = "<group>"; };
 		8499D8891D0054A8004B5B37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				8499D8861D0054A8004B5B37 /* FoldingCell */,
-				8498513D1C5639F9006FA400 /* FoldingCellTests */,
 				9D57F31D1EDC7A6F0004599F /* FoldingCell-Demo */,
 				9DAA51551EDDBAD700DFC539 /* FoldingCell-DemoObjc */,
 				847A58051C294F750028FB84 /* Products */,
@@ -152,15 +148,6 @@
 				9DAA51541EDDBAD700DFC539 /* FoldingCell-DemoObjc.app */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		8498513D1C5639F9006FA400 /* FoldingCellTests */ = {
-			isa = PBXGroup;
-			children = (
-				8498513E1C5639F9006FA400 /* FoldingCellTests.swift */,
-				849851401C5639F9006FA400 /* Info.plist */,
-			);
-			path = FoldingCellTests;
 			sourceTree = "<group>";
 		};
 		8499D8861D0054A8004B5B37 /* FoldingCell */ = {
@@ -395,7 +382,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8498513F1C5639F9006FA400 /* FoldingCellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
