@@ -400,6 +400,12 @@ open class FoldingCell: UITableViewCell {
 // MARK: RotatedView
 
 open class RotatedView: UIView {
+    
+    fileprivate enum Const {
+        static let rotationX = "rotation.x"
+        static let transformRotationX = "transform.rotation.x"
+    }
+    
     var hiddenAfterAnimation = false
     var backView: RotatedView?
     
@@ -446,7 +452,7 @@ extension RotatedView: CAAnimationDelegate {
     
     func foldingAnimation(_ timing: String, from: CGFloat, to: CGFloat, duration: TimeInterval, delay: TimeInterval, hidden: Bool) {
         
-        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation.x")
+        let rotateAnimation = CABasicAnimation(keyPath: Const.transformRotationX)
         rotateAnimation.timingFunction = CAMediaTimingFunction(name: timing)
         rotateAnimation.fromValue = from
         rotateAnimation.toValue = to
@@ -458,7 +464,7 @@ extension RotatedView: CAAnimationDelegate {
         
         self.hiddenAfterAnimation = hidden
         
-        self.layer.add(rotateAnimation, forKey: "rotation.x")
+        self.layer.add(rotateAnimation, forKey: Const.rotationX)
     }
     
     public func animationDidStart(_: CAAnimation) {
