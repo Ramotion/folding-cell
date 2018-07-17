@@ -14,7 +14,7 @@
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/Ramotion)
 
 # Check this library on other platforms:
-<a href="https://github.com/Ramotion/folding-cell-android"> 
+<a href="https://github.com/Ramotion/folding-cell-android">
 <img src="https://github.com/ramotion/navigation-stack/raw/master/Android_Java@2x.png" width="178" height="81"></a>
 
 **Looking for developers for your project?**<br>
@@ -111,14 +111,14 @@ fileprivate struct C {
         }
 
         var duration = 0.0
-        if cellHeights[indexPath.row] == kCloseCellHeight { // open cell
-            cellHeights[indexPath.row] = kOpenCellHeight
-            cell.selectedAnimation(true, animated: true, completion: nil)
+        if cellIsCollapsed {
+            cellHeights[indexPath.row] = Const.openCellHeight
+            cell.unfold(true, animated: true, completion: nil)
             duration = 0.5
-        } else {// close cell
-            cellHeights[indexPath.row] = kCloseCellHeight
-            cell.selectedAnimation(false, animated: true, completion: nil)
-            duration = 1.1
+        } else {
+            cellHeights[indexPath.row] = Const.closeCellHeight
+            cell.unfold(false, animated: true, completion: nil)
+            duration = 0.8
         }
 
         UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseOut, animations: { _ in
