@@ -103,6 +103,7 @@ open class FoldingCell: UITableViewCell {
         var rotatedViews = [RotatedView]()
         
         animationView?.subviews
+            .lazy
             .compactMap({ $0 as? RotatedView })
             .sorted(by: { $0.tag < $1.tag })
             .forEach { itemView in
