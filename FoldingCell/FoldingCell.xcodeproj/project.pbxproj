@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5A185C5E212FF14500933EF4 /* FoldingCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8499D8851D0054A8004B5B37 /* FoldingCell.framework */; };
 		5A185C6C212FF1EE00933EF4 /* FoldingCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A185C6B212FF1EE00933EF4 /* FoldingCellTests.swift */; };
-		5A185C6E212FF1F400933EF4 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A185C6D212FF1F400933EF4 /* Info.plist */; };
 		8499D8881D0054A8004B5B37 /* FoldingCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8499D8871D0054A8004B5B37 /* FoldingCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D57F31F1EDC7A6F0004599F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57F31E1EDC7A6F0004599F /* AppDelegate.swift */; };
 		9D57F3241EDC7A6F0004599F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D57F3221EDC7A6F0004599F /* Main.storyboard */; };
@@ -318,7 +317,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Alex K.";
 				TargetAttributes = {
 					5A185C58212FF14500933EF4 = {
@@ -370,7 +369,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A185C6E212FF1F400933EF4 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
