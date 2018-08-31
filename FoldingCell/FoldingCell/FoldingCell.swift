@@ -65,7 +65,7 @@ open class FoldingCell: UITableViewCell {
     /**
      Call this method in methods init(style: UITableViewCellStyle, reuseIdentifier: String?) after creating Views
      */
-    open func commonInit() {
+    @objc open func commonInit() {
         configureDefaultState()
         
         selectionStyle = .none
