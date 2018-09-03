@@ -49,7 +49,7 @@ open class FoldingCell: UITableViewCell {
      - Open:  Open direction
      - Close: Close direction
      */
-    public enum AnimationType {
+    @objc public enum AnimationType : Int {
         case open
         case close
     }
