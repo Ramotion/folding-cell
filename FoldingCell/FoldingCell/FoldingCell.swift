@@ -277,7 +277,7 @@ open class FoldingCell: UITableViewCell {
         return animationView?.alpha == 1 ? true : false
     }
     
-    open var isUnfolded = false
+    @objc open var isUnfolded = false
     
     // MARK: Animations
     
