@@ -281,7 +281,7 @@ open class FoldingCell: UITableViewCell {
     
     // MARK: Animations
     
-    open func animationDuration(_ itemIndex: NSInteger, type: AnimationType) -> TimeInterval {
+    @objc open func animationDuration(_ itemIndex: NSInteger, type: AnimationType) -> TimeInterval {
         return type == .close ? durationsForCollapsedState[itemIndex] : durationsForExpandedState[itemIndex]
     }
     
