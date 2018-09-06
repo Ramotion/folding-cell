@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5A185C5E212FF14500933EF4 /* FoldingCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8499D8851D0054A8004B5B37 /* FoldingCell.framework */; };
-		5A185C6C212FF1EE00933EF4 /* FoldingCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A185C6B212FF1EE00933EF4 /* FoldingCellTests.swift */; };
+		5A0E1C3021414940006A0374 /* FoldingCellDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0E1C2F21414940006A0374 /* FoldingCellDemoTests.swift */; };
 		8499D8881D0054A8004B5B37 /* FoldingCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 8499D8871D0054A8004B5B37 /* FoldingCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9D57F31F1EDC7A6F0004599F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57F31E1EDC7A6F0004599F /* AppDelegate.swift */; };
 		9D57F3241EDC7A6F0004599F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D57F3221EDC7A6F0004599F /* Main.storyboard */; };
@@ -30,12 +29,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5A185C5F212FF14500933EF4 /* PBXContainerItemProxy */ = {
+		5A0E1C3221414940006A0374 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 847A57FC1C294F750028FB84 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8499D8841D0054A8004B5B37;
-			remoteInfo = FoldingCell;
+			remoteGlobalIDString = 9D57F31B1EDC7A6F0004599F;
+			remoteInfo = "FoldingCell-Demo";
 		};
 		9D57F3361EDC7AD80004599F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -79,10 +78,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5A185C59212FF14500933EF4 /* FoldingCellTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoldingCellTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A185C6A212FF1E500933EF4 /* FoldingCellTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FoldingCellTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		5A185C6B212FF1EE00933EF4 /* FoldingCellTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCellTests.swift; sourceTree = "<group>"; };
-		5A185C6D212FF1F400933EF4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A0E1C2D21414940006A0374 /* FoldingCellDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoldingCellDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A0E1C2F21414940006A0374 /* FoldingCellDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldingCellDemoTests.swift; sourceTree = "<group>"; };
+		5A0E1C3121414940006A0374 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8499D8851D0054A8004B5B37 /* FoldingCell.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FoldingCell.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8499D8871D0054A8004B5B37 /* FoldingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FoldingCell.h; sourceTree = "<group>"; };
 		8499D8891D0054A8004B5B37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -108,11 +106,10 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5A185C56212FF14500933EF4 /* Frameworks */ = {
+		5A0E1C2A21414940006A0374 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A185C5E212FF14500933EF4 /* FoldingCell.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,14 +139,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5A185C69212FF1C600933EF4 /* FoldingCellTests */ = {
+		5A0E1C2E21414940006A0374 /* FoldingCellDemoTests */ = {
 			isa = PBXGroup;
 			children = (
-				5A185C6D212FF1F400933EF4 /* Info.plist */,
-				5A185C6B212FF1EE00933EF4 /* FoldingCellTests.swift */,
-				5A185C6A212FF1E500933EF4 /* FoldingCellTests-Bridging-Header.h */,
+				5A0E1C2F21414940006A0374 /* FoldingCellDemoTests.swift */,
+				5A0E1C3121414940006A0374 /* Info.plist */,
 			);
-			path = FoldingCellTests;
+			path = FoldingCellDemoTests;
 			sourceTree = "<group>";
 		};
 		847A57FB1C294F750028FB84 = {
@@ -157,8 +153,8 @@
 			children = (
 				8499D8861D0054A8004B5B37 /* FoldingCell */,
 				9D57F31D1EDC7A6F0004599F /* FoldingCell-Demo */,
-				5A185C69212FF1C600933EF4 /* FoldingCellTests */,
 				9DAA51551EDDBAD700DFC539 /* FoldingCell-DemoObjc */,
+				5A0E1C2E21414940006A0374 /* FoldingCellDemoTests */,
 				847A58051C294F750028FB84 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -169,7 +165,7 @@
 				8499D8851D0054A8004B5B37 /* FoldingCell.framework */,
 				9D57F31C1EDC7A6F0004599F /* FoldingCell-Demo.app */,
 				9DAA51541EDDBAD700DFC539 /* FoldingCell-DemoObjc.app */,
-				5A185C59212FF14500933EF4 /* FoldingCellTests.xctest */,
+				5A0E1C2D21414940006A0374 /* FoldingCellDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -236,22 +232,22 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5A185C58212FF14500933EF4 /* FoldingCellTests */ = {
+		5A0E1C2C21414940006A0374 /* FoldingCellDemoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5A185C61212FF14500933EF4 /* Build configuration list for PBXNativeTarget "FoldingCellTests" */;
+			buildConfigurationList = 5A0E1C3421414940006A0374 /* Build configuration list for PBXNativeTarget "FoldingCellDemoTests" */;
 			buildPhases = (
-				5A185C55212FF14500933EF4 /* Sources */,
-				5A185C56212FF14500933EF4 /* Frameworks */,
-				5A185C57212FF14500933EF4 /* Resources */,
+				5A0E1C2921414940006A0374 /* Sources */,
+				5A0E1C2A21414940006A0374 /* Frameworks */,
+				5A0E1C2B21414940006A0374 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5A185C60212FF14500933EF4 /* PBXTargetDependency */,
+				5A0E1C3321414940006A0374 /* PBXTargetDependency */,
 			);
-			name = FoldingCellTests;
-			productName = FoldingCellTests;
-			productReference = 5A185C59212FF14500933EF4 /* FoldingCellTests.xctest */;
+			name = FoldingCellDemoTests;
+			productName = FoldingCellDemoTests;
+			productReference = 5A0E1C2D21414940006A0374 /* FoldingCellDemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		8499D8841D0054A8004B5B37 /* FoldingCell */ = {
@@ -320,10 +316,10 @@
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Alex K.";
 				TargetAttributes = {
-					5A185C58212FF14500933EF4 = {
+					5A0E1C2C21414940006A0374 = {
 						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
+						TestTargetID = 9D57F31B1EDC7A6F0004599F;
 					};
 					8499D8841D0054A8004B5B37 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -359,13 +355,13 @@
 				8499D8841D0054A8004B5B37 /* FoldingCell */,
 				9D57F31B1EDC7A6F0004599F /* FoldingCell-Demo */,
 				9DAA51531EDDBAD700DFC539 /* FoldingCell-DemoObjc */,
-				5A185C58212FF14500933EF4 /* FoldingCellTests */,
+				5A0E1C2C21414940006A0374 /* FoldingCellDemoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5A185C57212FF14500933EF4 /* Resources */ = {
+		5A0E1C2B21414940006A0374 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -402,11 +398,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5A185C55212FF14500933EF4 /* Sources */ = {
+		5A0E1C2921414940006A0374 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A185C6C212FF1EE00933EF4 /* FoldingCellTests.swift in Sources */,
+				5A0E1C3021414940006A0374 /* FoldingCellDemoTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,10 +437,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5A185C60212FF14500933EF4 /* PBXTargetDependency */ = {
+		5A0E1C3321414940006A0374 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8499D8841D0054A8004B5B37 /* FoldingCell */;
-			targetProxy = 5A185C5F212FF14500933EF4 /* PBXContainerItemProxy */;
+			target = 9D57F31B1EDC7A6F0004599F /* FoldingCell-Demo */;
+			targetProxy = 5A0E1C3221414940006A0374 /* PBXContainerItemProxy */;
 		};
 		9D57F3371EDC7AD80004599F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -494,51 +490,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		5A185C62212FF14500933EF4 /* Debug */ = {
+		5A0E1C3521414940006A0374 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = FoldingCellTests/Info.plist;
+				INFOPLIST_FILE = FoldingCellDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.FoldingCellTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.FoldingCellDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "FoldingCellTests/FoldingCellTests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoldingCell-Demo.app/FoldingCell-Demo";
 			};
 			name = Debug;
 		};
-		5A185C63212FF14500933EF4 /* Release */ = {
+		5A0E1C3621414940006A0374 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = FoldingCellTests/Info.plist;
+				INFOPLIST_FILE = FoldingCellDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.FoldingCellTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.FoldingCellDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "FoldingCellTests/FoldingCellTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FoldingCell-Demo.app/FoldingCell-Demo";
 			};
 			name = Release;
 		};
@@ -787,11 +782,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5A185C61212FF14500933EF4 /* Build configuration list for PBXNativeTarget "FoldingCellTests" */ = {
+		5A0E1C3421414940006A0374 /* Build configuration list for PBXNativeTarget "FoldingCellDemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5A185C62212FF14500933EF4 /* Debug */,
-				5A185C63212FF14500933EF4 /* Release */,
+				5A0E1C3521414940006A0374 /* Debug */,
+				5A0E1C3621414940006A0374 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
