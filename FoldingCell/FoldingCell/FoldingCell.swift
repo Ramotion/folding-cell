@@ -49,7 +49,7 @@ open class FoldingCell: UITableViewCell {
      - Open:  Open direction
      - Close: Close direction
      */
-    public enum AnimationType {
+    @objc public enum AnimationType : Int {
         case open
         case close
     }
@@ -65,7 +65,7 @@ open class FoldingCell: UITableViewCell {
     /**
      Call this method in methods init(style: UITableViewCellStyle, reuseIdentifier: String?) after creating Views
      */
-    open func commonInit() {
+    @objc open func commonInit() {
         configureDefaultState()
         
         selectionStyle = .none
@@ -277,11 +277,11 @@ open class FoldingCell: UITableViewCell {
         return animationView?.alpha == 1 ? true : false
     }
     
-    open var isUnfolded = false
+    @objc open var isUnfolded = false
     
     // MARK: Animations
     
-    open func animationDuration(_ itemIndex: NSInteger, type: AnimationType) -> TimeInterval {
+    @objc open func animationDuration(_ itemIndex: NSInteger, type: AnimationType) -> TimeInterval {
         return type == .close ? durationsForCollapsedState[itemIndex] : durationsForExpandedState[itemIndex]
     }
     
