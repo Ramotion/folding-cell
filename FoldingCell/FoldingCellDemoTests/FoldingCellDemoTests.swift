@@ -21,7 +21,7 @@ class FoldingCellDemoTests: XCTestCase {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "MainTableViewController") as! MainTableViewController
         _ = vc.view
-        foldingCell = vc.tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: IndexPath(row: 0, section: 0)) as! FoldingCell
+        foldingCell = vc.tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: IndexPath(row: 0, section: 0)) as? FoldingCell
     }
     
     override func tearDown() {

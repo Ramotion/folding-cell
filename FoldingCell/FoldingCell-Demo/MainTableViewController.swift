@@ -42,7 +42,7 @@ class MainTableViewController: UITableViewController {
     private func setup() {
         cellHeights = Array(repeating: Const.closeCellHeight, count: Const.rowsCount)
         tableView.estimatedRowHeight = Const.closeCellHeight
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
         if #available(iOS 10.0, *) {
             tableView.refreshControl = UIRefreshControl()
