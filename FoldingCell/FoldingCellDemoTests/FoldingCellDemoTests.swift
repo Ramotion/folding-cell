@@ -32,4 +32,10 @@ class FoldingCellDemoTests: XCTestCase {
     func testCreateFoldingCell() {
         XCTAssertNotNil(foldingCell)
     }
+    
+    func testUnfold() {
+        XCTAssertEqual(foldingCell.isUnfolded, false)
+        foldingCell.unfold(true)
+        XCTAssertEqual(foldingCell.isUnfolded, true)
+    }
 }
