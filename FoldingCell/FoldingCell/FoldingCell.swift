@@ -298,7 +298,7 @@ open class FoldingCell: UITableViewCell {
         return durations
     }
     
-    public func openAnimation(_ completion: (() -> Void)?) {
+    func openAnimation(_ completion: (() -> Void)?) {
         isUnfolded = true
         removeImageItemsFromAnimationView()
         addImageItemsToAnimationView()
@@ -345,7 +345,7 @@ open class FoldingCell: UITableViewCell {
         }
     }
     
-    public func closeAnimation(_ completion: (() -> Void)?) {
+    func closeAnimation(_ completion: (() -> Void)?) {
         isUnfolded = false
         removeImageItemsFromAnimationView()
         addImageItemsToAnimationView()
