@@ -121,10 +121,12 @@ open class FoldingCell: UITableViewCell {
         
         if animationType == .open {
             animationView?.subviews
+                .lazy
                 .compactMap { $0 as? RotatedView }
                 .forEach { $0.alpha = 0 }
         } else {
             animationView?.subviews
+                .lazy
                 .compactMap { $0 as? RotatedView }
                 .forEach {
                     if animationType == .open {
