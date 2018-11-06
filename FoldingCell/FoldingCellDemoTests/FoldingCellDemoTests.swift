@@ -37,5 +37,7 @@ class FoldingCellDemoTests: XCTestCase {
         XCTAssertEqual(foldingCell.isUnfolded, false)
         foldingCell.unfold(true)
         XCTAssertEqual(foldingCell.isUnfolded, true)
+        foldingCell.unfold(false)
+        XCTAssertEqual(foldingCell.isUnfolded, false)
     }
 }
