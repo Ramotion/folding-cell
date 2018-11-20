@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5A0E1C2C21414940006A0374"
+               BuildableName = "FoldingCellDemoTests.xctest"
+               BlueprintName = "FoldingCellDemoTests"
+               ReferencedContainer = "container:FoldingCell.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "8499D8841D0054A8004B5B37"
+            BuildableName = "FoldingCell.framework"
+            BlueprintName = "FoldingCell"
+            ReferencedContainer = "container:FoldingCell.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
