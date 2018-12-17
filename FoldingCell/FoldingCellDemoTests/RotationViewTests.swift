@@ -17,4 +17,13 @@ class RotationViewTests: XCTestCase {
     func testCreateRotationView() {
         XCTAssertNotNil(rotationView)
     }
+    
+    func testAddBackView() {
+        XCTAssertNil(rotationView.backView)
+        let color = UIColor.red
+        rotationView.addBackView(100, color: color)
+        
+        XCTAssertNotNil(rotationView.backView)
+        XCTAssertEqual(rotationView.backView?.backgroundColor, color)
+    }
 }
