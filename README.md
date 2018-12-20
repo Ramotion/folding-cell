@@ -2,6 +2,8 @@
 <img src="https://github.com/Ramotion/folding-cell/blob/master/Screenshots/foldingCell.gif" width="600" height="450" /></a>
 <br><br/>
 
+<b>[Get a Free White iPhone X Clay Mockup for your next project](https://store.ramotion.com/product/iphone-x-clay-mockups?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell#demo)</b>
+
 # FoldingCell
 [![CocoaPods](https://img.shields.io/cocoapods/p/FoldingCell.svg)](https://cocoapods.org/pods/FoldingCell)
 [![CocoaPods](https://img.shields.io/cocoapods/v/FoldingCell.svg)](http://cocoapods.org/pods/FoldingCell)
@@ -24,7 +26,7 @@ This project is maintained by Ramotion, Inc. We specialize in the designing and 
 <img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a> <br>
 
 
-The [iPhone mockup](https://store.ramotion.com/product/iphone-x-clay-mockups?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell) available [here](https://store.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell).
+
 
 ## Requirements
 
