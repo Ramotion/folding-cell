@@ -164,6 +164,8 @@ See [LICENSE](./LICENSE) for details.
 
 This library is a part of a <a href="https://github.com/Ramotion/swift-ui-animation-components-and-libraries"><b>selection of our best UI open-source projects.</b></a>
 
+If you use the open-source library in your project, please make sure to credit and backlink to www.ramotion.com
+
 # Get the Showroom App for iOS to give it a try
 Try this UI component and more like this in our iOS app. Contact us if interested.
 
