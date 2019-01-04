@@ -184,5 +184,3 @@ Try this UI component and more like this in our iOS app. Contact us if intereste
 
 <a href="https://dev.ramotion.com?utm_source=gthb&utm_medium=repo&utm_campaign=folding-cell">
 <img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a>
-<br>
-<br>
