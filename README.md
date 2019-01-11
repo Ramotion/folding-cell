@@ -1,8 +1,28 @@
-![header](./header.png)
-<img src="https://github.com/Ramotion/folding-cell/blob/master/Screenshots/foldingCell.gif" width="600" height="450" /></a>
-<br><br/>
+<img src="https://github.com/Ramotion/folding-cell/blob/master/header.png">
 
-# FoldingCell
+<a href="https://github.com/Ramotion/folding-cell">
+<img align="left" src="https://github.com/Ramotion/folding-cell/blob/master/Screenshots/foldingCell.gif" width="480" height="360" /></a>
+
+<p><h1 align="left">FOLDING CELL</h1></p>
+
+<h4>Expanding content cell with animation inspired by folding paper card material design.</h4>
+
+
+___
+
+
+
+<p><h6>We specialize in the designing and coding of custom UI for Mobile Apps and Websites.</h6>
+<a href="https://dev.ramotion.com?utm_source=gthb&utm_medium=repo&utm_campaign=folding-cell">
+<img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a>
+</p>
+<p><h6>Stay tuned for the latest updates:</h6>
+<a href="https://goo.gl/rPFpid" >
+<img src="https://i.imgur.com/ziSqeSo.png/" width="156" height="28"></a></p>
+<h6><a href="https://store.ramotion.com/product/iphone-x-clay-mockups?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell#demo">Get Free Mockup For your project →</a></h6>
+
+</br>
+
 [![CocoaPods](https://img.shields.io/cocoapods/p/FoldingCell.svg)](https://cocoapods.org/pods/FoldingCell)
 [![CocoaPods](https://img.shields.io/cocoapods/v/FoldingCell.svg)](http://cocoapods.org/pods/FoldingCell)
 [![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
@@ -12,19 +32,6 @@
 [![Swift 4.0](https://img.shields.io/badge/Swift-4.0-green.svg?style=flat)](https://developer.apple.com/swift/)
 [![Analytics](https://ga-beacon.appspot.com/UA-84973210-1/ramotion/folding-cell)](https://github.com/igrigorik/ga-beacon)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://paypal.me/Ramotion)
-
-# Check this library on other platforms:
-<a href="https://github.com/Ramotion/folding-cell-android">
-<img src="https://github.com/ramotion/navigation-stack/raw/master/Android_Java@2x.png" width="178" height="81"></a>
-
-**Looking for developers for your project?**<br>
-This project is maintained by Ramotion, Inc. We specialize in the designing and coding of custom UI for Mobile Apps and Websites.
-
-<a href="https://dev.ramotion.com?utm_source=gthb&utm_medium=repo&utm_campaign=folding-cell">
-<img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a> <br>
-
-
-The [iPhone mockup](https://store.ramotion.com/product/iphone-x-clay-mockups?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell) available [here](https://store.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=folding-cell).
 
 ## Requirements
 
@@ -155,14 +162,21 @@ fileprivate struct C {
 Create foregroundView and containerView from code (steps 2 - 3) look example:
 [Folding-cell-programmatically](https://github.com/ober01/Folding-cell-programmatically)
 
-## Licence
+## 🗂 Check this library on other language:
+<a href="https://github.com/Ramotion/folding-cell-android">
+<img src="https://github.com/ramotion/navigation-stack/raw/master/Android_Java@2x.png" width="178" height="81"></a>
+
+
+## 📄 License
 
 Folding cell is released under the MIT license.
 See [LICENSE](./LICENSE) for details.
 
 This library is a part of a <a href="https://github.com/Ramotion/swift-ui-animation-components-and-libraries"><b>selection of our best UI open-source projects.</b></a>
 
-# Get the Showroom App for iOS to give it a try
+If you use the open-source library in your project, please make sure to credit and backlink to www.ramotion.com
+
+## 📱 Get the Showroom App for iOS to give it a try
 Try this UI component and more like this in our iOS app. Contact us if interested.
 
 <a href="https://itunes.apple.com/app/apple-store/id1182360240?pt=550053&ct=folding-cell&mt=8" >
@@ -170,9 +184,3 @@ Try this UI component and more like this in our iOS app. Contact us if intereste
 
 <a href="https://dev.ramotion.com?utm_source=gthb&utm_medium=repo&utm_campaign=folding-cell">
 <img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a>
-<br>
-<br>
-
-## Follow us for the latest update<br>
-<a href="https://goo.gl/rPFpid" >
-<img src="https://i.imgur.com/ziSqeSo.png/" width="156" height="28"></a>
