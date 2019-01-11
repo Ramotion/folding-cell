@@ -26,4 +26,15 @@ class RotationViewTests: XCTestCase {
         XCTAssertNotNil(rotationView.backView)
         XCTAssertEqual(rotationView.backView?.backgroundColor, color)
     }
+    
+    func testRotateX() {
+        let startX = (rotationView.value(forKeyPath: "layer.transform.rotation.x") as? NSNumber)?.floatValue
+        XCTAssertEqual(startX, 0)
+
+        let angel: CGFloat = 0.5
+        rotationView.rotatedX(angel)
+        let x = (rotationView.value(forKeyPath: "layer.transform.rotation.x") as? NSNumber)?.floatValue
+
+        XCTAssertEqual(x, Float(angel))
+    }
 }
