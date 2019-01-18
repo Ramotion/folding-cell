@@ -10,10 +10,6 @@ class RotationViewTests: XCTestCase {
         rotationView = RotatedView()
     }
 
-    override func tearDown() {
-        
-    }
-    
     func testCreateRotationView() {
         XCTAssertNotNil(rotationView)
     }
