@@ -404,7 +404,7 @@ open class FoldingCell: UITableViewCell {
 
 open class RotatedView: UIView {
     
-    fileprivate enum Const {
+    private enum Const {
         static let rotationX = "rotation.x"
         static let transformRotationX = "transform.rotation.x"
     }
