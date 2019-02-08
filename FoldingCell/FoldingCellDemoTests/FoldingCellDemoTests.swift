@@ -1,11 +1,3 @@
-//
-//  FoldingCellDemoTests.swift
-//  FoldingCellDemoTests
-//
-//  Created by Alex K on 06/09/2018.
-//  Copyright © 2018 Alex K. All rights reserved.
-//
-
 import XCTest
 import UIKit
 @testable import FoldingCell
