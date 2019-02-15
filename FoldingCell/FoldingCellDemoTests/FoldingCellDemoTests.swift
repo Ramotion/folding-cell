@@ -16,11 +16,6 @@ class FoldingCellDemoTests: XCTestCase {
         foldingCell = vc.tableView.dequeueReusableCell(withIdentifier: "FoldingCell", for: IndexPath(row: 0, section: 0)) as? FoldingCell
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
     func testCreateFoldingCell() {
         XCTAssertNotNil(foldingCell)
     }
