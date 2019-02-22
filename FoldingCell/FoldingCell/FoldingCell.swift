@@ -129,12 +129,8 @@ open class FoldingCell: UITableViewCell {
                 .lazy
                 .compactMap { $0 as? RotatedView }
                 .forEach {
-                    if animationType == .open {
-                        $0.alpha = 0
-                    } else {
-                        $0.alpha = 1
-                        $0.backView?.alpha = 0
-                    }
+                    $0.alpha = animationType == .open ? 0 : 1
+                    if animationType != .open { $0.backView?.alpha = 0 }
             }
         }
     }
