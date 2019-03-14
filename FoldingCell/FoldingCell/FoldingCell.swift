@@ -78,7 +78,7 @@ open class FoldingCell: UITableViewCell {
     
     // MARK: configure
     
-    func configureDefaultState() {
+    private func configureDefaultState() {
         
         guard let foregroundViewTop = self.foregroundViewTop,
             let containerViewTop = self.containerViewTop else {
