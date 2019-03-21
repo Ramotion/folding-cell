@@ -98,7 +98,7 @@ open class FoldingCell: UITableViewCell {
         contentView.bringSubviewToFront(foregroundView)
     }
     
-    func createAnimationItemView() -> [RotatedView] {
+    private func createAnimationItemView() -> [RotatedView] {
         
         var items = [RotatedView]()
         items.append(foregroundView)
