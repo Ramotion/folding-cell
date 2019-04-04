@@ -1,11 +1,9 @@
-osx_image: xcode10.1
+osx_image: xcode10.2
 language: objective-c
 
 xcode_project: FoldingCell/FoldingCell.xcodeproj
 xcode_scheme: FoldingCell
-xcode_sdk: iphonesimulator12.1
-
-# SWIFT_VERSION: 4.2
+xcode_sdk: iphonesimulator12.2
 
 # whitelist
 branches:
