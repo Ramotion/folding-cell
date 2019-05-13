@@ -332,7 +332,7 @@
 					};
 					9D57F31B1EDC7A6F0004599F = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 34MUF9YXTA;
+						DevelopmentTeam = LEAZS7L33U;
 						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 					};
@@ -711,11 +711,11 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 34MUF9YXTA;
+				DEVELOPMENT_TEAM = LEAZS7L33U;
 				INFOPLIST_FILE = "FoldingCell-Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ramotion.com.FoldingCell-Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "ramotion.com.FoldingCell-Demo-ser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -733,11 +733,11 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = 34MUF9YXTA;
+				DEVELOPMENT_TEAM = LEAZS7L33U;
 				INFOPLIST_FILE = "FoldingCell-Demo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ramotion.com.FoldingCell-Demo";
+				PRODUCT_BUNDLE_IDENTIFIER = "ramotion.com.FoldingCell-Demo-ser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
