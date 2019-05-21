@@ -34,11 +34,13 @@ class MainTableViewController: UITableViewController {
     
     var cellHeights: [CGFloat] = []
 
+    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
     }
 
+    // MARK: Helpers
     private func setup() {
         cellHeights = Array(repeating: Const.closeCellHeight, count: Const.rowsCount)
         tableView.estimatedRowHeight = Const.closeCellHeight
@@ -50,6 +52,7 @@ class MainTableViewController: UITableViewController {
         }
     }
     
+    // MARK: Actions
     @objc func refreshHandler() {
         let deadlineTime = DispatchTime.now() + .seconds(1)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: { [weak self] in
