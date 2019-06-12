@@ -30,19 +30,20 @@ class MainTableViewController: UITableViewController {
         static let closeCellHeight: CGFloat = 179
         static let openCellHeight: CGFloat = 488
         static let rowsCount = 10
+        static let sectionCount = 5
     }
     
-    var cellHeights: [CGFloat] = []
+    private var cellHeights: [[CGFloat]] = (0..<Const.sectionCount).map { _ in Array(repeating: Const.closeCellHeight, count: Const.rowsCount) }
 
     // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        tableView.sectionFooterHeight = 0
     }
 
     // MARK: Helpers
     private func setup() {
-        cellHeights = Array(repeating: Const.closeCellHeight, count: Const.rowsCount)
         tableView.estimatedRowHeight = Const.closeCellHeight
         tableView.rowHeight = UITableView.automaticDimension
         tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
@@ -67,9 +68,23 @@ class MainTableViewController: UITableViewController {
 // MARK: - TableView
 
 extension MainTableViewController {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return cellHeights.count
+    }
 
-    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 10
+    override func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return cellHeights[section].count
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view =  UIView()
+        view.backgroundColor = .red
+        return view
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 44
     }
 
     override func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -79,7 +94,7 @@ extension MainTableViewController {
 
         cell.backgroundColor = .clear
 
-        if cellHeights[indexPath.row] == Const.closeCellHeight {
+        if cellHeights[indexPath.section][indexPath.row] == Const.closeCellHeight {
             cell.unfold(false, animated: false, completion: nil)
         } else {
             cell.unfold(true, animated: false, completion: nil)
@@ -97,7 +112,7 @@ extension MainTableViewController {
     }
 
     override func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return cellHeights[indexPath.row]
+        return cellHeights[indexPath.section][indexPath.row]
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -109,13 +124,13 @@ extension MainTableViewController {
         }
 
         var duration = 0.0
-        let cellIsCollapsed = cellHeights[indexPath.row] == Const.closeCellHeight
+        let cellIsCollapsed = cellHeights[indexPath.section][indexPath.row] == Const.closeCellHeight
         if cellIsCollapsed {
-            cellHeights[indexPath.row] = Const.openCellHeight
+            cellHeights[indexPath.section][indexPath.row] = Const.openCellHeight
             cell.unfold(true, animated: true, completion: nil)
             duration = 0.5
         } else {
-            cellHeights[indexPath.row] = Const.closeCellHeight
+            cellHeights[indexPath.section][indexPath.row] = Const.closeCellHeight
             cell.unfold(false, animated: true, completion: nil)
             duration = 0.8
         }
