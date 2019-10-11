@@ -1,5 +1,5 @@
 //
-//  MainTableViewController.swift
+//  TableViewController.swift
 //
 // Copyright (c) 21/12/15. Ramotion Inc. (http://ramotion.com)
 //
@@ -24,7 +24,7 @@
 import FoldingCell
 import UIKit
 
-class MainTableViewController: UITableViewController {
+class TableViewController: UITableViewController {
 
     enum Const {
         static let closeCellHeight: CGFloat = 179
@@ -66,7 +66,7 @@ class MainTableViewController: UITableViewController {
 
 // MARK: - TableView
 
-extension MainTableViewController {
+extension TableViewController {
 
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         return 10

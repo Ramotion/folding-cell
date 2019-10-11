@@ -14,7 +14,7 @@
 		9D57F3241EDC7A6F0004599F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D57F3221EDC7A6F0004599F /* Main.storyboard */; };
 		9D57F3261EDC7A6F0004599F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D57F3251EDC7A6F0004599F /* Assets.xcassets */; };
 		9D57F3291EDC7A6F0004599F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D57F3271EDC7A6F0004599F /* LaunchScreen.storyboard */; };
-		9D57F32F1EDC7A850004599F /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57F32E1EDC7A850004599F /* MainTableViewController.swift */; };
+		9D57F32F1EDC7A850004599F /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57F32E1EDC7A850004599F /* TableViewController.swift */; };
 		9D57F3311EDC7AAD0004599F /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57F3301EDC7AAD0004599F /* DemoCell.swift */; };
 		9D57F3331EDC7ACF0004599F /* FoldingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D57F3321EDC7ACF0004599F /* FoldingCell.swift */; };
 		9D57F3341EDC7AD80004599F /* FoldingCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8499D8851D0054A8004B5B37 /* FoldingCell.framework */; };
@@ -92,7 +92,7 @@
 		9D57F3251EDC7A6F0004599F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D57F3281EDC7A6F0004599F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D57F32A1EDC7A6F0004599F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9D57F32E1EDC7A850004599F /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		9D57F32E1EDC7A850004599F /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		9D57F3301EDC7AAD0004599F /* DemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
 		9D57F3321EDC7ACF0004599F /* FoldingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoldingCell.swift; sourceTree = "<group>"; };
 		9DAA51541EDDBAD700DFC539 /* FoldingCell-DemoObjc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FoldingCell-DemoObjc.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -188,7 +188,7 @@
 			children = (
 				9D57F31E1EDC7A6F0004599F /* AppDelegate.swift */,
 				9D57F3301EDC7AAD0004599F /* DemoCell.swift */,
-				9D57F32E1EDC7A850004599F /* MainTableViewController.swift */,
+				9D57F32E1EDC7A850004599F /* TableViewController.swift */,
 				9D57F3221EDC7A6F0004599F /* Main.storyboard */,
 				9D57F3251EDC7A6F0004599F /* Assets.xcassets */,
 				9D57F3271EDC7A6F0004599F /* LaunchScreen.storyboard */,
@@ -423,7 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D57F32F1EDC7A850004599F /* MainTableViewController.swift in Sources */,
+				9D57F32F1EDC7A850004599F /* TableViewController.swift in Sources */,
 				9D57F31F1EDC7A6F0004599F /* AppDelegate.swift in Sources */,
 				9D57F3311EDC7AAD0004599F /* DemoCell.swift in Sources */,
 			);

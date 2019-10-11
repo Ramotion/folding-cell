@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0cn-rv-Emg">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0cn-rv-Emg">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -23,7 +21,7 @@
         <!--Item-->
         <scene sceneID="Q2d-BE-geS">
             <objects>
-                <tableViewController storyboardIdentifier="TableViewController" id="0cn-rv-Emg" customClass="MainTableViewController" customModule="FoldingCell_Demo" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="TableViewController" id="0cn-rv-Emg" customClass="TableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="667" sectionHeaderHeight="28" sectionFooterHeight="28" id="MwZ-K3-six">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -362,7 +360,7 @@
                                                             <rect key="frame" x="79" y="50.5" width="97" height="17"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="Nm8-JU-yEj" userLabel="photo">
-                                                            <rect key="frame" x="22" y="28" width="49" height="49"/>
+                                                            <rect key="frame" x="22" y="28" width="49.000000000000028" height="49.000000000000028"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="49" id="JNu-y1-BLY"/>
                                                                 <constraint firstAttribute="width" constant="49" id="qpi-cG-s4a"/>
@@ -680,7 +678,7 @@
         <image name="arrow" width="16" height="25"/>
         <image name="burger" width="38" height="29"/>
         <image name="dots" width="14" height="84"/>
-        <image name="image" width="340" height="165"/>
+        <image name="image" width="340.5" height="165"/>
         <image name="photo" width="98" height="98"/>
         <image name="stars" width="97" height="17"/>
     </resources>

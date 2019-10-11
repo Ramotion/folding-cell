@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0cn-rv-Emg">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="0cn-rv-Emg">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -20,10 +18,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Main Table View Controller-->
+        <!--Table View Controller-->
         <scene sceneID="Q2d-BE-geS">
             <objects>
-                <tableViewController storyboardIdentifier="MainTableViewController" id="0cn-rv-Emg" customClass="MainTableViewController" customModule="FoldingCell_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MainTableViewController" id="0cn-rv-Emg" customClass="TableViewController" customModule="FoldingCell_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="667" sectionHeaderHeight="28" sectionFooterHeight="28" id="MwZ-K3-six">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="708"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -221,7 +219,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="560" height="49"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vW5-Q1-KFs">
-                                                                    <rect key="frame" x="14" y="10" width="38" height="29"/>
+                                                                    <rect key="frame" x="14" y="-4.5" width="76" height="58"/>
                                                                     <state key="normal" image="burger"/>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# 2618-3157" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eb-NE-XLS">
@@ -378,7 +376,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stars" translatesAutoresizingMaskIntoConstraints="NO" id="DCW-h4-xYV">
-                                                            <rect key="frame" x="79" y="50.5" width="97" height="17"/>
+                                                            <rect key="frame" x="79" y="50.5" width="194" height="34"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="Nm8-JU-yEj" userLabel="photo">
                                                             <rect key="frame" x="22" y="28" width="49" height="49"/>
@@ -388,7 +386,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="YsL-0v-aFS">
-                                                            <rect key="frame" x="522" y="40" width="16" height="25"/>
+                                                            <rect key="frame" x="506" y="27.5" width="32" height="50"/>
                                                         </imageView>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fuy-ww-tkB" userLabel="line">
                                                             <rect key="frame" x="22" y="92" width="516" height="1"/>
@@ -705,7 +703,7 @@
         <image name="arrow" width="16" height="25"/>
         <image name="burger" width="38" height="29"/>
         <image name="dots" width="14" height="84"/>
-        <image name="image" width="340" height="165"/>
+        <image name="image" width="340.5" height="165"/>
         <image name="photo" width="98" height="98"/>
         <image name="stars" width="97" height="17"/>
     </resources>
