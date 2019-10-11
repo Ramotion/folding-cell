@@ -355,7 +355,7 @@ open class FoldingCell: UITableViewCell {
         animationView?.alpha = 1
         containerView.alpha = 0
         
-        var durations: [TimeInterval] = durationSequence(.close).reversed()
+        let durations: [TimeInterval] = durationSequence(.close).reversed()
         
         var delay: TimeInterval = 0
         var timing = convertFromCAMediaTimingFunctionName(CAMediaTimingFunctionName.easeIn)
