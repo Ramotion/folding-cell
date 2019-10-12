@@ -50,6 +50,13 @@ or [Carthage](https://github.com/Carthage/Carthage) users can simply add Mantle 
 ```
 github "Ramotion/folding-cell"
 ```
+or [Swift Package Manager](https://swift.org/package-manager/) by adding:
+```
+dependencies: [
+.package(url: "https://github.com/Ramotion/folding-cell.git", from: "5.0.2")
+]
+```
+to `Package.swift`
 
 or just drag and drop FoldingCell.swift file to your project
 
