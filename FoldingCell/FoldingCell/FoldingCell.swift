@@ -365,7 +365,7 @@ open class FoldingCell: UITableViewCell {
         configureAnimationItems(.close)
         
         if durations.count < animationItemViews.count {
-            fatalError("wrong override func animationDuration(itemIndex:NSInteger, type:AnimationType)-> NSTimeInterval")
+            fatalError("wrong override func animationDuration(_ itemIndex: NSInteger, type :AnimationType) -> TimeInterval")
         }
         for index in 0 ..< animationItemViews.count {
             let animatedView = animationItemViews.reversed()[index]
