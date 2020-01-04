@@ -176,7 +176,7 @@ property <code>containerView</code>. Add constraints from this view to the super
 
 <p>6) Add this code to your new cell class
 &rdquo;` swift
-    override func animationDuration(itemIndex:NSInteger, type:AnimationType)-&gt; NSTimeInterval {</p>
+    override func animationDuration(_ itemIndex: NSInteger, type: AnimationType)-&gt; TimeInterval {</p>
 <pre class="highlight plaintext"><code>    // durations count equal it itemCount
     let durations = [0.33, 0.26, 0.26] // timing animation for each view
     return durations[itemIndex]
