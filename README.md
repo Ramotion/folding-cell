@@ -1,4 +1,4 @@
-<a href="https://www.ramotion.com/agency/app-development?utm_source=gthb&utm_medium=repo&utm_campaign=folding-cell"><img src="https://github.com/Ramotion/folding-cell/blob/master/header.png"></a>
+<a href="https://www.ramotion.com/agency/app-development/?utm_source=gthb&utm_medium=repo&utm_campaign=folding-cell"><img src="https://github.com/Ramotion/folding-cell/blob/master/header.png"></a>
 
 <a href="https://github.com/Ramotion/folding-cell">
 <img align="left" src="https://github.com/Ramotion/folding-cell/blob/master/Screenshots/foldingCell.gif" width="480" height="360" /></a>
@@ -13,7 +13,7 @@ ___
 
 
 <p><h6>We specialize in the designing and coding of custom UI for Mobile Apps and Websites.</h6>
-<a href="https://www.ramotion.com/agency/app-development?utm_source=gthb&utm_medium=repo&utm_campaign=folding-cell">
+<a href="https://www.ramotion.com/agency/app-development/?utm_source=gthb&utm_medium=repo&utm_campaign=folding-cell">
 <img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a>
 </p>
 <p><h6>Stay tuned for the latest updates:</h6>
@@ -180,7 +180,7 @@ See [LICENSE](./LICENSE) for details.
 
 This library is a part of a <a href="https://github.com/Ramotion/swift-ui-animation-components-and-libraries"><b>selection of our best UI open-source projects.</b></a>
 
-If you use the open-source library in your project, please make sure to credit and backlink to www.ramotion.com
+If you use the open-source library in your project, please make sure to credit and backlink to https://www.ramotion.com/
 
 ## 📱 Get the Showroom App for iOS to give it a try
 Try this UI component and more like this in our iOS app. Contact us if interested.
@@ -188,5 +188,5 @@ Try this UI component and more like this in our iOS app. Contact us if intereste
 <a href="https://itunes.apple.com/app/apple-store/id1182360240?pt=550053&ct=folding-cell&mt=8" >
 <img src="https://github.com/ramotion/gliding-collection/raw/master/app_store@2x.png" width="117" height="34"></a>
 
-<a href="https://www.ramotion.com/agency/app-development?utm_source=gthb&utm_medium=repo&utm_campaign=folding-cell">
+<a href="https://www.ramotion.com/agency/app-development/?utm_source=gthb&utm_medium=repo&utm_campaign=folding-cell">
 <img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a>
