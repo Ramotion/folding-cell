@@ -125,8 +125,10 @@ extension TableViewController {
             tableView.endUpdates()
             
             // fix https://github.com/Ramotion/folding-cell/issues/169
-            if cell.frame.maxY > tableView.frame.maxY {
-                tableView.scrollToRow(at: indexPath, at: UITableView.ScrollPosition.bottom, animated: true)
+            if cell.frame.minY < tableView.contentOffset.y {
+                tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+            } else if cell.frame.maxY > tableView.frame.maxY + tableView.contentOffset.y {
+                tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
             }
         }, completion: nil)
     }
